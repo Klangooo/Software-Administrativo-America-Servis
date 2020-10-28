@@ -23,13 +23,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-<<<<<<< HEAD
                 <a class="navbar-brand" href="{{ url('/') }}">
                     America Servis
-=======
-                <a class="navbar-brand" href="{{ url('/') }}"> 
-                Felipão
->>>>>>> 47b9a7846552c1725cabbdc19a59a17577ab8f4f
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
