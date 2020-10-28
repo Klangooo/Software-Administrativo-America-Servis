@@ -32,7 +32,7 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion" style="background-color: #032066" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
         <div class="sidebar-brand-icon">
           <img height="60px" src="images/logo.png"/>
         </div>
@@ -51,21 +51,21 @@
 
       <!-- Nav Item - Página de usuários -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="\usuario">
           <i class="fas fa-user"></i>
           <span style="font-size: 14.5px">Usuários</span></a>
       </li>
   
       <!-- Nav Item - Página de funcionários -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="\funcionarios">
           <i class="fas fa-users"></i>
           <span style="font-size: 14.5px">Funcionários</span></a>
       </li>
 
       <!-- Nav Item - Página do Ponto -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="\ponto">
           <i class="fas fa-user-clock"></i>
           <span style="font-size: 14.5px">Ponto</span></a>
       </li>
