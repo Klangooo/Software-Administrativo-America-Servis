@@ -12,4 +12,8 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/sb-admin-2.js', 'public/js/sb-admin-2.js')
+    .styles('resources/css/sb-admin-2.css', 'public/css/sb-admin-2.css')
+    .js('resources/js/jquery.easing.min.js', 'public/js/jquery.easing.min.js')
+    .styles('resources/css/fontawesome.min.css', 'public/css/fontawesome.min.css');
