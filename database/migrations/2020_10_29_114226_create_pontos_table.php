@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFailedJobsTable extends Migration
+class CreatePontosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,7 +21,7 @@ class CreateFailedJobsTable extends Migration
             $table->string('localizacao');
             $table->string('pontoinicio');
             $table->string('pontofinal');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
     }
 
