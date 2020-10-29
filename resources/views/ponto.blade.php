@@ -83,6 +83,9 @@
           <th scope="col">Nome</th>
           <th scope="col">E-mail</th>
           <th scope="col">Cargo</th>
+          <th scope="col">Localização</th>
+          <th scope="col">Ponto início</th>
+          <th scope="col">Ponto final</th>
         </tr>
       </thead>
       <tbody class="escritas"> 
@@ -91,18 +94,27 @@
           <td>Vitória</td>
           <td>vitoriabueno@conselt.com.br</td>
           <td>Assessora de Projetos</td>
+          <td>Uberlândia</td>
+          <td>12h01</td>
+          <td>18h00</td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>Aline</td>
           <td>alinematias@conselt.com.br</td>
           <td>Assessora de JF</td>
+          <td>Uberlândia</td>
+          <td>12h01</td>
+          <td>18h00</td>
         </tr>
         <tr>
           <th scope="row">3</th>
           <td>Luigi</td>
           <td>luiginegrini@conselt.com.br</td>
           <td>Assessor de Projetos</td>
+          <td>Uberlândia</td>
+          <td>12h01</td>
+          <td>18h00</td>
         </tr>
       </tbody>
     </table>
