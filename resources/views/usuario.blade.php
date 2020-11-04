@@ -43,7 +43,7 @@
 
   .icone {
     transform: scale(1.5);
-    margin-top: 11.5px
+    margin-top: 9px
   }
 
 </style>
@@ -149,7 +149,7 @@
         <td>vitoriabueno@conselt.com.br</td>
         <td>Assessora de Projetos</td>
         <td> 
-          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
           <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
         </td>
       </tr>
@@ -159,7 +159,7 @@
         <td>alinematias@conselt.com.br</td>
         <td>Assessora de JF</td>
         <td> 
-          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
           <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
         </td>
       </tr>
@@ -169,7 +169,7 @@
         <td>luiginegrini@conselt.com.br</td>
         <td>Assessor de Projetos</td>
         <td> 
-          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
           <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
         </td>
       </tr>

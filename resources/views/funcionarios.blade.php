@@ -43,7 +43,7 @@
 
   .icone {
     transform: scale(1.5);
-    margin-top: 11.5px
+    margin-top: 9px
   }
 
 </style>
@@ -155,7 +155,7 @@
           <td>Assessora de Projetos</td>
           <td>Distribuidor de cargas</td>
           <td> 
-            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
             <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
           </td>
         </tr>
@@ -166,7 +166,7 @@
           <td>Assessora de JF</td>
           <td>Distribuidor de cargas</td>
           <td> 
-            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
             <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
           </td>
         </tr>
@@ -177,7 +177,7 @@
           <td>Assessor de Projetos</td>
           <td>Distribuidor de cargas</td>
           <td> 
-            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
             <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
           </td>
         </tr>

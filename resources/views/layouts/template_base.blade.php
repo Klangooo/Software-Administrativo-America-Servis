@@ -86,7 +86,7 @@
     <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Header -->
-    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #082d95;">
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e5e6e7;">
       <div class="container">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <!-- Left Side Of Navbar -->
