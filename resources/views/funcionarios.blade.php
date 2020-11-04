@@ -54,11 +54,13 @@
           <input type="text" id="campo"> 
           <h5>CPF</h5>
           <input type="text" id="campo">
-          <h5>ID</h5>
-          <input type="text" id="campo">
           <h5>Cargo</h5>
           <input type="text" id="campo">
+<<<<<<< HEAD
+          <h5>Posto de Serviço</h5>
+=======
           <h5>Posto de serviço</h5>
+>>>>>>> de8b410c58f6146845a02e6508f5f2aa729b19cd
           <input type="text" id="campo">
       </div>
       <div class="modal-footer">

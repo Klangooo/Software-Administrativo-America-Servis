@@ -16,8 +16,9 @@ class CreateTabelaFuncionariosTable extends Migration
         Schema::create('tabelafuncionarios', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('email');
+            $table->string('cpf');
             $table->string('cargo');
+            $table->string('postodeservico');
             $table->timestamps();
         });
     }
