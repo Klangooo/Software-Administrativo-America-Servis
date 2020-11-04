@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="images/LogoCompleta.png" class="img-fluid" alt="Imagem responsiva">                   
+                    <img src="images/LogoCompleta.png" class="img-fluid" alt="Imagem responsiva" height="90%">                   
                 </div>
 
             </div>
