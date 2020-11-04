@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <p><a href="#" class="text-primary">América Servis</a></p>                    
+                    <p class="text-primary">América Servis</p>                    
                 </div>
 
             </div>
