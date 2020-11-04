@@ -43,7 +43,7 @@
 
   .icone {
     transform: scale(1.5);
-    margin-top: 14px
+    margin-top: 11.5px
   }
 
 </style>
@@ -62,8 +62,6 @@
           <h5>Nome</h5>
           <input type="text" id="campo"> 
           <h5>E-mail</h5>
-          <input type="text" id="campo">
-          <h5>ID</h5>
           <input type="text" id="campo">
           <h5>Cargo</h5>
           <input type="text" id="campo">
@@ -90,11 +88,9 @@
       <div class="modal-body">
           <h5>Nome</h5>
           <input type="text" id="campo"> 
-          <h5>CPF</h5>
+          <h5>E-mail</h5>
           <input type="text" id="campo">
           <h5>Cargo</h5>
-          <input type="text" id="campo">
-          <h5>Posto de serviço</h5>
           <input type="text" id="campo">
       </div>
       <div class="modal-footer">
@@ -141,9 +137,8 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
-        <th scope="col">CPF</th>
+        <th scope="col">E-mail</th>
         <th scope="col">Cargo</th>
-        <th scope="col">Posto de serviço</th>
         <th scope="col"> </th>
       </tr>
     </thead>
@@ -151,9 +146,8 @@
       <tr>
         <th scope="row">1</th>
         <td>Vitória</td>
-        <td>123.123.123-12</td>
+        <td>vitoriabueno@conselt.com.br</td>
         <td>Assessora de Projetos</td>
-        <td>Distribuidor de cargas</td>
         <td> 
           <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
           <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
@@ -162,9 +156,8 @@
       <tr>
         <th scope="row">2</th>
         <td>Aline</td>
-        <td>123.123.123-12</td>
+        <td>alinematias@conselt.com.br</td>
         <td>Assessora de JF</td>
-        <td>Distribuidor de cargas</td>
         <td> 
           <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
           <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
@@ -173,9 +166,8 @@
       <tr>
         <th scope="row">3</th>
         <td>Luigi</td>
-        <td>123.123.123-12</td>
+        <td>luiginegrini@conselt.com.br</td>
         <td>Assessor de Projetos</td>
-        <td>Distribuidor de cargas</td>
         <td> 
           <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
           <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>

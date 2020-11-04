@@ -43,7 +43,7 @@
 
   .icone {
     transform: scale(1.5);
-    margin-top: 14px
+    margin-top: 11.5px
   }
 
 </style>
