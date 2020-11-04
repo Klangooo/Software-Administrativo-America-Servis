@@ -82,6 +82,9 @@
     </ul>
     <!-- End of Sidebar -->
 
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
     <!-- Header -->
     <nav class="navbar navbar-expand-md navbar-light" style="background-color: #dadada;">
       <div class="container">
@@ -125,10 +128,7 @@
       </div>
   </nav>
   
-  <!-- End of Header -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+  <!-- End of Header -->  
 
       <!-- Main Content -->
       <div id="content" style="background-color: #e5e6e7">
