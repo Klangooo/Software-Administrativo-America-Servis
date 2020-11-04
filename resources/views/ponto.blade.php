@@ -55,7 +55,7 @@
           <th scope="col">Data</th>
           <th scope="col">Nome</th>
           <th scope="col">Cargo</th>
-          <th scope="col">Localização</th>
+          <th scope="col">Posto de serviço</th>
           <th scope="col">Ponto início</th>
           <th scope="col">Horário de almoço</th>
           <th scope="col">Ponto final</th>
@@ -66,7 +66,7 @@
           <th scope="row">18/04/1999</th>
           <td>Vitória</td>
           <td>Assessora de Projetos</td>
-          <td>Uberlândia</td>
+          <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h00</td>
           <td>18h00</td>
@@ -75,7 +75,7 @@
           <th scope="row">22/01/2001</th>
           <td>Aline</td>
           <td>Assessora de JF</td>
-          <td>Uberlândia</td>
+          <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h20</td>
           <td>18h00</td>
@@ -84,7 +84,7 @@
           <th scope="row">04/12/2000</th>
           <td>Luigi</td>
           <td>Assessor de Projetos</td>
-          <td>Uberlândia</td>
+          <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h10</td>
           <td>18h00</td>
