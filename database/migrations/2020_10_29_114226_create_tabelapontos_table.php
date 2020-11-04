@@ -16,10 +16,10 @@ class CreateTabelaPontosTable extends Migration
         Schema::create('tabelapontos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('email');
             $table->string('cargo');
             $table->string('localizacao');
             $table->string('pontoinicio');
+            $table->string('pontoalmoco');
             $table->string('pontofinal');
             $table->timestamps();
         });

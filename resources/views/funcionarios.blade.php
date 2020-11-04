@@ -54,9 +54,9 @@
           <input type="text" id="campo"> 
           <h5>E-mail</h5>
           <input type="text" id="campo">
-          <h5>ID</h5>
-          <input type="text" id="campo">
           <h5>Cargo</h5>
+          <input type="text" id="campo">
+          <h5>Posto de Serviço</h5>
           <input type="text" id="campo">
       </div>
       <div class="modal-footer">
