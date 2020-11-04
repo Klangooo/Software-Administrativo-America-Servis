@@ -52,11 +52,15 @@
       <div class="modal-body">
           <h5>Nome</h5>
           <input type="text" id="campo"> 
-          <h5>E-mail</h5>
+          <h5>CPF</h5>
           <input type="text" id="campo">
           <h5>Cargo</h5>
           <input type="text" id="campo">
+<<<<<<< HEAD
           <h5>Posto de Serviço</h5>
+=======
+          <h5>Posto de serviço</h5>
+>>>>>>> de8b410c58f6146845a02e6508f5f2aa729b19cd
           <input type="text" id="campo">
       </div>
       <div class="modal-footer">
@@ -81,28 +85,32 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Nome</th>
-          <th scope="col">E-mail</th>
+          <th scope="col">CPF</th>
           <th scope="col">Cargo</th>
+          <th scope="col">Posto de serviço</th>
         </tr>
       </thead>
       <tbody class="escritas"> 
         <tr>
           <th scope="row">1</th>
           <td>Vitória</td>
-          <td>vitoriabueno@conselt.com.br</td>
+          <td>123.123.123-12</td>
           <td>Assessora de Projetos</td>
+          <td>Distribuidor de cargas</td>
         </tr>
         <tr>
           <th scope="row">2</th>
           <td>Aline</td>
-          <td>alinematias@conselt.com.br</td>
+          <td>123.123.123-12</td>
           <td>Assessora de JF</td>
+          <td>Distribuidor de cargas</td>
         </tr>
         <tr>
           <th scope="row">3</th>
           <td>Luigi</td>
-          <td>luiginegrini@conselt.com.br</td>
+          <td>123.123.123-12</td>
           <td>Assessor de Projetos</td>
+          <td>Distribuidor de cargas</td>
         </tr>
       </tbody>
     </table>
