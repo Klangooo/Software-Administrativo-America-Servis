@@ -37,6 +37,15 @@
     text-align: center;
   }
 
+  .icone:hover {
+    transform: scale(1.3);
+  }
+
+  .icone {
+    transform: scale(1.5);
+    margin-top: 14px
+  }
+
 </style>
 
 <!-- ABERTURA DO MODAL CRIAR NOVO -->
@@ -56,11 +65,7 @@
           <input type="text" id="campo">
           <h5>Cargo</h5>
           <input type="text" id="campo">
-<<<<<<< HEAD
           <h5>Posto de Serviço</h5>
-=======
-          <h5>Posto de serviço</h5>
->>>>>>> de8b410c58f6146845a02e6508f5f2aa729b19cd
           <input type="text" id="campo">
       </div>
       <div class="modal-footer">
@@ -149,12 +154,9 @@
           <td>123.123.123-12</td>
           <td>Assessora de Projetos</td>
           <td>Distribuidor de cargas</td>
-          <td> <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalEditar">
-          </button> 
-          <i class="fas fa-pencil-alt" data-toggle="modal" data-target="#modalEditar"></i>
-          <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExcluir">
-          </button> 
-          <i class="fas fa-times" data-toggle="modal" data-target="#modalExcluir"></i>
+          <td> 
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
           </td>
         </tr>
         <tr>
@@ -163,6 +165,10 @@
           <td>123.123.123-12</td>
           <td>Assessora de JF</td>
           <td>Distribuidor de cargas</td>
+          <td> 
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+          </td>
         </tr>
         <tr>
           <th scope="row">3</th>
@@ -170,6 +176,10 @@
           <td>123.123.123-12</td>
           <td>Assessor de Projetos</td>
           <td>Distribuidor de cargas</td>
+          <td> 
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 10px" data-target="#modalEditar"></i>
+            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+          </td>
         </tr>
       </tbody>
     </table>
