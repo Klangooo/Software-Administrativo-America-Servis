@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <img src="LogoCompleta" class="img-fluid" alt="Imagem responsiva">
+                    <img src="images/LogoCompleta.png" class="img-fluid" alt="Imagem responsiva">
                 </div>
             </div>
         </div>
