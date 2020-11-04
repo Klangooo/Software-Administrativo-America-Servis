@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <p class="text-primary">América Servis</p>                    
+                    <img src="images/LogoCompleta.png" class="img-fluid" alt="Imagem responsiva">                   
                 </div>
 
             </div>
