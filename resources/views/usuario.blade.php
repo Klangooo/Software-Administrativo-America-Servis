@@ -76,7 +76,7 @@
     </div>
   </div>
 
-  <table class="table centraliza">
+  <table class="table centraliza table-striped">
       <thead class="primeiralinha">
         <tr>
           <th scope="col">ID</th>
