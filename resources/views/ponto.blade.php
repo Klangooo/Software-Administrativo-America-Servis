@@ -92,13 +92,11 @@
 
     <br><br>
 
-
+<!--
   <form class="form" method="post" enctype="multipart/form-data" action="/ponto">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="form-row form-custom" id="InputForm">
-  
-      <!-- Dados Pessoais -->
-  
+    
       <div class="form-group col-md-6">
           <label for="inputName">Nome Completo</label>
           <input type="text" class="form-control" id="inputName" name="nName" placeholder="Ex: José" aria-required>
@@ -131,6 +129,7 @@
 </div>
 </form>
 
+-->
 
 <?php
 /*
