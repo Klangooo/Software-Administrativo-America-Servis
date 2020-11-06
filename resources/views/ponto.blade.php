@@ -2,8 +2,6 @@
 
 @section('content')
 
-<?php include('server_BD.php') ?>
-
 <style>
   .primeiralinha {
     background-color:#032066;
@@ -135,6 +133,7 @@
 
 
 <?php
+/*
 $result_alunos = "SELECT * FROM tabelapontos";
 $resultado_alunos = mysqli_query($db, $result_alunos);
 ?>
@@ -162,6 +161,7 @@ while($row_aluno = mysqli_fetch_assoc($resultado_alunos)){
 
 <?php
 }
+*/
 ?>
 
 
