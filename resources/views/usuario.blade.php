@@ -54,8 +54,6 @@
           <input type="text" id="campo"> 
           <h5>E-mail</h5>
           <input type="text" id="campo">
-          <h5>ID</h5>
-          <input type="text" id="campo">
           <h5>Cargo</h5>
           <input type="text" id="campo">
       </div>
