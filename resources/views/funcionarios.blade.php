@@ -37,9 +37,18 @@
     text-align: center;
   }
 
+  .icone:hover {
+    transform: scale(1.3);
+  }
+
+  .icone {
+    transform: scale(1.5);
+    margin-top: 9px
+  }
+
 </style>
 
-<!-- ABERTURA DO MODAL -->
+<!-- ABERTURA DO MODAL CRIAR NOVO -->
 <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -56,11 +65,7 @@
           <input type="text" id="campo">
           <h5>Cargo</h5>
           <input type="text" id="campo">
-<<<<<<< HEAD
           <h5>Posto de Serviço</h5>
-=======
-          <h5>Posto de serviço</h5>
->>>>>>> de8b410c58f6146845a02e6508f5f2aa729b19cd
           <input type="text" id="campo">
       </div>
       <div class="modal-footer">
@@ -70,7 +75,58 @@
       </div>
   </div>
   </div>
-<!--FIM DO MODAL -->
+<!--FIM DO MODAL CRIAR NOVO -->
+
+<!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+<div class="modal fade escrita" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          <h5>Nome</h5>
+          <input type="text" id="campo"> 
+          <h5>CPF</h5>
+          <input type="text" id="campo">
+          <h5>Cargo</h5>
+          <input type="text" id="campo">
+          <h5>Posto de serviço</h5>
+          <input type="text" id="campo">
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary rounded-pill botao">Salvar edição</button>
+      </div>
+      </div>
+  </div>
+  </div>
+<!--FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+<!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
+<div class="modal fade escrita" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Exluir funcionário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          Você deseja excluir o funcionário?
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary rounded-pill botao">Confirmar</button>
+      </div>
+      </div>
+  </div>
+  </div>
+<!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
 
 <div style="background-color: #e5e6e7">
   <div class="titulo">
@@ -88,6 +144,7 @@
           <th scope="col">CPF</th>
           <th scope="col">Cargo</th>
           <th scope="col">Posto de serviço</th>
+          <th scope="col"> </th>
         </tr>
       </thead>
       <tbody class="escritas"> 
@@ -97,6 +154,10 @@
           <td>123.123.123-12</td>
           <td>Assessora de Projetos</td>
           <td>Distribuidor de cargas</td>
+          <td> 
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
+            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+          </td>
         </tr>
         <tr>
           <th scope="row">2</th>
@@ -104,6 +165,10 @@
           <td>123.123.123-12</td>
           <td>Assessora de JF</td>
           <td>Distribuidor de cargas</td>
+          <td> 
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
+            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+          </td>
         </tr>
         <tr>
           <th scope="row">3</th>
@@ -111,6 +176,10 @@
           <td>123.123.123-12</td>
           <td>Assessor de Projetos</td>
           <td>Distribuidor de cargas</td>
+          <td> 
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
+            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+          </td>
         </tr>
       </tbody>
     </table>

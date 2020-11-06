@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <img src="images/LogoCompleta.png" class="img-fluid" alt="Imagem responsiva">
                 </div>
             </div>
         </div>
