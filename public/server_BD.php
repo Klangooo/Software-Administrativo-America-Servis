@@ -10,7 +10,7 @@ session_start();
   $pontofinal = "";
 
 // connect to the database
-$db = mysqli_connect('https://whispering-gorge-97868.herokuapp.com/:5432', 'fhqwcfbqsblerd', '657aa790230b9156e0e7f65b120e1203b32cde1e47b3f0d2361c12e6c9c9f581', 'd33pngfto90g6s');
+$db = mysqli_connect('localhost', 'fhqwcfbqsblerd', '657aa790230b9156e0e7f65b120e1203b32cde1e47b3f0d2361c12e6c9c9f581', 'd33pngfto90g6s');
 
 // REGISTER USER
 if (isset($_POST['reg_ponto'])) {
