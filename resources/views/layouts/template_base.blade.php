@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+
+    .icone:hover {
+    transform: scale(1.3);
+    color: #02acee;
+  }
+
+</style>
+
 <head>
 
   <meta charset="utf-8">
@@ -12,7 +21,7 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-  <title>America Servis</title>
+  <title>América Servis</title>
 
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -45,29 +54,29 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading" style="font-size: 12.5px">
+      <div class="sidebar-heading" style="font-size: 12.5px; font-color: #0e72be">
         Gerenciar
       </div> 
 
       <!-- Nav Item - Página de usuários -->
       <li class="nav-item">
         <a class="nav-link" href="\usuario">
-          <i class="fas fa-user"></i>
-          <span style="font-size: 14.5px">Usuários</span></a>
+          <i class="fas fa-user icone"></i>
+          <span style="font-size: 14.5px; font-color: #fff">Usuários</span></a>
       </li>
   
       <!-- Nav Item - Página de funcionários -->
       <li class="nav-item">
         <a class="nav-link" href="\funcionarios">
-          <i class="fas fa-users"></i>
-          <span style="font-size: 14.5px">Funcionários</span></a>
+          <i class="fas fa-users icone"></i>
+          <span style="font-size: 14.5px; font-color: #fff">Funcionários</span></a>
       </li>
 
       <!-- Nav Item - Página do Ponto -->
       <li class="nav-item">
         <a class="nav-link" href="\ponto">
-          <i class="fas fa-user-clock"></i>
-          <span style="font-size: 14.5px">Ponto</span></a>
+          <i class="fas fa-user-clock icone"></i>
+          <span style="font-size: 14.5px; font-color: #fff">Ponto</span></a>
       </li>
 
       
