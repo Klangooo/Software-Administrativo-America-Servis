@@ -4,7 +4,6 @@
 <style>
 
     .icone:hover {
-    transform: scale(1.3);
     color: #02acee;
   }
 
@@ -45,7 +44,7 @@
         <div class="sidebar-brand-icon">
           <img height="60px" src="images/logo.png"/>
         </div>
-        <div class="sidebar-brand-text mx-3">America Servis</div>
+        <div class="sidebar-brand-text mx-3">América Servis</div>
       </a>
 
       <br>
@@ -54,7 +53,7 @@
       <hr class="sidebar-divider">
 
       <!-- Heading -->
-      <div class="sidebar-heading" style="font-size: 12.5px; font-color: #0e72be">
+      <div class="sidebar-heading" style="font-size: 12.5px; color: #0e72be">
         Gerenciar
       </div> 
 
@@ -62,21 +61,21 @@
       <li class="nav-item">
         <a class="nav-link" href="\usuario">
           <i class="fas fa-user icone"></i>
-          <span style="font-size: 14.5px; font-color: #fff">Usuários</span></a>
+          <span style="font-size: 14.5px; color: #fff">Usuários</span></a>
       </li>
   
       <!-- Nav Item - Página de funcionários -->
       <li class="nav-item">
         <a class="nav-link" href="\funcionarios">
           <i class="fas fa-users icone"></i>
-          <span style="font-size: 14.5px; font-color: #fff">Funcionários</span></a>
+          <span style="font-size: 14.5px; color: #fff">Funcionários</span></a>
       </li>
 
       <!-- Nav Item - Página do Ponto -->
       <li class="nav-item">
         <a class="nav-link" href="\ponto">
           <i class="fas fa-user-clock icone"></i>
-          <span style="font-size: 14.5px; font-color: #fff">Ponto</span></a>
+          <span style="font-size: 14.5px; color: #fff">Ponto</span></a>
       </li>
 
       

@@ -43,7 +43,8 @@
 
   .icone {
     transform: scale(1.5);
-    margin-top: 9px
+    margin-top: 9px;
+    cursor: pointer;
   }
 
 </style>
