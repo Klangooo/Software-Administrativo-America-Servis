@@ -2,8 +2,10 @@
 <html lang="en">
 
 <style>
-
-    .icone:hover {
+    .icone_menu {
+      color: #fff;
+    }
+    .icone_menu:hover {
     color: #02acee;
   }
 
@@ -60,21 +62,21 @@
       <!-- Nav Item - Página de usuários -->
       <li class="nav-item">
         <a class="nav-link" href="\usuario">
-          <i class="fas fa-user icone"></i>
+          <i class="fas fa-user icone_menu"></i>
           <span style="font-size: 14.5px; color: #fff">Usuários</span></a>
       </li>
   
       <!-- Nav Item - Página de funcionários -->
       <li class="nav-item">
         <a class="nav-link" href="\funcionarios">
-          <i class="fas fa-users icone"></i>
+          <i class="fas fa-users icone_menu"></i>
           <span style="font-size: 14.5px; color: #fff">Funcionários</span></a>
       </li>
 
       <!-- Nav Item - Página do Ponto -->
       <li class="nav-item">
         <a class="nav-link" href="\ponto">
-          <i class="fas fa-user-clock icone"></i>
+          <i class="fas fa-user-clock icone_menu"></i>
           <span style="font-size: 14.5px; color: #fff">Ponto</span></a>
       </li>
 

@@ -39,6 +39,7 @@
 
   .icone:hover {
     transform: scale(1.3);
+    color: #02acee;
   }
 
   .icone {
