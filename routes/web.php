@@ -26,3 +26,5 @@ Route::get('/usuario', 'HomeController@usuario')->name('usuario');
 Route::get('/ponto', 'HomeController@ponto')->name('ponto');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/funcionarios', 'FuncionariosController');

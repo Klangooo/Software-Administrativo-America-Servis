@@ -2,13 +2,11 @@
 <html lang="en">
 
 <style>
-  
-    .iconmenu {
-      color: #fff;
-    }
-
-    .iconmenu:hover {
-    color: #02acee;
+  .iconmenu {
+    color: #fff !important;
+  }
+  .iconmenu:hover {
+    color: #02acee !important;
   }
 
 </style>
@@ -62,10 +60,10 @@
       </div> 
 
       <!-- Nav Item - Página de usuários -->
-      <li class="nav-item">
+      <li class="nav-item iconmenu">
         <a class="nav-link" href="\usuario">
-          <i class="fas fa-user iconmenu"></i>
-          <span style="font-size: 14.5px">Usuários</span></a>
+          <i class="fas fa-user" style="margin-left: 1.25%"></i>
+          <span style="font-size: 14.5px; margin-left: 1.25%; color:white">Usuários</span></a>
       </li>
   
       <!-- Nav Item - Página de funcionários -->
@@ -82,65 +80,25 @@
           <span style="font-size: 14.5px">Ponto</span></a>
       </li>
 
-      
       <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
+      <hr class="sidebar-divider" style="margin-bottom: -1%">
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+          <i class="fas fa-sign-out-alt" style="margin-left: 1%"></i>
+          <span style="font-size: 14.5px; margin-left: 1%">Logout</span></a>
+      </li>
+
+       <!-- Divider -->
+       <hr class="sidebar-divider d-none d-md-block">
 
     </ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Header -->
-    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e5e6e7;">
-      <div class="container">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <!-- Left Side Of Navbar -->
-              <ul class="navbar-nav mr-auto">
-              </ul>
-              <!-- Right Side Of Navbar -->
-              <ul class="navbar-nav ml-auto">
-                  <!-- Authentication Links -->
-                  @guest
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                      </li>
-                      @if (Route::has('register'))
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                          </li>
-                      @endif
-                  @else
-                      <li class="nav-item dropdown">
-                          <a id="navbarDropdown" class="nav-link dropdown-toggle" style="border-radius:5px; background-color:white; color:black;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                              {{ Auth::user()->name }}
-                          </a>
-
-                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" style="border-radius:5px; background-color:white; color:black;" href="{{ route('logout') }}"
-                                  onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                  {{ __('Logout') }}
-                              </a>
-
-                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                  @csrf
-                              </form>
-                          </div>
-                      </li>
-                  @endguest
-              </ul>
-          </div>
-      </div>
-  </nav>
-  
-  <!-- End of Header -->  
 
       <!-- Main Content -->
       <div id="content" style="background-color: #e5e6e7">
