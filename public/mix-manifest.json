@@ -1,4 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/jquery.easing.min.js": "/js/jquery.easing.min.js",
+    "/js/sb-admin-2.js": "/js/sb-admin-2.js",
+    "/css/sb-admin-2.css": "/css/sb-admin-2.css",
+    "/css/fontawesome.min.css": "/css/fontawesome.min.css"
 }
