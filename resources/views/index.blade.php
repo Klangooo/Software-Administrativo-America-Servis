@@ -50,7 +50,53 @@
 
 </style>
 
-<!-- ABERTURA DO MODAL CRIAR NOVO -->
+<div style="background-color: #e5e6e7">
+  <div class="titulo">
+    <div class="container">
+      <h1 class="display-4">Funcionários</h1>
+      <p class="lead">Acompanhamento dos funcionários cadastrados.</p>
+    </div>
+  </div>
+
+  <table class="table centraliza table-striped">
+      <thead class="primeiralinha">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Posto de serviço</th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <tbody class="escritas">
+
+        @foreach($funcionarios as $funcionario)
+        <tr>
+          <th scope="row">{{$funcionario->id}}</th>
+          <td>{{$funcionario->nome}}</td>
+          <td>{{$funcionario->cpf}}</td>
+          <td>{{$funcionario->cargo}}</td>
+          <td>{{$funcionario->postodeservico}}</td>
+          <td> 
+            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$funcionario->id}}"></i>
+            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+
+          </td>
+        </tr>
+        @endforeach
+        
+      </tbody>
+    </table>
+
+    <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
+      Criar novo
+    </button>
+    <br><br>
+
+  </div>
+  
+  <!-- ABERTURA DO MODAL CRIAR NOVO -->
 <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -60,19 +106,30 @@
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="modal-body">
-          <h5>Nome</h5>
-          <input type="text" id="campo"> 
-          <h5>CPF</h5>
-          <input type="text" id="campo">
-          <h5>Cargo</h5>
-          <input type="text" id="campo">
-          <h5>Posto de Serviço</h5>
-          <input type="text" id="campo">
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary rounded-pill botao">Salvar mudanças</button>
+      {!! Form::open(['action' => 'FuncionariosController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        <div class="form-group">
+            {{Form::label('nome', 'Nome')}}
+            {{Form::text('nome', '', ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('cpf', 'Cpf')}}
+            {{Form::text('cpf', '', ['class' => 'form-control', 'placeholder' => 'CPF'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('cargo', 'Cargo')}}
+          {{Form::text('cargo', '', ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('postodeservico', 'Posto de Serviço')}}
+          {{Form::text('postodeservico', '', ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
+         </div>
+        <!--<div class="form-group">
+            {{Form::file('cover_image')}}
+        </div> -->
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+        {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+    {!! Form::close() !!}
       </div>
       </div>
   </div>
@@ -89,20 +146,32 @@
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="modal-body">
-          <h5>Nome</h5>
-          <input type="text" id="campo"> 
-          <h5>CPF</h5>
-          <input type="text" id="campo">
-          <h5>Cargo</h5>
-          <input type="text" id="campo">
-          <h5>Posto de serviço</h5>
-          <input type="text" id="campo">
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary rounded-pill botao">Salvar edição</button>
-      </div>
+      {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        <div class="form-group">
+            {{Form::label('nome', 'Nome')}}
+            {{Form::text('nome', $funcionario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('cpf', 'Cpf')}}
+            {{Form::text('cpf', $funcionario->cpf, ['class' => 'form-control', 'placeholder' => 'CPF'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('cargo', 'Cargo')}}
+          {{Form::text('cargo', $funcionario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('postodeservico', 'Posto de Serviço')}}
+          {{Form::text('postodeservico', $funcionario->postodeservico, ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
+         </div>
+        <!--<div class="form-group">
+            {{Form::file('cover_image')}}
+        </div> -->
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+        {{Form::hidden('_method', 'PUT')}}
+        {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+      {!! Form::close() !!}
+
       </div>
   </div>
   </div>
@@ -129,93 +198,5 @@
   </div>
   </div>
 <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
-
-<div style="background-color: #e5e6e7">
-  <div class="titulo">
-    <div class="container">
-      <h1 class="display-4">Funcionários</h1>
-      <p class="lead">Acompanhamento dos funcionários cadastrados.</p>
-    </div>
-  </div>
-
-  <table class="table centraliza table-striped">
-      <thead class="primeiralinha">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nome</th>
-          <th scope="col">CPF</th>
-          <th scope="col">Cargo</th>
-          <th scope="col">Posto de serviço</th>
-          <th scope="col"> </th>
-        </tr>
-      </thead>
-      <tbody class="escritas"> 
-        <tr>
-          <th scope="row">1</th>
-          <td>Vitória</td>
-          <td>123.123.123-12</td>
-          <td>Assessora de Projetos</td>
-          <td>Distribuidor de cargas</td>
-          <td> 
-            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
-            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Aline</td>
-          <td>123.123.123-12</td>
-          <td>Assessora de JF</td>
-          <td>Distribuidor de cargas</td>
-          <td> 
-            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
-            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Luigi</td>
-          <td>123.123.123-12</td>
-          <td>Assessor de Projetos</td>
-          <td>Distribuidor de cargas</td>
-          <td> 
-            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
-            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
-      Criar novo
-    </button>
-    <br><br>
-
-
-  <h1>Funcionarios<h1>
-    {!! Form::open(['action' => 'FuncionariosController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-        <div class="form-group">
-            {{Form::label('title', 'Title')}}
-            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
-        </div>
-        <div class="form-group">
-            {{Form::label('body', 'Body')}}
-            {{Form::textarea('body', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
-        </div>
-        <!--<div class="form-group">
-            {{Form::file('cover_image')}}
-        </div> -->
-        {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-    {!! Form::close() !!}
-
-    @foreach($funcionarios ?? '' as $funcionario)
-        <div>
-            <h3>{{$funcionario->nome}}</h3>
-        </div>
-    @endforeach
-
-
-
-  </div>
 
   @endsection

@@ -39,20 +39,16 @@ class FuncionariosController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required',
-            //'cover_image' => 'image|nullable|max:1999'
-        ]);
         // Create Post
         $funcionario = new Funcionario;
         $funcionario->nome = $request->input('nome');
         $funcionario->cpf = $request->input('cpf');
-        $funcionario->id = auth()->user()->id;
+        $funcionario->cargo = $request->input('cargo');
+        $funcionario->postodeservico = $request->input('postodeservico');
+        //$funcionario->id = auth()->user()->id;
         //$funcionario->cover_image = $fileNameToStore;
         $funcionario->save();
-
-        return redirect('/posts')->with('success', 'Post Created');
+        return redirect('/funcionarios');
     }
 
     /**
@@ -74,7 +70,8 @@ class FuncionariosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $funcionario = Funcionario::find($id);
+        return view('index')->with('funcionario', $funcionario);
     }
 
     /**
@@ -86,7 +83,15 @@ class FuncionariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $funcionario = Funcionario::find($id);
+        // Update Post
+        $funcionario->nome = $request->input('nome');
+        $funcionario->cpf = $request->input('cpf');
+        $funcionario->cargo = $request->input('cargo');
+        $funcionario->postodeservico = $request->input('postodeservico');
+
+        $funcionario->save();
+        return redirect('/funcionarios');
     }
 
     /**
