@@ -45,7 +45,7 @@ class FuncionariosController extends Controller
         $funcionario->cpf = $request->input('cpf');
         $funcionario->cargo = $request->input('cargo');
         $funcionario->postodeservico = $request->input('postodeservico');
-        //$funcionario->id = auth()->user()->id;
+        $funcionario->id = auth()->user()->id;
         //$funcionario->cover_image = $fileNameToStore;
         $funcionario->save();
         return redirect('/funcionarios');
