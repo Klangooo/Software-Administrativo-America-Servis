@@ -136,7 +136,7 @@
   </div>
 <!--FIM DO MODAL CRIAR NOVO -->
 
-
+  
 
 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
 <div class="modal fade escrita" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

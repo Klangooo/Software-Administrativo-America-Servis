@@ -26,9 +26,9 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function funcionarios()
+    public function funcionario()
     {
-        return view('funcionarios');
+        return view('funcionario');
     }
 
     public function ponto()

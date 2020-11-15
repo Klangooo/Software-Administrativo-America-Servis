@@ -48,7 +48,7 @@ class FuncionariosController extends Controller
         $funcionario->id = auth()->user()->id;
         //$funcionario->cover_image = $fileNameToStore;
         $funcionario->save();
-        return redirect('/funcionarios');
+        return redirect('/funcionario');
     }
 
     /**

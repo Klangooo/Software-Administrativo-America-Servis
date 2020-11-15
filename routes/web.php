@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/funcionarios', 'HomeController@funcionarios')->name('funcionarios');
+Route::get('/funcionario', 'HomeController@funcionario')->name('funcionario');
 
 Route::get('/usuario', 'HomeController@usuario')->name('usuario');
 
