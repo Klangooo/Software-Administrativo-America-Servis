@@ -136,46 +136,7 @@
   </div>
 <!--FIM DO MODAL CRIAR NOVO -->
 
-<!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO
-<div class="modal fade escrita" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-        <div class="form-group">
-            {{Form::label('nome', 'Nome')}}
-            {{Form::text('nome', $funcionario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
-        </div>
-        <div class="form-group">
-            {{Form::label('cpf', 'Cpf')}}
-            {{Form::text('cpf', $funcionario->cpf, ['class' => 'form-control', 'placeholder' => 'CPF'])}}
-        </div>
-        <div class="form-group">
-          {{Form::label('cargo', 'Cargo')}}
-          {{Form::text('cargo', $funcionario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
-        </div>
-        <div class="form-group">
-          {{Form::label('postodeservico', 'Posto de Serviço')}}
-          {{Form::text('postodeservico', $funcionario->postodeservico, ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
-         </div>
-        <!--<div class="form-group">
-            {{Form::file('cover_image')}}
-        </div> -->
-        <div class="modal-footer">
-        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-        {{Form::hidden('_method', 'PUT')}}
-        {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
-      {!! Form::close() !!}
 
-      </div>
-  </div>
-  </div>
-FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
 <div class="modal fade escrita" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
