@@ -1,7 +1,9 @@
 @extends('layouts.template_base')
 
 @section('content')
-
+<?php
+use App\Funcionario;
+?>
 <style>
   .primeiralinha {
     background-color:#032066;
@@ -72,13 +74,11 @@
       <tbody class="escritas">
 
         <?php
-        //funcao que determina a quantidade de funcionarios cadastrados
-        $query = mysqli_query(mysqli_connect('ec2-18-210-180-94.compute-1.amazonaws.com', 'fhqwcfbqsblerd', '657aa790230b9156e0e7f65b120e1203b32cde1e47b3f0d2361c12e6c9c9f581', 'd33pngfto90g6s'),"SELECT count(*) as total from funcionarios");
-        $resultado = mysqli_fetch_assoc($query);
-        echo "Número de funcionarios:";
-        echo $resultado['total'];
+        $contador = Funcionario::count();
+        echo "Numero de registros: ";
+        echo $contador;
         ?>
-        @if($resultado['total'] == 0)
+        @if($contador == 0)
             <tr> 
               <td>
                 Nenhum funcionário cadastrado. 
@@ -148,7 +148,7 @@
   </div>
 <!--FIM DO MODAL CRIAR NOVO -->
 
-@if($resultado['total'] > 0)
+@if($contador > 0)
 <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
 <div class="modal fade escrita" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
