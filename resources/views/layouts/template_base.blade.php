@@ -87,8 +87,8 @@
         <a class="nav-link" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-          <i class="fas fa-sign-out-alt" style="margin-left: 1%"></i>
-          <span style="font-size: 14.5px; margin-left: 1%">Logout</span></a>
+          <i class="fas fa-sign-out-alt iconmenu" style="margin-left: 1%"></i>
+          <span style="font-size: 14.5px; margin-left: 1%; color: white">Logout</span></a>
       </li>
 
        <!-- Divider -->
