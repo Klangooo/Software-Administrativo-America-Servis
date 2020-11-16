@@ -67,9 +67,9 @@
       </li>
   
       <!-- Nav Item - Página de funcionários -->
-      <li class="nav-item iconmenu">
+      <li class="nav-item">
         <a class="nav-link" href="\funcionarios">
-          <i class="fas fa-users"></i>
+          <i class="fas fa-users iconmenu"></i>
           <span style="font-size: 14.5px; color: white">Funcionários</span></a>
       </li>
 
