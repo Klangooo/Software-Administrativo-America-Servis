@@ -67,17 +67,17 @@
       </li>
   
       <!-- Nav Item - Página de funcionários -->
-      <li class="nav-item">
+      <li class="nav-item iconmenu">
         <a class="nav-link" href="\funcionarios">
-          <i class="fas fa-users iconmenu"></i>
-          <span style="font-size: 14.5px">Funcionários</span></a>
+          <i class="fas fa-users"></i>
+          <span style="font-size: 14.5px; color: white">Funcionários</span></a>
       </li>
 
       <!-- Nav Item - Página do Ponto -->
-      <li class="nav-item">
+      <li class="nav-item iconmenu">
         <a class="nav-link" href="\ponto">
-          <i class="fas fa-user-clock iconmenu"></i>
-          <span style="font-size: 14.5px">Ponto</span></a>
+          <i class="fas fa-user-clock"></i>
+          <span style="font-size: 14.5px; color: white">Ponto</span></a>
       </li>
 
       <!-- Divider -->
