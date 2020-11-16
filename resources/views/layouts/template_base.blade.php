@@ -83,12 +83,16 @@
       <!-- Divider -->
       <hr class="sidebar-divider" style="margin-bottom: -1%">
 
+      <!-- Nav Item - Logout -->
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-          <i class="fas fa-sign-out-alt" style="margin-left: 1%"></i>
-          <span style="font-size: 14.5px; margin-left: 1%">Logout</span></a>
+            <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+               <i class="fas fa-sign-out-alt" style="margin-left: 1%"></i>
+               <span style="font-size: 14.5px; margin-left: 1%">Logout</span></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
       </li>
 
        <!-- Divider -->

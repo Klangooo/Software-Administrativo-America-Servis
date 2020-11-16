@@ -71,13 +71,12 @@ use App\Funcionario;
           <th scope="col"> </th>
         </tr>
       </thead>
-      <tbody class="escritas">
-
-        <?php
+      <?php
         $contador = Funcionario::count();
         echo "Numero de registros: ";
         echo $contador;
         ?>
+      <tbody class="escritas">
         @if($contador == 0)
             <tr> 
               <td>
@@ -185,7 +184,6 @@ use App\Funcionario;
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
       {!! Form::close() !!}
-
       </div>
     </div>
   </div>
@@ -197,7 +195,7 @@ use App\Funcionario;
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Exluir funcionário</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Excluir funcionário</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
@@ -207,6 +205,7 @@ use App\Funcionario;
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+
           {!!Form::open(['action' => ['FuncionariosController@destroy', $funcionario->id], 'method' => 'POST'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
@@ -216,6 +215,6 @@ use App\Funcionario;
   </div>
   </div>
 <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
-@endif
+@endif  
 
 @endsection
