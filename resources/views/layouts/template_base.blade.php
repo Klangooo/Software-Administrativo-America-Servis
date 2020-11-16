@@ -60,9 +60,9 @@
       </div> 
 
       <!-- Nav Item - Página de usuários -->
-      <li class="nav-item iconmenu">
+      <li class="nav-item">
         <a class="nav-link" href="\usuario">
-          <i class="fas fa-user" style="margin-left: 1.25%"></i>
+          <i class="fas fa-user iconmenu" style="margin-left: 1.25%"></i>
           <span style="font-size: 14.5px; margin-left: 1.25%; color:white">Usuários</span></a>
       </li>
   
@@ -70,14 +70,14 @@
       <li class="nav-item">
         <a class="nav-link" href="\funcionarios">
           <i class="fas fa-users iconmenu"></i>
-          <span style="font-size: 14.5px">Funcionários</span></a>
+          <span style="font-size: 14.5px; color: white">Funcionários</span></a>
       </li>
 
       <!-- Nav Item - Página do Ponto -->
       <li class="nav-item">
         <a class="nav-link" href="\ponto">
           <i class="fas fa-user-clock iconmenu"></i>
-          <span style="font-size: 14.5px">Ponto</span></a>
+          <span style="font-size: 14.5px; color: white">Ponto</span></a>
       </li>
 
       <!-- Divider -->
