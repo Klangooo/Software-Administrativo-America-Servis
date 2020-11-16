@@ -71,20 +71,34 @@
       </thead>
       <tbody class="escritas">
 
-        @foreach($funcionarios as $funcionario)
-        <tr>
-          <th scope="row">{{$funcionario->id}}</th>
-          <td>{{$funcionario->nome}}</td>
-          <td>{{$funcionario->cpf}}</td>
-          <td>{{$funcionario->cargo}}</td>
-          <td>{{$funcionario->postodeservico}}</td>
-          <td> 
-            <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$funcionario->id}}"></i>
-            <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
-
-          </td>
-        </tr>
-        @endforeach
+        <?php
+        //funcao que determina a quantidade de funcionarios cadastrados
+        $query = mysqli_query(mysqli_connect('ec2-18-210-180-94.compute-1.amazonaws.com', 'fhqwcfbqsblerd', '657aa790230b9156e0e7f65b120e1203b32cde1e47b3f0d2361c12e6c9c9f581', 'd33pngfto90g6s'),"SELECT count(*) as total from funcionarios");
+        $resultado = mysqli_fetch_assoc($query);
+        echo "Número de funcionarios:";
+        echo $resultado['total'];
+        ?>
+        @if($resultado['total'] == 0)
+            <tr> 
+              <td>
+                Nenhum funcionário cadastrado. 
+              </td>
+            </tr>
+        @else
+            @foreach($funcionarios as $funcionario)
+            <tr>
+              <th scope="row">{{$funcionario->id}}</th>
+              <td>{{$funcionario->nome}}</td>
+              <td>{{$funcionario->cpf}}</td>
+              <td>{{$funcionario->cargo}}</td>
+              <td>{{$funcionario->postodeservico}}</td>
+              <td> 
+                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$funcionario->id}}"></i>
+                <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+              </td>
+            </tr>
+            @endforeach
+        @endif
         
       </tbody>
     </table>
@@ -95,8 +109,9 @@
     <br><br>
 
   </div>
-  
-  <!-- ABERTURA DO MODAL CRIAR NOVO -->
+
+
+<!-- ABERTURA DO MODAL CRIAR NOVO -->
 <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -106,7 +121,7 @@
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      {!! Form::open(['action' => 'FuncionariosController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+      {!! Form::open(['action' => ['FuncionariosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
             {{Form::label('nome', 'Nome')}}
             {{Form::text('nome', '', ['class' => 'form-control', 'placeholder' => 'Nome'])}}
@@ -123,9 +138,6 @@
           {{Form::label('postodeservico', 'Posto de Serviço')}}
           {{Form::text('postodeservico', '', ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
          </div>
-        <!--<div class="form-group">
-            {{Form::file('cover_image')}}
-        </div> -->
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
         {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
@@ -136,7 +148,49 @@
   </div>
 <!--FIM DO MODAL CRIAR NOVO -->
 
-  
+@if($resultado['total'] > 0)
+<!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+<div class="modal fade escrita" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <?php
+       // $funcionario->id = '1';
+      ?>
+      {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        {{$funcionario->id}}
+        <div class="form-group">
+            {{Form::label('nome', 'Nome')}}
+            {{Form::text('nome', $funcionario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('cpf', 'Cpf')}}
+            {{Form::text('cpf', $funcionario->cpf, ['class' => 'form-control', 'placeholder' => 'CPF'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('cargo', 'Cargo')}}
+          {{Form::text('cargo', $funcionario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('postodeservico', 'Posto de Serviço')}}
+          {{Form::text('postodeservico', $funcionario->postodeservico, ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
+         </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+        {{Form::hidden('_method', 'PUT')}}
+        {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+      {!! Form::close() !!}
+
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
 <div class="modal fade escrita" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -153,11 +207,15 @@
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary rounded-pill botao">Confirmar</button>
+          {!!Form::open(['action' => ['FuncionariosController@destroy', $funcionario->id], 'method' => 'POST'])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
+            {!!Form::close()!!}
       </div>
       </div>
   </div>
   </div>
 <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
+@endif
 
-  @endsection
+@endsection
