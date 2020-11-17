@@ -26,6 +26,7 @@
     float: right;
     border-color: white;
   }
+  
   .botao:hover {
     background-color: white;
     color: #032066;

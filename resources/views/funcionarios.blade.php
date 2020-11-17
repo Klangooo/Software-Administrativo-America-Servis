@@ -23,16 +23,16 @@ use App\Funcionario;
   }
 
   .botao {
-    background-color: white;
-    color: #032066;
+    background-color: #032066;
+    color: white;
     float: right;
-    border-color: #032066;
+    border-color: white;
   }
 
   .botao:hover {
-    background-color: #032066;
-    color: white;
-    border-color: white;
+    background-color: white;
+    color: #032066;
+    border-color: #032066;
   }
 
   .centraliza {
