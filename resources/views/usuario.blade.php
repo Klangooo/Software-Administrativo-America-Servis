@@ -21,16 +21,15 @@
   }
 
   .botao {
-    background-color: white;
-    color: #032066;
-    float: right;
-    border-color: #032066;
-  }
-
-  .botao:hover {
     background-color: #032066;
     color: white;
+    float: right;
     border-color: white;
+  }
+  .botao:hover {
+    background-color: white;
+    color: #032066;
+    border-color: #032066;
   }
 
   .centraliza {
@@ -130,7 +129,7 @@
   <div class="titulo">
     <div class="container">
       <h1 class="display-4">Usuários</h1>
-      <p class="lead">Administradores de usuarios.</p>
+      <p class="lead">Administração de usuários.</p>
     </div>
   </div>
 
