@@ -60,9 +60,9 @@
       </div> 
 
       <!-- Nav Item - Página de usuários -->
-      <li class="nav-item iconmenu">
+      <li class="nav-item">
         <a class="nav-link" href="\usuario">
-          <i class="fas fa-user" style="margin-left: 1.25%"></i>
+          <i class="fas fa-user iconmenu" style="margin-left: 1.25%"></i>
           <span style="font-size: 14.5px; margin-left: 1.25%; color:white">Usuários</span></a>
       </li>
   
@@ -70,25 +70,29 @@
       <li class="nav-item">
         <a class="nav-link" href="\funcionarios">
           <i class="fas fa-users iconmenu"></i>
-          <span style="font-size: 14.5px">Funcionários</span></a>
+          <span style="font-size: 14.5px; color: white">Funcionários</span></a>
       </li>
 
       <!-- Nav Item - Página do Ponto -->
       <li class="nav-item">
         <a class="nav-link" href="\ponto">
           <i class="fas fa-user-clock iconmenu"></i>
-          <span style="font-size: 14.5px">Ponto</span></a>
+          <span style="font-size: 14.5px; color: white">Ponto</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider" style="margin-bottom: -1%">
 
+      <!-- Nav Item - Logout -->
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-          <i class="fas fa-sign-out-alt" style="margin-left: 1%"></i>
-          <span style="font-size: 14.5px; margin-left: 1%">Logout</span></a>
+            <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">
+               <i class="fas fa-sign-out-alt iconmenu" style="margin-left: 1%"></i>
+               <span style="font-size: 14.5px; margin-left: 1%; color: white">Logout</span></a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
       </li>
 
        <!-- Divider -->

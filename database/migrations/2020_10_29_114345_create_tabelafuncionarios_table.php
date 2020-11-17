@@ -14,7 +14,7 @@ class CreateTabelaFuncionariosTable extends Migration
     public function up()
     {
         Schema::create('tabelafuncionarios', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nome');
             $table->string('cpf');
             $table->string('cargo');

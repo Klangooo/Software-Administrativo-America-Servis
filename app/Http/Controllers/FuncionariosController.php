@@ -18,7 +18,7 @@ class FuncionariosController extends Controller
     public function index()
     {
         $funcionarios = Funcionario::all();
-        return view('index')->with('funcionarios', $funcionarios);
+        return view('funcionarios')->with('funcionarios', $funcionarios);
     }
 
     /**
@@ -48,7 +48,7 @@ class FuncionariosController extends Controller
         //$funcionario->id = auth()->user()->id;
         //$funcionario->cover_image = $fileNameToStore;
         $funcionario->save();
-        return redirect('/funcionario');
+        return redirect('/funcionarios');
     }
 
     /**
@@ -102,7 +102,9 @@ class FuncionariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $funcionario = Funcionario::find($id);
+        $funcionario->delete();
+        return redirect('/funcionarios');
     }
 }
 

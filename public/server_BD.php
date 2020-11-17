@@ -1,6 +1,13 @@
-<?php /*
+<?php 
 session_start();
 
+if (isset($_POST['reg_aluno'])){
+$db = mysqli_connect('localhost', 'root', '', 'capacitacao2');
+$query_insere = "INSERT INTO funcionarios ('nome', 'cpf', 'cargo', 'postodeserico') VALUES ('nome', 'cpf', 'cargo', 'postodeserico')";
+mysqli_query($db, $query_insere);
+}
+
+ /*
 // initializing variables
   $nome = "";
   $cargo = "";
