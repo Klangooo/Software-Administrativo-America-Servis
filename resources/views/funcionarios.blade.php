@@ -201,7 +201,7 @@ use App\Funcionario;
           </button>
       </div>
       <div class="modal-body">
-          Você deseja excluir o funcionário?
+          Deseja excluir o funcionário?
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
