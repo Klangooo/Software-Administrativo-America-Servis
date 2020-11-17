@@ -60,6 +60,11 @@ use App\Funcionario;
     </div>
   </div>
 
+  <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
+    Criar novo
+  </button>
+  <br><br>
+
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
         <tr>
@@ -101,11 +106,6 @@ use App\Funcionario;
         
       </tbody>
     </table>
-
-    <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
-      Criar novo
-    </button>
-    <br><br>
 
   </div>
 
