@@ -97,7 +97,7 @@ use App\Funcionario;
               <td>{{$funcionario->cargo}}</td>
               <td>{{$funcionario->postodeservico}}</td>
               <td> 
-                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$funcionario->id}}"></i>
+                <i class="idDoIconeDeEdit fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$funcionario->id}}"></i>
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
               </td>
             </tr>
@@ -161,7 +161,7 @@ use App\Funcionario;
       <?php
        // $funcionario->id = '1';
       ?>
-      {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+      {!! Form::open(['action' => ['FuncionariosController@update', $funcionarioId], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{$funcionario->id}}
         <div class="form-group">
             {{Form::label('nome', 'Nome')}}
@@ -215,6 +215,17 @@ use App\Funcionario;
   </div>
   </div>
 <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
+
+<script>
+$(".idDoIconeDeEdit").on("click", function() {
+const idDoFuncionario = $(this).attr('data-id')
+});
+</script>
+
+<?php
+$funcionarioId = "<script>document.writeln(idDoFuncionario );</script>";
+?>
+
 @endif  
 
 @endsection
