@@ -161,6 +161,17 @@ use App\Funcionario;
       <?php
        // $funcionario->id = '1';
       ?>
+
+      <script>
+$(".idDoIconeDeEdit").on("click", function() {
+const idDoFuncionario = $(this).attr('data-id')
+});
+</script>
+
+<?php
+$funcionarioId = "<script>document.writeln(idDoFuncionario );</script>";
+?>
+
       {!! Form::open(['action' => ['FuncionariosController@update', $funcionarioId], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{$funcionario->id}}
         <div class="form-group">
@@ -215,16 +226,6 @@ use App\Funcionario;
   </div>
   </div>
 <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
-
-<script>
-$(".idDoIconeDeEdit").on("click", function() {
-const idDoFuncionario = $(this).attr('data-id')
-});
-</script>
-
-<?php
-$funcionarioId = "<script>document.writeln(idDoFuncionario );</script>";
-?>
 
 @endif  
 
