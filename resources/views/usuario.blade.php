@@ -87,7 +87,7 @@
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="margin-left: 15px">
           <h5>Nome</h5>
           <input type="text" id="campo"> 
           <h5>E-mail</h5>
