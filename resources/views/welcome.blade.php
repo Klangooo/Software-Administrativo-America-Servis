@@ -61,10 +61,15 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .cabecalho {
+                background: #0e72be;
+            }
+            
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height" style="color: #0e72be">
+        <div class="flex-center position-ref full-height cabecalho">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
