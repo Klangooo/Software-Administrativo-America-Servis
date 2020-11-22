@@ -79,6 +79,9 @@
                 </div>
             @endif
 
+            <!-- Divider -->
+      <hr class="sidebar-divider" style="color: #0e72be">
+
             <div class="content">
                 <div class="title m-b-md">
                     <img src="images/LogoCompleta.png" class="img-fluid" alt="Imagem responsiva" height="160px">                   
