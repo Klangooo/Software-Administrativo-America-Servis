@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height" style="color: #0e72be">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -73,15 +73,11 @@
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Cadastro</a>
                         @endif
                     @endauth
                 </div>
-                <!-- Divider -->
-      <hr class="sidebar-divider" style="color: #0e72be">
-      
             @endif
-
 
             <div class="content">
                 <div class="title m-b-md">
