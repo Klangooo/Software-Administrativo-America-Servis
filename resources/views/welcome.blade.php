@@ -77,10 +77,11 @@
                         @endif
                     @endauth
                 </div>
+                <!-- Divider -->
+      <hr class="sidebar-divider" style="color: #0e72be">
+      
             @endif
 
-            <!-- Divider -->
-      <hr class="sidebar-divider" style="color: #0e72be">
 
             <div class="content">
                 <div class="title m-b-md">
