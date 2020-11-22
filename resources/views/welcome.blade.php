@@ -49,7 +49,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #0e72be;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -71,7 +71,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links cabecalho">
+                <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
