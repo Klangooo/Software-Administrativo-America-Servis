@@ -114,7 +114,7 @@
       </div>
   </div>
   </div>
-<!--FIM DO MODAL CRIAR NOVO -->
+<!--FIM DO MODAL LIMPAR REGISTROS -->
 
 <!--
   <form class="form" method="post" enctype="multipart/form-data" action="/ponto">
