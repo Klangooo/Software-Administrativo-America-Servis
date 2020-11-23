@@ -11,7 +11,6 @@
     .botao {
       background-color: #032066;
       color: white;
-      float: right;
       border-color: white;
     }
 
