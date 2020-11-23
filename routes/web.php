@@ -30,4 +30,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/funcionarios', 'FuncionariosController');
 Route::resource('/usuario', 'UsuarioController');
 
-Route::resource('/users', 'UsersController');
+Route::get('/buscafuncionarios', 'HomeController@buscafuncionarios')->name('buscafuncionarios');
+Route::post('/buscafuncionarios', 'HomeController@buscafuncionarios')->name('buscafuncionarios');

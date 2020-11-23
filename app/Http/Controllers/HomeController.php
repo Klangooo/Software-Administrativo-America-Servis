@@ -40,4 +40,10 @@ class HomeController extends Controller
     {
         return view('usuario');
     }
+
+    public function buscafuncionarios()
+    {
+        
+        return view('buscafuncionarios');
+    }
 }

@@ -71,9 +71,10 @@ class FuncionariosController extends Controller
     public function edit($id)
     {
         $funcionario = Funcionario::find($id);
-        return view('index')->with('funcionario', $funcionario);
+        return view('funcionarios')->with('funcionario', $funcionario);
     }
 
+    
     /**
      * Update the specified resource in storage.
      *

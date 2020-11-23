@@ -1,11 +1,9 @@
 @extends('layouts.template_base')
 
 @section('content')
-
 <?php
-use App\User;
+use App\Funcionario;
 ?>
-
 <style>
   .primeiralinha {
     background-color:#032066;
@@ -52,14 +50,13 @@ use App\User;
     cursor: pointer;
   }
 
-
 </style>
 
 <div style="background-color: #e5e6e7">
   <div class="titulo">
     <div class="container">
-      <h1 class="display-4">Usuários</h1>
-      <p class="lead">Administração de usuários.</p>
+      <h1 class="display-4">Funcionários</h1>
+      <p class="lead">Acompanhamento dos funcionários cadastrados.</p>
     </div>
   </div>
 
@@ -69,18 +66,18 @@ use App\User;
   <br><br>
 
   <table class="table centraliza table-striped">
-    <thead class="primeiralinha">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">E-mail</th>
-        <th scope="col">Cargo</th>
-        <th scope="col"> </th>
-      </tr>
-    </thead>
-    
-    <?php
-        $contador = User::count();
+      <thead class="primeiralinha">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">CPF</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Posto de serviço</th>
+          <th scope="col"> </th>
+        </tr>
+      </thead>
+      <?php
+        $contador = Funcionario::count();
         echo "Numero de registros: ";
         echo $contador;
         ?>
@@ -88,18 +85,19 @@ use App\User;
         @if($contador == 0)
             <tr> 
               <td>
-                Nenhum usuário cadastrado. 
+                Nenhum funcionário cadastrado. 
               </td>
             </tr>
         @else
-            @foreach($usuario as $usuario)
+            @foreach($funcionarios as $funcionario)
             <tr>
-              <th scope="row">{{$usuario->id}}</th>
-              <td>{{$usuario->name}}</td>
-              <td>{{$usuario->email}}</td>
-              <td>{{$usuario->cargo}}</td>
+              <th scope="row">{{$funcionario->id}}</th>
+              <td>{{$funcionario->nome}}</td>
+              <td>{{$funcionario->cpf}}</td>
+              <td>{{$funcionario->cargo}}</td>
+              <td>{{$funcionario->postodeservico}}</td>
               <td> 
-                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
+                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$funcionario->id}}"></i>
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
               </td>
             </tr>
@@ -117,77 +115,33 @@ use App\User;
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Criar novo usuário</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Criar novo funcionário</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <form method="POST" action="{{ route('register') }}">
-        @csrf
-
+      {!! Form::open(['action' => ['FuncionariosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
-            <label for="name">{{ __('Nome') }}</label>
-
-            <div>
-                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+            {{Form::label('nome', 'Nome')}}
+            {{Form::text('nome', '', ['class' => 'form-control', 'placeholder' => 'Nome'])}}
         </div>
-
         <div class="form-group">
-            <label for="cargo">{{ __('Cargo') }}</label>
-
-            <div>
-                <input id="cargo" type="text" class="form-control" name="cargo" value="{{ old('cargo') }}" required autocomplete="cargo">
-            </div>
+            {{Form::label('cpf', 'Cpf')}}
+            {{Form::text('cpf', '', ['class' => 'form-control', 'placeholder' => 'CPF'])}}
         </div>
-
         <div class="form-group">
-            <label for="email">{{ __('Endereço de E-Mail') }}</label>
-
-            <div>
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
+          {{Form::label('cargo', 'Cargo')}}
+          {{Form::text('cargo', '', ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
         </div>
-
         <div class="form-group">
-            <label for="password">{{ __('Senha') }}</label>
-
-            <div>
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="password-confirm">{{ __('Confirmar Senha') }}</label>
-
-            <div>
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-            </div>
-        </div>
-
+          {{Form::label('postodeservico', 'Posto de Serviço')}}
+          {{Form::text('postodeservico', '', ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
+         </div>
         <div class="modal-footer">
-        <button type="submit" class="btn btn-secondary rounded-pill botao"> {{ __('Registrar') }} </button>
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-        </div>
-      </form>
+        {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+    {!! Form::close() !!}
+      </div>
       </div>
   </div>
   </div>
@@ -199,28 +153,32 @@ use App\User;
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar usuário</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
       <?php
-       // $usuario->id = '1';
+       // $funcionario->id = '1';
       ?>
-      {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-        {{$usuario->id}}
+      {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        {{$funcionario->id}}
         <div class="form-group">
             {{Form::label('nome', 'Nome')}}
-            {{Form::text('nome', $usuario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+            {{Form::text('nome', $funcionario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
         </div>
         <div class="form-group">
-            {{Form::label('email', 'Email')}}
-            {{Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
+            {{Form::label('cpf', 'Cpf')}}
+            {{Form::text('cpf', $funcionario->cpf, ['class' => 'form-control', 'placeholder' => 'CPF'])}}
         </div>
         <div class="form-group">
           {{Form::label('cargo', 'Cargo')}}
-          {{Form::text('cargo', $usuario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
+          {{Form::text('cargo', $funcionario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
         </div>
+        <div class="form-group">
+          {{Form::label('postodeservico', 'Posto de Serviço')}}
+          {{Form::text('postodeservico', $funcionario->postodeservico, ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
+         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
         {{Form::hidden('_method', 'PUT')}}
@@ -237,18 +195,18 @@ use App\User;
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Excluir usuário</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Excluir funcionário</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
       <div class="modal-body">
-          Deseja excluir o usuário?
+          Deseja excluir o funcionário?
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
 
-          {!!Form::open(['action' => ['UsuarioController@destroy', $usuario->id], 'method' => 'POST'])!!}
+          {!!Form::open(['action' => ['FuncionariosController@destroy', $funcionario->id], 'method' => 'POST'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
             {!!Form::close()!!}

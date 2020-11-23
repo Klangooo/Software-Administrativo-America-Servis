@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Storage;
 //use Intervention\Image\Facades\Image;
 //use DB;
-use App\Usuario;
+use App\User;
 
 class UsuarioController extends Controller
 {
@@ -17,7 +17,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuario = Usuario::all();
+        $usuario = User::all();
         return view('usuario')->with('usuario', $usuario);
     }
 
@@ -40,8 +40,8 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         // Create Post
-        $usuario = new Usuario;
-        $usuario->nome = $request->input('nome');
+        $usuario = new User;
+        $usuario->nome = $request->input('name');
         $usuario->email = $request->input('email');
         $usuario->cargo = $request->input('cargo');
         //$funcionario->id = auth()->user()->id;
@@ -69,7 +69,7 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuario = Usuario::find($id);
+        $usuario = User::find($id);
         return view('index')->with('usuario', $usuario);
     }
 
@@ -82,7 +82,7 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario = Usuario::find($id);
+        $usuario = User::find($id);
         // Update Post
         $usuario->nome = $request->input('nome');
         $usuario->email = $request->input('email');
@@ -100,7 +100,7 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $usuario = Usuario::find($id);
+        $usuario = User::find($id);
         $usuario->delete();
         return redirect('/usuario');
     }
