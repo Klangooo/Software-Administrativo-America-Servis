@@ -47,6 +47,30 @@
     </div>
   </div>
 
+  <!-- ABERTURA DO MODAL LIMPAR REGISTROS -->
+<div class="modal fade escrita" id="modalLimparReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content" style="margin-left: 50%">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja limpar os registros?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Limpar</button>
+        
+      </div>
+      </div>
+  </div>
+  </div>
+<!--FIM DO MODAL LIMPAR REGISTRO -->
+
+<button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalLimparReg">
+  Limpar Registros
+</button>
+<br><br>
+
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
         <tr>
