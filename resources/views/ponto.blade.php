@@ -39,11 +39,6 @@
 
 </style>
 
-<button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalLimparReg">
-  Limpar Registros
-</button>
-<br><br>
-
 <div style="background-color: #e5e6e7">
   <div class="titulo">
     <div class="container">
@@ -51,6 +46,11 @@
       <p class="lead">Acompanhamento dos pontos dos funcionários.</p>
     </div>
   </div>
+
+  <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalLimparReg">
+    Limpar Registros
+  </button>
+  <br><br>
 
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
