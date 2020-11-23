@@ -2,19 +2,6 @@
 
 @section('content')
 
-<style>
-    .escrita {
-      color: black;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-  
-    .botao {
-      background-color: #032066;
-      color: white;
-      border-color: white;
-    }
-
-  </style>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -68,7 +55,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn rounded-pill botao">
+                                <button type="submit" style="background-color: #032066">
                                     {{ __('Conecte-se') }}
                                 </button>
 
