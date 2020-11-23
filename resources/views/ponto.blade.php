@@ -67,10 +67,6 @@
   </div>
 <!--FIM DO MODAL LIMPAR REGISTRO -->
 
-<button type="button" class="btn rounded-pill botao" data-toggle="modal" data-target="#modalLimparReg">
-  Limpar Registros
-</button>
-<br><br>
 
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
@@ -117,6 +113,10 @@
 
     <br><br>
 
+    <button type="button" class="btn rounded-pill botao" data-toggle="modal" data-target="#modalLimparReg">
+      Limpar Registros
+    </button>
+    <br><br>
 <!--
   <form class="form" method="post" enctype="multipart/form-data" action="/ponto">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
