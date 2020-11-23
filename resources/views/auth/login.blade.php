@@ -1,6 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    .escrita {
+      color: black;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  
+    .botao {
+      background-color: #032066;
+      color: white;
+      float: right;
+      border-color: white;
+    }
+
+  </style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -53,7 +69,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" style="background-color: #032066 rounded-pill botao">
+                                <button type="submit" class="btn rounded-pill botao">
                                     {{ __('Conecte-se') }}
                                 </button>
 
