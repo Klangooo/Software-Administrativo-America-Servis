@@ -67,7 +67,7 @@
   </div>
 <!--FIM DO MODAL LIMPAR REGISTRO -->
 
-<button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalLimparReg">
+<button type="button" class="btn rounded-pill botao" data-toggle="modal" data-target="#modalLimparReg">
   Limpar Registros
 </button>
 <br><br>
