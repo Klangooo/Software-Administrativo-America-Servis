@@ -2,6 +2,10 @@
 
 @section('content')
 
+<?php
+use App\Usuario;
+?>
+
 <style>
   .primeiralinha {
     background-color:#032066;
@@ -50,82 +54,6 @@
 
 </style>
 
-<!-- ABERTURA DO MODAL CRIAR NOVO-->
-<div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Criar novo usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div class="modal-body" style="margin-left: 15%">
-          <h5>Nome</h5>
-          <input type="text" id="campo"> 
-          <h5>E-mail</h5>
-          <input type="text" id="campo">
-          <h5>Cargo</h5>
-          <input type="text" id="campo">
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary rounded-pill botao">Salvar mudanças</button>
-      </div>
-      </div>
-  </div>
-  </div>
-<!--FIM DO MODAL CRIAR NOVO -->
-
-<!-- ABERTURA DO MODAL EDITAR USUÁRIO -->
-<div class="modal fade escrita" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div class="modal-body">
-          <h5>Nome</h5>
-          <input type="text" id="campo"> 
-          <h5>E-mail</h5>
-          <input type="text" id="campo">
-          <h5>Cargo</h5>
-          <input type="text" id="campo">
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary rounded-pill botao">Salvar edição</button>
-      </div>
-      </div>
-  </div>
-  </div>
-<!--FIM DO MODAL EDITAR USUÁRIO -->
-
-<!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
-<div class="modal fade escrita" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Excluir usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div class="modal-body">
-          Deseja excluir o usuário?
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary rounded-pill botao">Confirmar</button>
-      </div>
-      </div>
-  </div>
-  </div>
-<!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
-
 <div style="background-color: #e5e6e7">
   <div class="titulo">
     <div class="container">
@@ -149,40 +77,137 @@
         <th scope="col"> </th>
       </tr>
     </thead>
-    <tbody class="escritas"> 
-      <tr>
-        <th scope="row">1</th>
-        <td>Vitória</td>
-        <td>vitoriabueno@conselt.com.br</td>
-        <td>Assessora de Projetos</td>
-        <td> 
-          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
-          <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Aline</td>
-        <td>alinematias@conselt.com.br</td>
-        <td>Assessora de JF</td>
-        <td> 
-          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
-          <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Luigi</td>
-        <td>luiginegrini@conselt.com.br</td>
-        <td>Assessor de Projetos</td>
-        <td> 
-          <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
-          <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    
+    <?php
+        $contador = Usuario::count();
+        echo "Numero de registros: ";
+        echo $contador;
+        ?>
+      <tbody class="escritas">
+        @if($contador == 0)
+            <tr> 
+              <td>
+                Nenhum usuário cadastrado. 
+              </td>
+            </tr>
+        @else
+            @foreach($usuario as $usuario)
+            <tr>
+              <th scope="row">{{$usuario->id}}</th>
+              <td>{{$usuario->nome}}</td>
+              <td>{{$usuario->email}}</td>
+              <td>{{$usuario->cargo}}</td>
+              <td> 
+                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
+                <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+              </td>
+            </tr>
+            @endforeach
+        @endif
+        
+      </tbody>
+    </table>
 
   </div>
 
-  @endsection
+
+<!-- ABERTURA DO MODAL CRIAR NOVO -->
+<div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content" style="margin-left: 50%">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Criar novo usuário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      {!! Form::open(['action' => ['UsuarioController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        <div class="form-group">
+            {{Form::label('nome', 'Nome')}}
+            {{Form::text('nome', '', ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('email', 'Email')}}
+            {{Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'Email'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('cargo', 'Cargo')}}
+          {{Form::text('cargo', '', ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+        {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+    {!! Form::close() !!}
+      </div>
+      </div>
+  </div>
+  </div>
+<!--FIM DO MODAL CRIAR NOVO -->
+
+@if($contador > 0)
+<!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+<div class="modal fade escrita" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar usuário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <?php
+       // $usuario->id = '1';
+      ?>
+      {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        {{$usuario->id}}
+        <div class="form-group">
+            {{Form::label('nome', 'Nome')}}
+            {{Form::text('nome', $usuario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+        </div>
+        <div class="form-group">
+            {{Form::label('email', 'Email')}}
+            {{Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
+        </div>
+        <div class="form-group">
+          {{Form::label('cargo', 'Cargo')}}
+          {{Form::text('cargo', $usuario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+        {{Form::hidden('_method', 'PUT')}}
+        {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+      {!! Form::close() !!}
+      </div>
+    </div>
+  </div>
+  </div>
+<!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+<!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
+<div class="modal fade escrita" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Excluir usuário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+          Deseja excluir o usuário?
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+
+          {!!Form::open(['action' => ['UsuarioController@destroy', $usuario->id], 'method' => 'POST'])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
+            {!!Form::close()!!}
+      </div>
+      </div>
+  </div>
+  </div>
+<!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
+@endif  
+
+@endsection
