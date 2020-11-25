@@ -106,6 +106,7 @@ class FuncionariosController extends Controller
         $funcionario = Funcionario::find($id);
         $funcionario->delete();
         return redirect('/funcionarios');
-    }
+    }    
+
 }
 

@@ -80,6 +80,7 @@ use App\Funcionario;
         $contador = Funcionario::count();
         echo "Numero de registros: ";
         echo $contador;
+        $contador_id = 1;
         ?>
       <tbody class="escritas">
         @if($contador == 0)
@@ -91,7 +92,7 @@ use App\Funcionario;
         @else
             @foreach($funcionarios as $funcionario)
             <tr>
-              <th scope="row">{{$funcionario->id}}</th>
+              <th scope="row">{{$contador_id}}</th>
               <td>{{$funcionario->nome}}</td>
               <td>{{$funcionario->cpf}}</td>
               <td>{{$funcionario->cargo}}</td>
@@ -147,7 +148,7 @@ use App\Funcionario;
   </div>
 <!--FIM DO MODAL CRIAR NOVO -->
 
-@if($contador > 0)
+@if($contador < 0)
 <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
 <div class="modal fade escrita" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
