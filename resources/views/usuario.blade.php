@@ -74,7 +74,6 @@ use App\User;
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Cargo</th>
         <th scope="col"> </th>
       </tr>
     </thead>
@@ -97,7 +96,6 @@ use App\User;
               <th scope="row">{{$usuario->id}}</th>
               <td>{{$usuario->name}}</td>
               <td>{{$usuario->email}}</td>
-              <td>{{$usuario->cargo}}</td>
               <td> 
                 <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
@@ -136,14 +134,6 @@ use App\User;
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="cargo">{{ __('Cargo') }}</label>
-
-            <div>
-                <input id="cargo" type="text" class="form-control" name="cargo" value="{{ old('cargo') }}" required autocomplete="cargo">
             </div>
         </div>
 
@@ -216,10 +206,6 @@ use App\User;
         <div class="form-group">
             {{Form::label('email', 'Email')}}
             {{Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
-        </div>
-        <div class="form-group">
-          {{Form::label('cargo', 'Cargo')}}
-          {{Form::text('cargo', $usuario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
