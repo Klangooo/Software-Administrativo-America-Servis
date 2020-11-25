@@ -59,9 +59,10 @@
           <th scope="col">Nome</th>
           <th scope="col">Cargo</th>
           <th scope="col">Posto de serviço</th>
-          <th scope="col">Ponto início</th>
-          <th scope="col">Horário de almoço</th>
-          <th scope="col">Ponto final</th>
+          <th scope="col">Entrada</th>
+          <th scope="col">Início do Intervalo</th>
+          <th scope="col">Fim do Intervalo</th>
+          <th scope="col">Saída</th>
         </tr>
       </thead>
       <tbody class="escritas"> 
@@ -72,6 +73,7 @@
           <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h00</td>
+          <td>14h00</td>
           <td>18h00</td>
         </tr>
         <tr>
@@ -81,6 +83,7 @@
           <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h20</td>
+          <td>14h20</td>
           <td>18h00</td>
         </tr>
         <tr>
@@ -90,6 +93,7 @@
           <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h10</td>
+          <td>14h10</td>
           <td>18h00</td>
         </tr>
       </tbody>
