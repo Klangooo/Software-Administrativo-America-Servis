@@ -120,6 +120,7 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+      <div class="mx-auto" style="width: 200px;">
       <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -172,7 +173,7 @@ use App\User;
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
         </div>
-
+      </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-secondary rounded-pill botao"> {{ __('Registrar') }} </button>
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
