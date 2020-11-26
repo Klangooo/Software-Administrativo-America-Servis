@@ -5,11 +5,6 @@
 use App\Funcionario;
 ?>
 <style>
-  
-  .scrollTable{
-    overflow: auto;
-    width: 640px;"
-  }
 
   .primeiralinha {
     background-color:#032066;
@@ -71,7 +66,6 @@ use App\Funcionario;
     Criar novo
   </button>
   <br><br>
-<div class="scrollTable">
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
         <tr>
@@ -87,6 +81,7 @@ use App\Funcionario;
         $contador = Funcionario::count();
         $contador_id = 1;
         ?>
+      <div style="overflow:auto; overflow-x:hidden; height:100px; width: 600px">
       <tbody class="escritas">
         @if($contador == 0)
             <tr> 
@@ -180,9 +175,8 @@ use App\Funcionario;
             @endforeach
         @endif
       </tbody>
-
+    </div>
     </table>
-  </div>
 
   </div>
 
