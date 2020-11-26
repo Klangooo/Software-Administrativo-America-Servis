@@ -4,13 +4,6 @@
 
 <style>
 
-.botao {
-    background-color: #032066 !important;
-    color: white !important;
-    float: right !important;
-    border-color: white !important;
-  }
-
 .botao:hover {
     background-color: white !important;
     color: #c3d2f5 !important;
@@ -80,7 +73,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-secondary rounded-pill" style="background-color: #032066;color: white;float: right;border-color: white;">
+                                <button type="submit" class="btn btn-secondary rounded-pill botao" style="background-color: #032066;color: white;float: right;border-color: white;">
                                     {{ __('Criar usuário') }}
                                 </button>
                             </div>
