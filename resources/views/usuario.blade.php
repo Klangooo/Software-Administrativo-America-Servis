@@ -7,6 +7,10 @@ use App\User;
 ?>
 
 <style>
+  .table{
+    max-width: 100%;
+    overflow: scroll;
+  }
   .primeiralinha {
     background-color:#032066;
     color: white;
