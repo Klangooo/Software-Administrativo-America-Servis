@@ -73,13 +73,11 @@ use App\Funcionario;
           <th scope="col">CPF</th>
           <th scope="col">Cargo</th>
           <th scope="col">Posto de serviço</th>
-          <th scope="col"> </th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <?php
         $contador = Funcionario::count();
-        echo "Numero de registros: ";
-        echo $contador;
         $contador_id = 1;
         ?>
       <tbody class="escritas">
@@ -99,17 +97,22 @@ use App\Funcionario;
               <td>{{$funcionario->postodeservico}}</td>
               <td> 
                 <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar{{$funcionario->id}}"></i>
+                <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$funcionario->id}}"></i>
+              </td>
+            </tr>
+
                 @if($contador > 0)
                   <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
                   <div class="modal fade escrita" id="modalEditar{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header" style="background-color:#032066; color:white">
                             <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <button type="button" class="close" style="color:white" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                         {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                           <div class="form-group">
                               {{Form::label('nome', 'Nome')}}
@@ -117,7 +120,7 @@ use App\Funcionario;
                           </div>
                           <div class="form-group">
                               {{Form::label('cpf', 'Cpf')}}
-                              {{Form::text('cpf', $funcionario->cpf, ['class' => 'form-control', 'placeholder' => 'CPF'])}}
+                              {{Form::text('cpf', $funcionario->cpf, ['class' => 'form-control mascara_CPF', 'placeholder' => 'CPF'])}}
                           </div>
                           <div class="form-group">
                             {{Form::label('cargo', 'Cargo')}}
@@ -127,6 +130,7 @@ use App\Funcionario;
                             {{Form::label('postodeservico', 'Posto de Serviço')}}
                             {{Form::text('postodeservico', $funcionario->postodeservico, ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
                           </div>
+                        </div>
                           <div class="modal-footer">
                           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
                           {{Form::hidden('_method', 'PUT')}}
@@ -137,16 +141,14 @@ use App\Funcionario;
                     </div>
                     </div>
                   <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
-                  @endif
-                  <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$funcionario->id}}"></i>
-                  @if($contador > 0)
+                  
                   <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
                     <div class="modal fade escrita" id="modalExcluir{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header" style="background-color:#032066; color:white">
                             <h5 class="modal-title" id="exampleModalLabel">Excluir funcionário</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -166,13 +168,12 @@ use App\Funcionario;
                     </div>
                   <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
                   @endif
-              </td>
-            </tr>
+              
             <?php $contador_id = $contador_id + 1; ?>
             @endforeach
         @endif
-        
       </tbody>
+
     </table>
 
   </div>
@@ -182,12 +183,13 @@ use App\Funcionario;
 <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="background-color:#032066; color:white">
           <h5 class="modal-title" id="exampleModalLabel">Criar novo funcionário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <button type="button" class="close" style="color:white" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+      <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
       {!! Form::open(['action' => ['FuncionariosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
           <div class="form-group">
               {{Form::label('nome', 'Nome')}}
@@ -195,7 +197,7 @@ use App\Funcionario;
           </div>
           <div class="form-group">
               {{Form::label('cpf', 'Cpf')}}
-              {{Form::text('cpf', '', ['class' => 'form-control', 'placeholder' => 'CPF'])}}
+              {{Form::text('cpf', '', ['class' => 'form-control mascara_CPF', 'placeholder' => 'CPF'])}}
           </div>
           <div class="form-group">
             {{Form::label('cargo', 'Cargo')}}
@@ -205,6 +207,7 @@ use App\Funcionario;
             {{Form::label('postodeservico', 'Posto de Serviço')}}
             {{Form::text('postodeservico', '', ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
           </div>
+        </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
           {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
@@ -214,5 +217,13 @@ use App\Funcionario;
   </div>
   </div>
 <!--FIM DO MODAL CRIAR NOVO -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js">
+</script>
+<script type="text/javascript">
+    $('.mascara_CPF').mask("000.000.000-00");
+</script>
 
 @endsection

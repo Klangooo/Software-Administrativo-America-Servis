@@ -81,8 +81,7 @@ use App\User;
     
     <?php
         $contador = User::count();
-        echo "Numero de registros: ";
-        echo $contador;
+        $contador_id = 1;
         ?>
       <tbody class="escritas">
         @if($contador == 0)
@@ -94,19 +93,48 @@ use App\User;
         @else
             @foreach($usuario as $usuario)
             <tr>
-              <th scope="row">{{$usuario->id}}</th>
+              <th scope="row">{{$contador_id}}</th>
               <td>{{$usuario->name}}</td>
               <td>{{$usuario->email}}</td>
               <td>{{$usuario->cargo}}</td>
-              <td> 
-                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
-                <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+              <td>
+              <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
+              <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
               </td>
             </tr>
+                @if($contador>0)
+                <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
+                <div class="modal fade escrita" id="modalExcluir{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header" style="background-color:#032066; color:white">
+                          <h5 class="modal-title" id="exampleModalLabel">Excluir usuário</h5>
+                          <button type="button" class="close" style="color:white" data-dismiss="modal" aria-label="Fechar">
+                          <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <div class="modal-body">
+                          Deseja excluir o usuário?
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+
+                          {!!Form::open(['action' => ['UsuarioController@destroy', $usuario->id], 'method' => 'POST'])!!}
+                                {{Form::hidden('_method', 'DELETE')}}
+                                {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
+                            {!!Form::close()!!}
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+                <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
+                @endif  
+              
+            <?php $contador_id = $contador_id + 1; ?>
             @endforeach
         @endif
-        
       </tbody>
+
     </table>
 
   </div>
@@ -204,14 +232,11 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <?php
-       // $usuario->id = '1';
-      ?>
       {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{$usuario->id}}
         <div class="form-group">
             {{Form::label('nome', 'Nome')}}
-            {{Form::text('nome', $usuario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+            {{Form::text('nome', $usuario->name, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
         </div>
         <div class="form-group">
             {{Form::label('email', 'Email')}}
@@ -232,31 +257,6 @@ use App\User;
   </div>
 <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
-<!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
-<div class="modal fade escrita" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Excluir usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div class="modal-body">
-          Deseja excluir o usuário?
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-
-          {!!Form::open(['action' => ['UsuarioController@destroy', $usuario->id], 'method' => 'POST'])!!}
-                {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
-            {!!Form::close()!!}
-      </div>
-      </div>
-  </div>
-  </div>
-<!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
 @endif  
 
 @endsection
