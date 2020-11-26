@@ -156,7 +156,7 @@ use App\User;
           <div class="form-group">
               <label for="name">{{ __('Nome') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                   @error('name')
@@ -170,7 +170,7 @@ use App\User;
           <div class="form-group">
               <label for="email">{{ __('E-Mail') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                   @error('email')
@@ -184,7 +184,7 @@ use App\User;
           <div class="form-group">
               <label for="password">{{ __('Senha') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                   @error('password')
@@ -198,7 +198,7 @@ use App\User;
           <div class="form-group">
               <label for="password-confirm">{{ __('Confirme a senha') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
               </div>
           </div>
