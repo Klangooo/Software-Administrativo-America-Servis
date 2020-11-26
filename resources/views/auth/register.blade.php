@@ -18,6 +18,7 @@
   }
 
 </style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -79,11 +80,9 @@
                         </div>
 
                         <div class="form-group">
-                            <div>
-                                <button type="submit" class="btn btn-secondary rounded-pill botao">
-                                    Criar usuário
-                                </button>
-                            </div>
+                            <button type="submit" class="btn btn-secondary rounded-pill botao">
+                                Criar usuário
+                            </button>
                         </div>
                     </form>
                 </div>
