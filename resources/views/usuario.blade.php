@@ -7,10 +7,7 @@ use App\User;
 ?>
 
 <style>
-  .scrollTable{
-    overflow: auto;
-    width: 640px;"
-  }
+  
   .primeiralinha {
     background-color:#032066;
     color: white;
@@ -89,7 +86,6 @@ use App\User;
       </tr>
     </thead>
     
-    <div class="scrollTable">
       <tbody class="escritas">
         @if($contador == 0)
             <tr> 
@@ -180,7 +176,6 @@ use App\User;
             @endforeach
         @endif
       </tbody>
-    </div>
 
     </table>
 

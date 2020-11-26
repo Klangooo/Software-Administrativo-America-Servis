@@ -5,6 +5,12 @@
 use App\Funcionario;
 ?>
 <style>
+  
+  .scrollTable{
+    overflow: auto;
+    width: 640px;"
+  }
+
   .primeiralinha {
     background-color:#032066;
     color: white;
@@ -65,7 +71,7 @@ use App\Funcionario;
     Criar novo
   </button>
   <br><br>
-
+<div class="scrollTable">
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
         <tr>
@@ -176,6 +182,7 @@ use App\Funcionario;
       </tbody>
 
     </table>
+  </div>
 
   </div>
 
