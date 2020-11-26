@@ -18,7 +18,6 @@
   }
 
 </style>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -79,14 +78,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-secondary rounded-pill botao">
-                                Criar usuário
-                            </button>
-                        </div>
-                        <div class="form-group modal-footer">
-                            <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-secondary rounded-pill botao">Criar usuário</button>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary botao">
+                                    {{ __('Criar usuário') }}
+                                </button>
+                            </div>
                         </div>
                     </form>
                 </div>
