@@ -97,7 +97,7 @@ use App\User;
               <td>{{$usuario->name}}</td>
               <td>{{$usuario->email}}</td>
               <td>
-                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
+                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar"></i>
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
               </td>
           
@@ -206,9 +206,7 @@ use App\User;
           <div class="form-group modal-footer">
               <div>
                   <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn btn-secondary rounded-pill botao">
-                      {{ __('Criar usuário') }}
-                  </button>
+                  <button type="submit" class="btn btn-secondary rounded-pill botao">Criar usuário</button>
               </div>
           </div>
       </form>
