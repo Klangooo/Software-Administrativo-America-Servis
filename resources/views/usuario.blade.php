@@ -43,13 +43,14 @@ use App\User;
 
   .icone:hover {
     transform: scale(1.3);
-    color: #02acee;
+    color: #98a9af;
   }
 
   .icone {
     transform: scale(1.5);
     margin-top: 9px;
     cursor: pointer;
+    color: #032066;
   }
 
 
