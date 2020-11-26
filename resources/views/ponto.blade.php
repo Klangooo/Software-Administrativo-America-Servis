@@ -111,9 +111,11 @@
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+      <div class="mx-auto" style="width: 400px;">
       <div class="modal-body">
         Deseja limpar os registros?
-    </div>
+      </div>
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Limpar Registros</button>
