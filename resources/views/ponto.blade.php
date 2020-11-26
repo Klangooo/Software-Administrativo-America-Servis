@@ -106,11 +106,14 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Deseja limpar os Registros?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Limpar Registros</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+      <div class="modal-body">
+        Deseja limpar os registros?
+    </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Limpar Registros</button>
