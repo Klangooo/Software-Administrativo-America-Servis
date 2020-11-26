@@ -195,7 +195,7 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="mx-auto" style="width: 100px;">
+      <div class="mx-auto" style="width: 300px;">
       <?php
        // $usuario->id = '1';
       ?>
