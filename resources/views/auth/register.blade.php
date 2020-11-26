@@ -80,7 +80,7 @@
 
                         <div class="form-group row">
                             <div>
-                                <button type="submit" class="btn btn-primary btn-secondary rounded-pill botao">
+                                <button type="submit" class="btn btn-secondary rounded-pill botao">
                                     {{ __('Criar usuário') }}
                                 </button>
                             </div>
