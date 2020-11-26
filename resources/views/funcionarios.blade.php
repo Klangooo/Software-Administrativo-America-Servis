@@ -52,10 +52,6 @@ use App\Funcionario;
     color: #032066;
   }
 
-  .scrollTabela{
-    height:100px; width: 600px;
-    overflow:auto; overflow-x:hidden;
-  }
 </style>
 
 <div style="background-color: #e5e6e7">
@@ -85,7 +81,6 @@ use App\Funcionario;
         $contador = Funcionario::count();
         $contador_id = 1;
         ?>
-      <div class="scrollTabela">
       <tbody class="escritas">
         @if($contador == 0)
             <tr> 
@@ -179,7 +174,6 @@ use App\Funcionario;
             @endforeach
         @endif
       </tbody>
-    </div>
     </table>
 
   </div>
