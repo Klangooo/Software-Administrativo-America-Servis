@@ -53,7 +53,8 @@ use App\Funcionario;
   }
 
   .scrollTabela{
-    overflow:auto; overflow-x:hidden; height:100px; width: 600px;
+    height:100px; width: 600px;
+    overflow:auto; overflow-x:hidden;
   }
 </style>
 
