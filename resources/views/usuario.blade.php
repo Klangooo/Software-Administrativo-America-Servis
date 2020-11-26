@@ -204,10 +204,9 @@ use App\User;
           </div>
 
           <div class="form-group modal-footer">
-              <div>
                   <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+                  aaaaaaaaaa
                   <button type="submit" class="btn btn-secondary rounded-pill botao">Criar usuário</button>
-              </div>
           </div>
       </form>
       </div>
