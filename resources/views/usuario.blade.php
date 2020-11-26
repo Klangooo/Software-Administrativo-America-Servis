@@ -67,9 +67,9 @@ use App\User;
   <!-- <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
     Criar novo
   </button> -->
-  <button type="button" class="btn rounded-pill botao" style="margin-right: 10px">
-    <a href="/register">Criar novo</a>
-  </button>
+  <a href="/register"><button type="button" class="btn rounded-pill botao" style="margin-right: 10px">
+    Criar novo
+  </button></a>
   <br><br>
   <?php
   $contador = User::count();
