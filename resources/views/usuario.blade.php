@@ -196,9 +196,8 @@ use App\User;
           </button>
       </div>
       .ml-1 {
-        margin-left: ($spacer * .25) !important;
         .mr-1 {
-          margin-rigth: ($spacer * .25) !important;
+          
       <?php
        // $usuario->id = '1';
       ?>
