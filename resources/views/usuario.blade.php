@@ -91,7 +91,7 @@ use App\User;
     </thead>
     
     
-      <tbody class="escritas">
+      <tbody class="escritas scrollTable">
         @if($contador == 0)
             <tr> 
               <td>
