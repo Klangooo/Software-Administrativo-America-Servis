@@ -143,20 +143,20 @@ use App\User;
 <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
-      <div class="modal-header">
+        <div class="modal-header" style="background-color:#032066; color:white">
           <h5 class="modal-title" id="exampleModalLabel">Criar novo usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <button type="button" class="close" style="color:white" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="mx-auto" style="width: 400px;">
+      <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
         <form method="POST" action="{{ route('register') }}">
           @csrf
 
-          <div class="form-group row">
-              <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+          <div class="form-group">
+              <label for="name">{{ __('Name') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                   @error('name')
@@ -167,10 +167,10 @@ use App\User;
               </div>
           </div>
 
-          <div class="form-group row">
-              <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+          <div class="form-group">
+              <label for="email">{{ __('E-Mail Address') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                   @error('email')
@@ -181,10 +181,10 @@ use App\User;
               </div>
           </div>
 
-          <div class="form-group row">
-              <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+          <div class="form-group">
+              <label for="password">{{ __('Password') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                   @error('password')
@@ -195,20 +195,18 @@ use App\User;
               </div>
           </div>
 
-          <div class="form-group row">
-              <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+          <div class="form-group">
+              <label for="password-confirm">{{ __('Confirm Password') }}</label>
 
-              <div class="col-md-6">
+              <div>
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
               </div>
           </div>
 
-          <div class="form-group row mb-0">
-              <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
+          <div class="modal-footer">
+                  <button type="submit" class="btn btn-secondary rounded-pill botao">
                       {{ __('Register') }}
                   </button>
-              </div>
           </div>
       </form>
       </div>
