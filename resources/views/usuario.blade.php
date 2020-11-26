@@ -114,7 +114,6 @@ use App\User;
                       </div>
                       <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                       {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-                        {{$usuario->id}}
                         <div class="form-group">
                             {{Form::label('nome', 'Nome')}}
                             {{Form::text('name', $usuario->name, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
@@ -125,7 +124,7 @@ use App\User;
                         </div>
                         <div class="form-group">
                           {{Form::label('password', 'Senha')}}
-                          {{Form::text('password', '', ['class' => 'form-control', 'placeholder' => 'Email'])}}
+                          {{Form::text('password', '', ['class' => 'form-control', 'placeholder' => 'Nova senha'])}}
                       </div>
                       </div>
                         <div class="modal-footer">
