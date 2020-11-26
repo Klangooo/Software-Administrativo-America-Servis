@@ -8,9 +8,9 @@ use App\User;
 
 <style>
   .scrollTable{
-    max-height: 100%;
-    width: auto;
-    overflow: scroll;
+    max-height: 50%;
+    width: 50%;
+    overflow-y: scroll;
   }
   .primeiralinha {
     background-color:#032066;
