@@ -5,16 +5,16 @@
 <style>
 
 .botao {
-    background-color: #032066;
-    color: white;
-    float: right;
-    border-color: white;
+    background-color: #032066 !important;
+    color: white !important;
+    float: right !important;
+    border-color: white !important;
   }
 
 .botao:hover {
-    background-color: white;
-    color: #032066;
-    border-color: #032066;
+    background-color: white !important;
+    color: #c3d2f5 !important;
+    border-color: #032066 !important;
   }
 
 </style>
