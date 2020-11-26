@@ -103,7 +103,7 @@ use App\User;
           
               @if($contador>0)
               <?php /*
-              
+
               <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
               <div class="modal fade escrita" id="modalEditar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -244,8 +244,8 @@ use App\User;
           </div>
 
           <div class="form-group modal-footer">
-                  <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-                  <button type="submit" class="btn btn-secondary rounded-pill botao">Criar usuário</button>
+              <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-secondary rounded-pill botao">Criar usuário</button>
           </div>
       </form>
       </div>
