@@ -64,7 +64,10 @@ use App\User;
     </div>
   </div>
 
-  <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
+  <!-- <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
+    Criar novo
+  </button> -->
+  <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" href="/register">
     Criar novo
   </button>
   <br><br>
@@ -97,13 +100,13 @@ use App\User;
               <td>{{$usuario->name}}</td>
               <td>{{$usuario->email}}</td>
               <td>
-                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar{{$usuario->id}}"></i>
+            <?php /* <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar{{$usuario->id}}"></i> */?>
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
               </td>
           
               @if($contador>0)
               
-
+              <?php /*
               <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
               <div class="modal fade escrita" id="modalEditar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -139,7 +142,7 @@ use App\User;
                   </div>
                 </div>
                 <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
-
+                */ ?>
                 
 
                 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
