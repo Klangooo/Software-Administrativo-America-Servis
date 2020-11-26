@@ -209,8 +209,9 @@ use App\User;
           </div>
       </form>
       </div>
+      </div>
   </div>
-  </div>
+</div>
 <!--FIM DO MODAL CRIAR NOVO -->
 
 @if($contador > 0)
