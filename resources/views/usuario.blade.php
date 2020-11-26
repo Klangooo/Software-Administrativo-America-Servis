@@ -154,7 +154,7 @@ use App\User;
           @csrf
 
           <div class="form-group">
-              <label for="name">{{ __('Name') }}</label>
+              <label for="name">{{ __('Nome') }}</label>
 
               <div>
                   <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -168,7 +168,7 @@ use App\User;
           </div>
 
           <div class="form-group">
-              <label for="email">{{ __('E-Mail Address') }}</label>
+              <label for="email">{{ __('E-Mail') }}</label>
 
               <div>
                   <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -182,7 +182,7 @@ use App\User;
           </div>
 
           <div class="form-group">
-              <label for="password">{{ __('Password') }}</label>
+              <label for="password">{{ __('Senha') }}</label>
 
               <div>
                   <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -196,7 +196,7 @@ use App\User;
           </div>
 
           <div class="form-group">
-              <label for="password-confirm">{{ __('Confirm Password') }}</label>
+              <label for="password-confirm">{{ __('Confirme a senha') }}</label>
 
               <div>
                   <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -204,9 +204,10 @@ use App\User;
           </div>
 
           <div class="modal-footer">
-                  <button type="submit" class="btn btn-secondary rounded-pill botao">
-                      {{ __('Register') }}
-                  </button>
+            <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-secondary rounded-pill botao">
+                {{ __('Register') }}
+            </button>
           </div>
       </form>
       </div>
