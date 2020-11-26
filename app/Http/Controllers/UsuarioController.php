@@ -31,35 +31,7 @@ class UsuarioController extends Controller
         
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // Create Post
-        $usuario = new User;
-        $usuario->nome = $request->input('name');
-        $usuario->email = $request->input('email');
-        $usuario->cargo = $request->input('cargo');
-        //$funcionario->id = auth()->user()->id;
-        //$funcionario->cover_image = $fileNameToStore;
-        $usuario->save();
-        return redirect('/usuario');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+  
 
     /**
      * Show the form for editing the specified resource.
@@ -84,9 +56,9 @@ class UsuarioController extends Controller
     {
         $usuario = User::find($id);
         // Update Post
-        $usuario->nome = $request->input('nome');
+        $usuario->name = $request->input('name');
         $usuario->email = $request->input('email');
-        $usuario->cargo = $request->input('cargo');
+        $usuario->password = $request->input('password');
 
         $usuario->save();
         return redirect('/usuario');
