@@ -102,7 +102,7 @@ use App\User;
               </td>
           
               @if($contador>0)
-              <?php /*
+              
 
               <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
               <div class="modal fade escrita" id="modalEditar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -126,7 +126,7 @@ use App\User;
                         </div>
                         <div class="form-group">
                           {{Form::label('password', 'Senha')}}
-                          {{Form::text('password', '', ['class' => 'form-control', 'placeholder' => 'Nova senha'])}}
+                          {{Form::text('password', '$usuario->password', ['class' => 'form-control', 'placeholder' => 'Nova senha'])}}
                         </div>
                       </div>
                       <div class="modal-footer">
@@ -140,7 +140,7 @@ use App\User;
                 </div>
                 <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
-                */ ?>
+                
 
                 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
                 <div class="modal fade escrita" id="modalExcluir{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
