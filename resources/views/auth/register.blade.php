@@ -4,10 +4,17 @@
 
 <style>
 
-.botao:hover {
-    background-color: white !important;
-    color: #c3d2f5 !important;
-    border-color: #032066 !important;
+  .botao {
+    background-color: #032066;
+    color: white;
+    float: right;
+    border-color: white;
+  }
+
+  .botao:hover {
+    background-color: white;
+    color: #032066;
+    border-color: #032066;
   }
 
 </style>
