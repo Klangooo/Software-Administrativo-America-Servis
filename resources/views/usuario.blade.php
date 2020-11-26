@@ -4,7 +4,6 @@
 
 <?php
 use App\User;
-use Illuminate\Http\Request;
 ?>
 
 <style>
@@ -114,7 +113,7 @@ use Illuminate\Http\Request;
                         </button>
                       </div>
                       <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
-                        {!! Form::open(['action' => ['update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                        {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                         <div class="form-group">
                             {{Form::label('nome', 'Nome')}}
                             {{Form::text('name', $usuario->name, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
@@ -250,26 +249,5 @@ use Illuminate\Http\Request;
   </div>
 </div>
 <!--FIM DO MODAL CRIAR NOVO -->
-
-<?php
-/**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-     public function update(Request $request, $id)
-    {
-        $usuario = User::find($id);
-        // Update Post
-        $usuario->name = $request->input('name');
-        $usuario->email = $request->input('email');
-        $usuario->password = $request->input('password');
-
-        $usuario->save();
-        return redirect('/usuario');
-    }
-?>
 
 @endsection
