@@ -120,7 +120,7 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="mx-auto" style="width: 200px;">
+      <div class="mx-auto" style="width: 400px;">
       <form method="POST" action="{{ route('register') }}">
         @csrf
 
