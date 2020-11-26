@@ -80,7 +80,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-secondary rounded-pill botao" style="background-color: #032066;color: white;float: right;border-color: white;">
+                                <button type="submit" class="btn btn-secondary rounded-pill botao" >
                                     {{ __('Criar usuário') }}
                                 </button>
                             </div>
