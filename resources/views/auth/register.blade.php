@@ -78,8 +78,8 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group row">
+                            <div>
                                 <button type="submit" class="btn btn-primary btn-secondary rounded-pill botao">
                                     {{ __('Criar usuário') }}
                                 </button>

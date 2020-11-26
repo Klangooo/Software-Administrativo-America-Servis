@@ -41,7 +41,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Conecte-se') }}</a>
+                                <a class="nav-link" style="color: #032066" href="{{ route('login') }}">{{ __('Conecte-se') }}</a>
                             </li>
                             
                         @endguest
