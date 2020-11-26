@@ -68,7 +68,10 @@ use App\User;
     Criar novo
   </button>
   <br><br>
-
+  <?php
+  $contador = User::count();
+  $contador_id = 1;
+  ?>
   <table class="table centraliza table-striped">
     <thead class="primeiralinha">
       <tr>
@@ -79,10 +82,7 @@ use App\User;
       </tr>
     </thead>
     
-    <?php
-        $contador = User::count();
-        $contador_id = 1;
-        ?>
+    
       <tbody class="escritas">
         @if($contador == 0)
             <tr> 
@@ -96,12 +96,11 @@ use App\User;
               <th scope="row">{{$contador_id}}</th>
               <td>{{$usuario->name}}</td>
               <td>{{$usuario->email}}</td>
-              <td>{{$usuario->cargo}}</td>
               <td>
-              <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
-              <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
+                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
+                <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
               </td>
-            </tr>
+          
                 @if($contador>0)
                 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
                 <div class="modal fade escrita" id="modalExcluir{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -235,7 +234,7 @@ use App\User;
             {{Form::label('email', 'Email')}}
             {{Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
         </div>
-        </div>
+      </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
         {{Form::hidden('_method', 'PUT')}}
@@ -244,9 +243,8 @@ use App\User;
       </div>
     </div>
   </div>
-  </div>
-<!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
-@endif  
+  @endif  
 
 @endsection
