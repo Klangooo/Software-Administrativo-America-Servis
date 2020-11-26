@@ -196,8 +196,8 @@ use App\User;
           </button>
       </div>
       .ml-1 {
-        .mr-1 {
-          
+        margin-left: ($spacer * .25) !important;
+      }
       <?php
        // $usuario->id = '1';
       ?>
@@ -210,8 +210,8 @@ use App\User;
         <div class="form-group">
             {{Form::label('email', 'Email')}}
             {{Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
-      }}
-        </div>
+        
+      </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
         {{Form::hidden('_method', 'PUT')}}
