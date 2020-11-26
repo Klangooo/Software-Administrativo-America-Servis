@@ -153,7 +153,7 @@ use App\User;
         <form method="POST" action="{{ route('register') }}">
           @csrf
 
-          <div class="form-group row">
+          <div class="form-group">
               <label for="name">{{ __('Nome') }}</label>
 
               <div class="col-md-6">
@@ -167,7 +167,7 @@ use App\User;
               </div>
           </div>
 
-          <div class="form-group row">
+          <div class="form-group">
               <label for="email">{{ __('E-Mail') }}</label>
 
               <div class="col-md-6">
@@ -181,7 +181,7 @@ use App\User;
               </div>
           </div>
 
-          <div class="form-group row">
+          <div class="form-group">
               <label for="password">{{ __('Senha') }}</label>
 
               <div class="col-md-6">
@@ -195,7 +195,7 @@ use App\User;
               </div>
           </div>
 
-          <div class="form-group row">
+          <div class="form-group">
               <label for="password-confirm">{{ __('Confirme a senha') }}</label>
 
               <div class="col-md-6">
@@ -203,7 +203,7 @@ use App\User;
               </div>
           </div>
 
-          <div class="form-group row mb-0">
+          <div class="form-group">
               <div>
                   <button type="submit" class="btn btn-primary">
                       {{ __('Criar usuário') }}
