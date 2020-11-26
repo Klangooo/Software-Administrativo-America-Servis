@@ -96,16 +96,10 @@ use App\User;
               <th scope="row">{{$contador_id}}</th>
               <td>{{$usuario->name}}</td>
               <td>{{$usuario->email}}</td>
-<<<<<<< HEAD
               <td>{{$usuario->cargo}}</td>
               <td>
               <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
               <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
-=======
-              <td> 
-                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
-                <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
->>>>>>> 9e5c311da44af528731d24cb80f87467cdc2fa61
               </td>
             </tr>
                 @if($contador>0)
@@ -231,13 +225,6 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-<<<<<<< HEAD
-=======
-      <div class="mx-auto" style="width: 400px;">
-      <?php
-       // $usuario->id = '1';
-      ?>
->>>>>>> 9e5c311da44af528731d24cb80f87467cdc2fa61
       {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{$usuario->id}}
         <div class="form-group">
