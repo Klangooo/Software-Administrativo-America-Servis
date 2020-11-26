@@ -8,7 +8,6 @@ use App\User;
 
 <style>
   .scrollTable{
-    max-width: 100%;
     overflow: scroll;
   }
   .primeiralinha {
