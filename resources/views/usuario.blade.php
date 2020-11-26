@@ -224,6 +224,7 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+      <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
       {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{$usuario->id}}
         <div class="form-group">
@@ -242,6 +243,7 @@ use App\User;
       {!! Form::close() !!}
       </div>
     </div>
+  </div>
   </div>
   <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
