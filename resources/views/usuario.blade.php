@@ -143,13 +143,13 @@ use App\User;
 <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="background-color:#032066; color:white">
           <h5 class="modal-title" id="exampleModalLabel">Criar novo usuário</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="mx-auto" style="width: 400px;">
+      <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
         <form method="POST" action="{{ route('register') }}">
           @csrf
 
