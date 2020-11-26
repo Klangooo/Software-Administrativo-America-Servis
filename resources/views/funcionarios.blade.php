@@ -41,7 +41,7 @@ use App\Funcionario;
 
   .icone:hover {
     transform: scale(1.3);
-    color: #90a3aa;
+    color: #48555a;
   }
 
   .icone {
