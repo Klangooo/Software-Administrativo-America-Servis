@@ -43,7 +43,7 @@ use App\User;
 
   .icone:hover {
     transform: scale(1.3);
-    color: #98a9af;
+    color: #d7e6ec;
   }
 
   .icone {

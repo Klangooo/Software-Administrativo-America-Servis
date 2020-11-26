@@ -41,13 +41,14 @@ use App\Funcionario;
 
   .icone:hover {
     transform: scale(1.3);
-    color: #02acee;
+    color: #d7e6ec;
   }
 
   .icone {
     transform: scale(1.5);
     margin-top: 9px;
     cursor: pointer;
+    color: #032066;
   }
 
 </style>
