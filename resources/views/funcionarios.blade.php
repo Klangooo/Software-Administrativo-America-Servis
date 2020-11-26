@@ -194,19 +194,19 @@ use App\Funcionario;
       {!! Form::open(['action' => ['FuncionariosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
           <div class="form-group">
               {{Form::label('nome', 'Nome')}}
-              {{Form::text('nome', '', ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+              {{Form::text('nome', '', ['class' => 'form-control'])}}
           </div>
           <div class="form-group">
-              {{Form::label('cpf', 'Cpf')}}
-              {{Form::text('cpf', '', ['class' => 'form-control mascara_CPF', 'placeholder' => 'CPF'])}}
+              {{Form::label('cpf', 'CPF')}}
+              {{Form::text('cpf', '', ['class' => 'form-control mascara_CPF'])}}
           </div>
           <div class="form-group">
             {{Form::label('cargo', 'Cargo')}}
-            {{Form::text('cargo', '', ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
+            {{Form::text('cargo', '', ['class' => 'form-control'])}}
           </div>
           <div class="form-group">
             {{Form::label('postodeservico', 'Posto de Serviço')}}
-            {{Form::text('postodeservico', '', ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
+            {{Form::text('postodeservico', '', ['class' => 'form-control'])}}
           </div>
         </div>
           <div class="modal-footer">
