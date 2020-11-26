@@ -41,13 +41,14 @@ use App\Funcionario;
 
   .icone:hover {
     transform: scale(1.3);
-    color: #02acee;
+    color: #48555a;
   }
 
   .icone {
     transform: scale(1.5);
     margin-top: 9px;
     cursor: pointer;
+    color: #032066;
   }
 
 </style>
@@ -112,7 +113,11 @@ use App\Funcionario;
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+<<<<<<< HEAD
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+=======
+                        <div class="mx-auto" style="width: 400px;">
+>>>>>>> 9e5c311da44af528731d24cb80f87467cdc2fa61
                         {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                           <div class="form-group">
                               {{Form::label('nome', 'Nome')}}
@@ -189,7 +194,11 @@ use App\Funcionario;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+<<<<<<< HEAD
       <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+=======
+      <div class="mx-auto" style="width: 400px;">
+>>>>>>> 9e5c311da44af528731d24cb80f87467cdc2fa61
       {!! Form::open(['action' => ['FuncionariosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
           <div class="form-group">
               {{Form::label('nome', 'Nome')}}

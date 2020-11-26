@@ -43,13 +43,14 @@ use App\User;
 
   .icone:hover {
     transform: scale(1.3);
-    color: #02acee;
+    color: #48555a;
   }
 
   .icone {
     transform: scale(1.5);
     margin-top: 9px;
     cursor: pointer;
+    color: #032066;
   }
 
 
@@ -74,7 +75,6 @@ use App\User;
         <th scope="col">ID</th>
         <th scope="col">Nome</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Cargo</th>
         <th scope="col"> </th>
       </tr>
     </thead>
@@ -96,10 +96,16 @@ use App\User;
               <th scope="row">{{$contador_id}}</th>
               <td>{{$usuario->name}}</td>
               <td>{{$usuario->email}}</td>
+<<<<<<< HEAD
               <td>{{$usuario->cargo}}</td>
               <td>
               <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
               <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
+=======
+              <td> 
+                <i class="fas fa-pencil-alt icone" data-toggle="modal" style="margin-right: 17px" data-target="#modalEditar" data-id="{{$usuario->id}}"></i>
+                <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir"></i>
+>>>>>>> 9e5c311da44af528731d24cb80f87467cdc2fa61
               </td>
             </tr>
                 @if($contador>0)
@@ -150,6 +156,7 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+      <div class="mx-auto" style="width: 400px;">
       <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -164,14 +171,6 @@ use App\User;
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="cargo">{{ __('Cargo') }}</label>
-
-            <div>
-                <input id="cargo" type="text" class="form-control" name="cargo" value="{{ old('cargo') }}" required autocomplete="cargo">
             </div>
         </div>
 
@@ -210,7 +209,7 @@ use App\User;
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
         </div>
-
+      </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-secondary rounded-pill botao"> {{ __('Registrar') }} </button>
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
@@ -232,6 +231,13 @@ use App\User;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+<<<<<<< HEAD
+=======
+      <div class="mx-auto" style="width: 400px;">
+      <?php
+       // $usuario->id = '1';
+      ?>
+>>>>>>> 9e5c311da44af528731d24cb80f87467cdc2fa61
       {!! Form::open(['action' => ['UsuarioController@update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         {{$usuario->id}}
         <div class="form-group">
@@ -242,9 +248,6 @@ use App\User;
             {{Form::label('email', 'Email')}}
             {{Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
         </div>
-        <div class="form-group">
-          {{Form::label('cargo', 'Cargo')}}
-          {{Form::text('cargo', $usuario->cargo, ['class' => 'form-control', 'placeholder' => 'Cargo'])}}
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>

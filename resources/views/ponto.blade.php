@@ -59,9 +59,10 @@
           <th scope="col">Nome</th>
           <th scope="col">Cargo</th>
           <th scope="col">Posto de serviço</th>
-          <th scope="col">Ponto início</th>
-          <th scope="col">Horário de almoço</th>
-          <th scope="col">Ponto final</th>
+          <th scope="col">Entrada</th>
+          <th scope="col">Início do Intervalo</th>
+          <th scope="col">Fim do Intervalo</th>
+          <th scope="col">Saída</th>
         </tr>
       </thead>
       <tbody class="escritas"> 
@@ -72,6 +73,7 @@
           <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h00</td>
+          <td>14h00</td>
           <td>18h00</td>
         </tr>
         <tr>
@@ -81,6 +83,7 @@
           <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h20</td>
+          <td>14h20</td>
           <td>18h00</td>
         </tr>
         <tr>
@@ -90,6 +93,7 @@
           <td>Distribuidora de cargas</td>
           <td>12h01</td>
           <td>13h10</td>
+          <td>14h10</td>
           <td>18h00</td>
         </tr>
       </tbody>
@@ -102,10 +106,15 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Deseja limpar os Registros?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Limpar Registros</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
           </button>
+      </div>
+      <div class="mx-auto" style="width: 400px;">
+      <div class="modal-body">
+        Deseja limpar os registros?
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
