@@ -7,7 +7,7 @@ use App\User;
 ?>
 
 <style>
-  .table{
+  .scrollTable{
     max-width: 100%;
     overflow: scroll;
   }
@@ -79,7 +79,7 @@ use App\User;
   $contador = User::count();
   $contador_id = 1;
   ?>
-  <table class="table centraliza table-striped">
+  <table class="table centraliza table-striped scrollTable">
     <thead class="primeiralinha">
       <tr>
         <th scope="col">ID</th>
