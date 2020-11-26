@@ -206,7 +206,7 @@ use App\User;
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-secondary rounded-pill botao">
-                {{ __('Register') }}
+                {{ __('Criar usuário') }}
             </button>
           </div>
       </form>

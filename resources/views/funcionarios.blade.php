@@ -211,7 +211,7 @@ use App\Funcionario;
         </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-          {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+          {{Form::submit('Criar funcionário', ['class'=>'btn btn-secondary rounded-pill botao'])}}
        {!! Form::close() !!}
       </div>
       </div>
