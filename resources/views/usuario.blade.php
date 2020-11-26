@@ -4,6 +4,7 @@
 
 <?php
 use App\User;
+use Illuminate\Http\Request;
 ?>
 
 <style>
@@ -101,7 +102,43 @@ use App\User;
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$usuario->id}}"></i>
               </td>
           
-                @if($contador>0)
+              @if($contador>0)
+              <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+              <div class="modal fade escrita" id="modalEditar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color:#032066; color:white">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar usuário</h5>
+                        <button type="button" class="close" style="color:white" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+                        {!! Form::open(['action' => ['update', $usuario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                        <div class="form-group">
+                            {{Form::label('nome', 'Nome')}}
+                            {{Form::text('name', $usuario->name, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
+                        </div>
+                        <div class="form-group">
+                            {{Form::label('email', 'Email')}}
+                            {{Form::text('email', $usuario->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
+                        </div>
+                        <div class="form-group">
+                          {{Form::label('password', 'Senha')}}
+                          {{Form::text('password', '', ['class' => 'form-control', 'placeholder' => 'Nova senha'])}}
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+                          {{Form::hidden('_method', 'PUT')}}
+                          {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
+                          {!! Form::close() !!}
+                      </div>
+                  </div>
+                  </div>
+                </div>
+                <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
                 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
                 <div class="modal fade escrita" id="modalExcluir{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
@@ -213,5 +250,26 @@ use App\User;
   </div>
 </div>
 <!--FIM DO MODAL CRIAR NOVO -->
+
+<?php
+/**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+     public function update(Request $request, $id)
+    {
+        $usuario = User::find($id);
+        // Update Post
+        $usuario->name = $request->input('name');
+        $usuario->email = $request->input('email');
+        $usuario->password = $request->input('password');
+
+        $usuario->save();
+        return redirect('/usuario');
+    }
+?>
 
 @endsection

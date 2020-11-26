@@ -109,7 +109,7 @@ use App\Funcionario;
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
                             <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
-                            <button type="button" class="close" style="color:white" data-dismiss="modal" aria-label="Fechar">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -120,7 +120,7 @@ use App\Funcionario;
                               {{Form::text('nome', $funcionario->nome, ['class' => 'form-control', 'placeholder' => 'Nome'])}}
                           </div>
                           <div class="form-group">
-                              {{Form::label('cpf', 'Cpf')}}
+                              {{Form::label('cpf', 'CPF')}}
                               {{Form::text('cpf', $funcionario->cpf, ['class' => 'form-control mascara_CPF', 'placeholder' => 'CPF'])}}
                           </div>
                           <div class="form-group">
