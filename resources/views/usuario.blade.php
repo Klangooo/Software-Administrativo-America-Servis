@@ -80,7 +80,7 @@ use App\User;
   $contador = User::count();
   $contador_id = 1;
   ?>
-  <table class="table centraliza table-striped scrollTable">
+  <table class="table centraliza table-striped">
     <thead class="primeiralinha">
       <tr>
         <th scope="col">ID</th>
@@ -90,8 +90,8 @@ use App\User;
       </tr>
     </thead>
     
-    
-      <tbody class="escritas scrollTable">
+    <div class="scrollTable">
+      <tbody class="escritas">
         @if($contador == 0)
             <tr> 
               <td>
@@ -181,6 +181,7 @@ use App\User;
             @endforeach
         @endif
       </tbody>
+    </div>
 
     </table>
 
