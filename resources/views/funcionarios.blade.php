@@ -110,6 +110,7 @@ use App\Funcionario;
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        <div class="mx-auto" style="width: 400px;">
                         {!! Form::open(['action' => ['FuncionariosController@update', $funcionario->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                           <div class="form-group">
                               {{Form::label('nome', 'Nome')}}
@@ -127,6 +128,7 @@ use App\Funcionario;
                             {{Form::label('postodeservico', 'Posto de Serviço')}}
                             {{Form::text('postodeservico', $funcionario->postodeservico, ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
                           </div>
+                        </div>
                           <div class="modal-footer">
                           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
                           {{Form::hidden('_method', 'PUT')}}
@@ -188,6 +190,7 @@ use App\Funcionario;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
+      <div class="mx-auto" style="width: 400px;">
       {!! Form::open(['action' => ['FuncionariosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
           <div class="form-group">
               {{Form::label('nome', 'Nome')}}
@@ -205,6 +208,7 @@ use App\Funcionario;
             {{Form::label('postodeservico', 'Posto de Serviço')}}
             {{Form::text('postodeservico', '', ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
           </div>
+        </div>
           <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
           {{Form::submit('Salvar Mudanças', ['class'=>'btn btn-secondary rounded-pill botao'])}}
