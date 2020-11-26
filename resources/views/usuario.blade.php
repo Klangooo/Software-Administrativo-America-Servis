@@ -126,7 +126,7 @@ use App\User;
                         </div>
                         <div class="form-group">
                           {{Form::label('password', 'Senha')}}
-                          {{Form::text('password', '$usuario->password', ['class' => 'form-control', 'placeholder' => 'Nova senha'])}}
+                          {{Form::text('password', $usuario->password, ['class' => 'form-control', 'placeholder' => 'Nova senha'])}}
                         </div>
                       </div>
                       <div class="modal-footer">
