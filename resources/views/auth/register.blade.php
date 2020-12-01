@@ -2,22 +2,6 @@
 
 @section('content')
 
-<style>
-
-  .botao {
-    background-color: #032066;
-    color: white;
-    float: right;
-    border-color: white;
-  }
-
-  .botao:hover {
-    background-color: white;
-    color: #032066;
-    border-color: #032066;
-  }
-
-</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -80,7 +64,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-secondary rounded-pill botao">
+                                <button type="submit" class="btn btn-secondary rounded-pill" style="background-color: #032066;color: white;float: right;border-color: white;">
                                     {{ __('Criar usuário') }}
                                 </button>
                             </div>

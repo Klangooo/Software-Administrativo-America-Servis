@@ -161,7 +161,7 @@ use App\Funcionario;
 
                             {!!Form::open(['action' => ['FuncionariosController@destroy', $funcionario->id], 'method' => 'POST'])!!}
                                   {{Form::hidden('_method', 'DELETE')}}
-                                  {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
+                                  {{Form::submit('Confirmar', ['class' => 'btn btn-secondary rounded-pill botao'])}}
                               {!!Form::close()!!}
                         </div>
                         </div>

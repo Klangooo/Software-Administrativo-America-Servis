@@ -130,7 +130,7 @@ use App\Ponto;
 
                             {!!Form::open(['action' => ['PontosController@destroy', $ponto->id], 'method' => 'POST'])!!}
                                   {{Form::hidden('_method', 'DELETE')}}
-                                  {{Form::submit('Confirmar', ['class' => 'btn btn-primary rounded-pill botao'])}}
+                                  {{Form::submit('Confirmar', ['class' => 'btn btn-secondary rounded-pill botao'])}}
                               {!!Form::close()!!}
                         </div>
                         </div>
@@ -166,7 +166,7 @@ use App\Ponto;
 
           {!!Form::open(['action' => ['PontosController@destroy', $ponto->id], 'method' => 'POST'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('Limpar Registros', ['class' => 'btn btn-primary rounded-pill botao'])}}
+                {{Form::submit('Limpar Registros', ['class' => 'btn btn-secondary rounded-pill botao'])}}
             {!!Form::close()!!}
       </div>
       </div>
