@@ -51,6 +51,7 @@ class PontosController extends Controller
 
         //$funcionario->id = auth()->user()->id;
         //$funcionario->cover_image = $fileNameToStore;
+        
         $ponto->save();
         return redirect('/ponto');
     }

@@ -147,7 +147,7 @@ use App\Ponto;
 
     <br><br>
 
-    <!-- ABERTURA DO MODAL LIMPAR REGISTROS -->
+<!-- ABERTURA DO MODAL LIMPAR REGISTROS -->
 <div class="modal fade escrita" id="modalLimparReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -157,7 +157,7 @@ use App\Ponto;
           <span aria-hidden="true">&times;</span>
           </button>
       </div>
-      <div class="mx-auto" style="width: 400px;">
+      <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
       <div class="modal-body">
         Deseja limpar os registros?
       </div>
