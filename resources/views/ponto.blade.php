@@ -147,29 +147,6 @@ use App\Ponto;
 
     <br><br>
 
-<!-- ABERTURA DO MODAL LIMPAR REGISTROS -->
-<div class="modal fade escrita" id="modalLimparReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Limpar Registros</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-          </button>
-      </div>
-      <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
-      <div class="modal-body">
-        Deseja limpar os registros?
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Limpar Registros</button>
-      </div>
-      </div>
-  </div>
-  </div>
-<!--FIM DO MODAL LIMPAR REGISTROS -->
 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
 <div class="modal fade escrita" id="modalLimparReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -186,7 +163,7 @@ use App\Ponto;
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
 
-          {!!Form::open(['action' => ['FuncionariosController@destroy', $funcionario->id], 'method' => 'POST'])!!}
+          {!!Form::open(['action' => ['PontosController@destroy', $ponto->id], 'method' => 'POST'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('Limpar Registros', ['class' => 'btn btn-primary rounded-pill botao'])}}
             {!!Form::close()!!}
