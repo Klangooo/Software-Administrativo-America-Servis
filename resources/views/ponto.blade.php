@@ -147,6 +147,7 @@ use App\Ponto;
 
     <br><br>
 
+@if($contador > 0)                  
 <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
 <div class="modal fade escrita" id="modalLimparReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -172,6 +173,7 @@ use App\Ponto;
   </div>
   </div>
 <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
+@endif
 
 
   <!-- ABERTURA DO MODAL CRIAR NOVO -->
