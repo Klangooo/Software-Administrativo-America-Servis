@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTabelaPontosTable extends Migration
+class CreatePontosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateTabelaPontosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tabelapontos', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pontos', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('nome');
             $table->string('cargo');
-            $table->string('localizacao');
-            $table->string('pontoinicio');
-            $table->string('pontoalmoco');
-            $table->string('pontofinal');
+            $table->string('postodeservico');
+            $table->string('entrada');
+            $table->string('iniciointervalo');
+            $table->string('fimintervalo');
+            $table->string('saida');
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateTabelaPontosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tabelapontos');
+        Schema::dropIfExists('pontos');
     }
 }
