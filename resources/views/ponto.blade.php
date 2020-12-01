@@ -69,6 +69,7 @@ use App\Ponto;
           <th scope="col">Início do Intervalo</th>
           <th scope="col">Fim do Intervalo</th>
           <th scope="col">Saída</th>
+          <th scope="col"> </th>
         </tr>
       </thead>
       <?php
@@ -85,7 +86,7 @@ use App\Ponto;
         @else
             @foreach($pontos as $ponto)
             <tr>
-              <th scope="row">{{$ponto->created_at}}</th>
+              <th scope="row">{{$ponto->created_at->toDateString()}}</th>
               <td>{{$ponto->nome}}</td>
               <td>{{$ponto->cargo}}</td>
               <td>{{$ponto->postodeservico}}</td>
