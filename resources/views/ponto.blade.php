@@ -39,6 +39,18 @@ use App\Ponto;
     text-align: center;
   }
 
+  .icone:hover {
+    transform: scale(1.3);
+    color: #48555a;
+  }
+
+  .icone {
+    transform: scale(1.5);
+    margin-top: 9px;
+    cursor: pointer;
+    color: #032066;
+  }
+
 </style>
 
 <div style="background-color: #e5e6e7">
