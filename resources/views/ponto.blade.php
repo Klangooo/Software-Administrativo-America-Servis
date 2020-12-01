@@ -170,6 +170,31 @@ use App\Ponto;
   </div>
   </div>
 <!--FIM DO MODAL LIMPAR REGISTROS -->
+<!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
+<div class="modal fade escrita" id="modalLimparReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header" style="background-color:#032066; color:white">
+          <h5 class="modal-title" id="exampleModalLabel">Limpar Registros</h5>
+          <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        Deseja limpar os registros?
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+
+          {!!Form::open(['action' => ['FuncionariosController@destroy', $funcionario->id], 'method' => 'POST'])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('Limpar Registros', ['class' => 'btn btn-primary rounded-pill botao'])}}
+            {!!Form::close()!!}
+      </div>
+      </div>
+  </div>
+  </div>
+<!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
 
 
   <!-- ABERTURA DO MODAL CRIAR NOVO -->
