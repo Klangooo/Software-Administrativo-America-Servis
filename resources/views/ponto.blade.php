@@ -158,7 +158,6 @@ use App\Ponto;
   </div>
 <!--FIM DO MODAL LIMPAR REGISTROS -->
 
-<?php /*
 
   <!-- ABERTURA DO MODAL CRIAR NOVO -->
   <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -171,7 +170,7 @@ use App\Ponto;
             </button>
         </div>
         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
-        {!! Form::open(['action' => ['PontosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+        {!! Form::open(['action' => ['PontosController@show'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="form-group">
                 {{Form::label('nome', 'Nome')}}
                 {{Form::text('nome', '', ['class' => 'form-control'])}}
@@ -211,7 +210,6 @@ use App\Ponto;
     </div>
   <!--FIM DO MODAL CRIAR NOVO -->
 
-  */?>
 
   </div>
 
