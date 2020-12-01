@@ -158,6 +158,7 @@ use App\Ponto;
   </div>
 <!--FIM DO MODAL LIMPAR REGISTROS -->
 
+<?php /*
 
   <!-- ABERTURA DO MODAL CRIAR NOVO -->
   <div class="modal fade escrita" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -209,6 +210,8 @@ use App\Ponto;
     </div>
     </div>
   <!--FIM DO MODAL CRIAR NOVO -->
+
+  */?>
 
   </div>
 
