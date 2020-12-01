@@ -58,12 +58,6 @@
                                 <button type="submit" class="btn btn-secondary rounded-pill" style="background-color: #032066;color: white;border-color: white;">
                                     {{ __('Conecte-se') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Esqueceu sua senha?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </form>
