@@ -190,6 +190,7 @@ use App\Ponto;
         {!! Form::open(['action' => ['PontosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="form-group">
                 {{Form::label('cpf', 'CPF')}}
+                @if($erro != NULL) {{ $erro }} @endif
                 {{Form::text('cpf', '', ['class' => 'form-control'])}}
             </div>
             <div class="form-group">

@@ -38,11 +38,12 @@ class PontosController extends Controller
      */
     public function store(Request $request)
     {
+        $erro = NULL;
         $cpf = $request->input('cpf');
         $localizacao = $request->input('localizacao');
         if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
         {
-            echo "vai invadir o programa da sua mãe";
+            $erro = "vai invadir o programa da sua mãe";
         }
         else
         {
@@ -62,7 +63,7 @@ class PontosController extends Controller
             
             $ponto->save();
         }
-        return redirect('/ponto');
+        return redirect('/ponto')->with('erro', $erro);
     }
 
     /**
