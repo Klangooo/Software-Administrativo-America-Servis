@@ -43,7 +43,7 @@ class PontosController extends Controller
         $localizacao = $request->input('localizacao');
         if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
         {
-            $erro = "vai invadir o programa da sua mãe";
+            return('/funcionarios');
         }
         else
         {
@@ -63,7 +63,7 @@ class PontosController extends Controller
             
             $ponto->save();
         }
-        return redirect('/ponto')->with('erro', $erro);
+        return redirect('/ponto');
     }
 
     /**
