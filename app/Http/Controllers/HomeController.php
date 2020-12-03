@@ -41,7 +41,7 @@ class HomeController extends Controller
         return view('usuario');
     }
 
-    public function redireciona()
+    public function registrar()
     {
         return view('auth/register');
     }

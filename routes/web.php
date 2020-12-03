@@ -29,7 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::delete('/ponto', 'PontosController@destroyALL');
 
-Route::get('/redireciona', 'HomeController@redireciona')->name('redireciona');
+Route::get('/registrar', 'HomeController@registrar')->name('registrar');
 
 
 Route::resource('/funcionarios', 'FuncionariosController');
