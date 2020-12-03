@@ -49,7 +49,7 @@ class PontosController extends Controller
         {
             // Create Post
             $ponto = new Ponto;
-            $ponto->nome = DB::table('funcionarios')->where('cpf', $cpf)->select('nome');
+            $ponto->nome = DB::table('funcionarios')->where('cpf', $cpf)->get('nome');
             $ponto->cargo = DB::table('funcionarios')->where('cpf', $cpf)->get('cargo');
             $ponto->postodeservico = DB::table('funcionarios')->where('cpf', $cpf)->get('postodeservico');
 
@@ -122,7 +122,14 @@ class PontosController extends Controller
         $ponto = Ponto::find($id);
         $ponto->delete();
         return redirect('/ponto');
-    }    
+    }
+
+    public function destroyALL()
+    {
+        $ponto = Ponto::all();
+        $ponto->delete();
+        return redirect('/ponto');
+    } 
 
 }
 
