@@ -43,7 +43,7 @@ class PontosController extends Controller
         $localizacao = $request->input('localizacao');
         if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
         {
-            return('/funcionarios');
+            return redirect('/funcionarios');
         }
         else
         {
