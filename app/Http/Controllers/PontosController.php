@@ -27,7 +27,9 @@ class PontosController extends Controller
      */
     public function create()
     {
-        
+        $ponto = Ponto::all();
+        $ponto->delete();
+        return redirect('/ponto');
     }
 
     /**
@@ -120,18 +122,6 @@ class PontosController extends Controller
     public function destroy($id)
     {
         $ponto = Ponto::find($id);
-        $ponto->delete();
-        return redirect('/ponto');
-    }
-
-     /**
-     * Remove all resources from storage.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy2()
-    {
-        $ponto = Ponto::all();
         $ponto->delete();
         return redirect('/ponto');
     }
