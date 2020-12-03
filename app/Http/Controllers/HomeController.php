@@ -43,7 +43,7 @@ class HomeController extends Controller
 
     public function redireciona()
     {
-        return view('register');
+        return view('auth/register');
     }
     
 }
