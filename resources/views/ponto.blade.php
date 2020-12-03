@@ -87,6 +87,7 @@ use App\Ponto;
       <?php
         $contador = Ponto::count();
         $contador_id = 1;
+        $erro;
         ?>
       <tbody class="escritas">
         @if($contador == 0)
