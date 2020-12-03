@@ -41,11 +41,4 @@ class HomeController extends Controller
         return view('usuario');
     }
 
-    public function register()
-    {
-        return view('auth/register');
-    }
-
-    
-
 }
