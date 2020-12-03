@@ -27,9 +27,7 @@ class PontosController extends Controller
      */
     public function create()
     {
-        $ponto = Ponto::all();
-        $ponto->delete();
-        return redirect('/ponto');
+        //
     }
 
     /**
@@ -125,6 +123,13 @@ class PontosController extends Controller
         $ponto->delete();
         return redirect('/ponto');
     }
+
+    public function destroyALL()
+    {
+        $ponto = Ponto::all();
+        $ponto->delete();
+        return redirect('/ponto');
+    } 
 
 }
 
