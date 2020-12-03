@@ -132,6 +132,7 @@ class PontosController extends Controller
     public function destroyALL()
     {
         Ponto::truncate();
+        return redirect('/ponto');
     } 
 
 }
