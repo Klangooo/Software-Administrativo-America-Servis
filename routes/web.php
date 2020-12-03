@@ -27,9 +27,9 @@ Route::get('/ponto', 'HomeController@ponto')->name('ponto');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/ponto', 'PontosController@destroyALL');
-Route::post('/ponto', 'PontosController@destroyALL');
 Route::delete('/ponto', 'PontosController@destroyALL');
+
+Route::get('/redireciona', 'HomeController@redireciona')->name('redireciona');
 
 
 Route::resource('/funcionarios', 'FuncionariosController');
