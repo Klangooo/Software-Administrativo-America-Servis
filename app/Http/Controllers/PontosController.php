@@ -48,9 +48,9 @@ class PontosController extends Controller
         {
             // Create Post
             $ponto = new Ponto;
-            $ponto->nome = DB::table('funcionarios')->where('cpf', $cpf)->get('nome');
-            $ponto->cargo = DB::table('funcionarios')->where('cpf', $cpf)->get('cargo');
-            $ponto->postodeservico = DB::table('funcionarios')->where('cpf', $cpf)->get('postodeservico');
+            $ponto->nome = DB::table('funcionarios')->where('cpf', $cpf)->get('funcionario->nome');
+            $ponto->cargo = DB::table('funcionarios')->where('cpf', $cpf)->get('funcionario->cargo');
+            $ponto->postodeservico = DB::table('funcionarios')->where('cpf', $cpf)->get('funcionario->postodeservico');
 
             $ponto->entrada = $request->input('entrada');
             $ponto->iniciointervalo = $request->input('iniciointervalo');
