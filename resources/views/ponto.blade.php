@@ -148,7 +148,7 @@ use App\Ponto;
     <br><br>
 
 @if($contador > 0)                  
-<!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
+<!-- ABERTURA DO MODAL LIMPAR REGISTROS -->
 <div class="modal fade escrita" id="modalLimparReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -164,7 +164,7 @@ use App\Ponto;
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
 
-          {!!Form::open(['action' => ['PontosController@destroy', $ponto->id], 'method' => 'POST'])!!}
+          {!!Form::open(['action' => ['PontosController@destroyALL'], 'method' => 'POST'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('Limpar Registros', ['class' => 'btn btn-secondary rounded-pill botao'])}}
             {!!Form::close()!!}
@@ -172,7 +172,7 @@ use App\Ponto;
       </div>
   </div>
   </div>
-<!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
+<!--FIM DO MODAL LIMPAR REGISTROS -->
 @endif
 
 
