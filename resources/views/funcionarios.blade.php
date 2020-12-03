@@ -2,7 +2,7 @@
 
 @section('content')
 <?php
-use App\Funcionario;
+  use App\Funcionario;
 ?>
 <style>
 

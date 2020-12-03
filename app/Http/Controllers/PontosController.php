@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Storage;
-//use Intervention\Image\Facades\Image;
-//use DB;
+use Illuminate\Support\Facades\DB;
 use App\Ponto;
+use App\Funcionario;
 
 class PontosController extends Controller
 {
@@ -39,20 +38,30 @@ class PontosController extends Controller
      */
     public function store(Request $request)
     {
-        // Create Post
-        $ponto = new Ponto;
-        $ponto->nome = $request->input('nome');
-        $ponto->cargo = $request->input('cargo');
-        $ponto->postodeservico = $request->input('postodeservico');
-        $ponto->entrada = $request->input('entrada');
-        $ponto->iniciointervalo = $request->input('iniciointervalo');
-        $ponto->fimintervalo = $request->input('fimintervalo');
-        $ponto->saida = $request->input('saida');
+        $cpf = $request->input('cpf');
+        $localizacao = $request->input('localizacao');
+        if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
+        {
+            echo "vai invadir o programa da sua mãe";
+        }
+        else
+        {
+            // Create Post
+            $ponto = new Ponto;
+            $ponto->nome = DB::table('funcionarios')->where('cpf', $cpf)->get('nome');
+            $ponto->cargo = DB::table('funcionarios')->where('cpf', $cpf)->get('cargo');
+            $ponto->postodeservico = DB::table('funcionarios')->where('cpf', $cpf)->get('postodeserviço');
 
-        //$funcionario->id = auth()->user()->id;
-        //$funcionario->cover_image = $fileNameToStore;
-        
-        $ponto->save();
+            $ponto->entrada = $request->input('entrada');
+            $ponto->iniciointervalo = $request->input('iniciointervalo');
+            $ponto->fimintervalo = $request->input('fimintervalo');
+            $ponto->saida = $request->input('saida');
+
+            //$funcionario->id = auth()->user()->id;
+            //$funcionario->cover_image = $fileNameToStore;
+            
+            $ponto->save();
+        }
         return redirect('/ponto');
     }
 

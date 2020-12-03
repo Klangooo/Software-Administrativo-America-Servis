@@ -189,16 +189,12 @@ use App\Ponto;
         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
         {!! Form::open(['action' => ['PontosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="form-group">
-                {{Form::label('nome', 'Nome')}}
-                {{Form::text('nome', '', ['class' => 'form-control'])}}
+                {{Form::label('cpf', 'CPF')}}
+                {{Form::text('cpf', '', ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
-              {{Form::label('cargo', 'Cargo')}}
-              {{Form::text('cargo', '', ['class' => 'form-control'])}}
-            </div>
-            <div class="form-group">
-              {{Form::label('postodeservico', 'Posto de Serviço')}}
-              {{Form::text('postodeservico', '', ['class' => 'form-control'])}}
+              {{Form::label('localizacao', 'Localização')}}
+              {{Form::text('localizacao', '', ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
               {{Form::label('entrada', 'Entrada')}}
