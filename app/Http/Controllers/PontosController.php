@@ -124,12 +124,17 @@ class PontosController extends Controller
         return redirect('/ponto');
     }
 
-    public function destroyALL($model)
+     /**
+     * Remove all resources from storage.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy2()
     {
-        $ponto = $model::all();
+        $ponto = Ponto::all();
         $ponto->delete();
         return redirect('/ponto');
-    } 
+    }
 
 }
 
