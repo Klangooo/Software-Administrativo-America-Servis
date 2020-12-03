@@ -164,7 +164,7 @@ use App\Ponto;
       <div class="modal-footer">
           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
 
-          {!!Form::open(['action' => 'PontosController@destroyALL', 'method' => 'POST'])!!}
+          {!!Form::open(['action' => ['PontosController@destroyALL', 'Ponto'], 'method' => 'POST'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('Limpar Registros', ['class' => 'btn btn-secondary rounded-pill botao'])}}
             {!!Form::close()!!}

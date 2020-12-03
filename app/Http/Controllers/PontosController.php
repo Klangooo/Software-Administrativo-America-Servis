@@ -124,9 +124,9 @@ class PontosController extends Controller
         return redirect('/ponto');
     }
 
-    public function destroyALL()
+    public function destroyALL($model)
     {
-        $ponto = Ponto::all();
+        $ponto = $model::all();
         $ponto->delete();
         return redirect('/ponto');
     } 
