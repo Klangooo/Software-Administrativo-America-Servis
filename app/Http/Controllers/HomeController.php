@@ -58,7 +58,7 @@ class HomeController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        return redirect('/usuarios');
+        return redirect('/usuario');
     }
 
 }
