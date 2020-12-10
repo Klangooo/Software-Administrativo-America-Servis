@@ -9,7 +9,7 @@
                 <div class="card-header" style="background-color: #032066; color: white">{{ __('Criar novo usuário') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('cadastro_usuario_do') }}">
                         @csrf
 
                         <div class="form-group row">
