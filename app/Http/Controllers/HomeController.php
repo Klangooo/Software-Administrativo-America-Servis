@@ -54,7 +54,7 @@ class HomeController extends Controller
         return view('cadastro_usuario');
     }
 
-    public function cadastro_usuario_do(array $data)
+    public function cadastro_usuario_do(Request $data)
     {
         return User::create([
             'name' => $data['name'],
