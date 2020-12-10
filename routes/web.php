@@ -29,6 +29,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::delete('/ponto', 'PontosController@destroyALL');
 
+Route::get('/cadastro_usuario', 'HomeController@cadastro_usuario')->name('cadastro_usuario');
+
 Route::resource('/funcionarios', 'FuncionariosController');
 Route::resource('/usuario', 'UsuarioController');
 Route::resource('/ponto', 'PontosController');

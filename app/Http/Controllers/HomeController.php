@@ -41,4 +41,12 @@ class HomeController extends Controller
         return view('usuario');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function cadastro_usuario()
+    {
+        return view('cadastro_usuario');
+    }
+
 }
