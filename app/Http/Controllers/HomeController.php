@@ -53,11 +53,12 @@ class HomeController extends Controller
 
     public function cadastro_usuario_do(Request $data)
     {
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+        return redirect('/usuarios');
     }
 
 }
