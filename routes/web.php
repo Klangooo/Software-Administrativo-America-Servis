@@ -19,21 +19,20 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/funcionario', 'HomeController@funcionario')->name('funcionario');
+Route::middleware('auth')->group(function () {
+    Route::get('/usuario', 'HomeController@usuario')->name('usuario');
 
-Route::get('/usuario', 'HomeController@usuario')->name('usuario');
+    Route::get('/funcionario', 'HomeController@funcionario')->name('funcionario');
 
-Route::get('/ponto', 'HomeController@ponto')->name('ponto');
+    Route::get('/ponto', 'HomeController@ponto')->name('ponto');
+    Route::delete('/ponto', 'PontosController@destroyALL');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::delete('/ponto', 'PontosController@destroyALL');
-
-Route::get('/cadastro_usuario', 'HomeController@cadastro_usuario')->name('cadastro_usuario');
-Route::post('/cadastro_usuario', 'HomeController@cadastro_usuario_do')->name('cadastro_usuario_do');
-
-Route::resource('/funcionarios', 'FuncionariosController');
-Route::resource('/usuario', 'UsuarioController');
-Route::resource('/ponto', 'PontosController');
-
-
+    Route::get('/home', 'HomeController@index')->name('home'); 
+    
+    Route::get('/cadastro_usuario', 'HomeController@cadastro_usuario')->name('cadastro_usuario');
+    Route::post('/cadastro_usuario', 'HomeController@cadastro_usuario_do')->name('cadastro_usuario_do');
+    
+    Route::resource('/funcionarios', 'FuncionariosController');
+    Route::resource('/usuario', 'UsuarioController');
+    Route::resource('/ponto', 'PontosController');  
+});  
