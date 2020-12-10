@@ -68,7 +68,7 @@ use App\User;
   <!-- <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
     Criar novo
   </button> -->
-  <a href="/register"><button type="button" class="btn rounded-pill botao" style="margin-right: 10px">
+  <a href="/cadastro_usuario"><button type="button" class="btn rounded-pill botao" style="margin-right: 10px">
     Criar novo
   </button></a>
   <br><br>

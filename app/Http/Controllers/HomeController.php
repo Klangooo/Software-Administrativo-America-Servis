@@ -38,7 +38,10 @@ class HomeController extends Controller
 
     public function usuario()
     {
-        return view('usuario');
+        if (Auth::check()) {
+            return view('usuario'); 
+        }
+        else redirect('/login');
     }
 
     /**
