@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -53,6 +54,11 @@ class HomeController extends Controller
 
     public function cadastro_usuario_do(Request $data)
     {
+        Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
         User::create([
             'name' => $data['name'],
             'email' => $data['email'],
