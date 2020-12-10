@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -39,11 +40,7 @@ class HomeController extends Controller
 
     public function usuario()
     {
-        dd(Auth::check());
-        if (Auth::check()) {
-            return view('usuario'); 
-        }
-        else redirect('/login');
+        return view('usuario'); 
     }
 
     /**
