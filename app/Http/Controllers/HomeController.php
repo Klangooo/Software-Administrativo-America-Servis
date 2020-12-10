@@ -38,6 +38,7 @@ class HomeController extends Controller
 
     public function usuario()
     {
+        dd(Auth::check())
         if (Auth::check()) {
             return view('usuario'); 
         }
