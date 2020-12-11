@@ -51,7 +51,7 @@ class PontosController extends Controller
             return redirect('/funcionarios');
             //erro de cpf
         }
-        else if($VARlatitude < 0.008993 && $VARlongitude < 0.008993)
+        else if($VARlatitude > 0.008993 && $VARlongitude > 0.008993)
         {
             return redirect('/funcionarios');
             //erro de localização
