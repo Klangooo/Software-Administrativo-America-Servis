@@ -40,10 +40,22 @@ class PontosController extends Controller
     {
         $erro = NULL;
         $cpf = $request->input('cpf');
-        $localizacao = $request->input('localizacao');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
+        $ASlatitude = -22.1800662;
+        $ASlongitude = -49.9264917;
+        $VARlatitude = abs($latitude - $ASlatitude);
+        $VARlongitude = abs($longitude - $ASlongitude);
         if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
         {
             return redirect('/funcionarios');
+            //erro de cpf
+        }
+        else if($VARlatitude < 0.008993 && $VARlongitude < 0.008993)
+        {
+            return redirect('/funcionarios');
+            //erro de localização
+
         }
         else
         {

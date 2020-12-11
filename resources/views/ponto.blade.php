@@ -193,8 +193,12 @@ use App\Ponto;
                 {{Form::text('cpf', '', ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
-              {{Form::label('localizacao', 'Localização')}}
-              {{Form::text('localizacao', '', ['class' => 'form-control'])}}
+              {{Form::label('latitude', 'Latitude')}}
+              {{Form::text('latitude', '', ['class' => 'form-control'])}}
+            </div>
+            <div class="form-group">
+              {{Form::label('longitude', 'Longitude')}}
+              {{Form::text('longitude', '', ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
               {{Form::label('entrada', 'Entrada')}}
