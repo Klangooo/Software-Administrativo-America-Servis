@@ -45,6 +45,8 @@ class FuncionariosController extends Controller
         $funcionario->cpf = $request->input('cpf');
         $funcionario->cargo = $request->input('cargo');
         $funcionario->postodeservico = $request->input('postodeservico');
+        $funcionario->latitude = $request->input('latitude');
+        $funcionario->longitude = $request->input('longitude');
         //$funcionario->id = auth()->user()->id;
         //$funcionario->cover_image = $fileNameToStore;
         $funcionario->save();
@@ -90,7 +92,8 @@ class FuncionariosController extends Controller
         $funcionario->cpf = $request->input('cpf');
         $funcionario->cargo = $request->input('cargo');
         $funcionario->postodeservico = $request->input('postodeservico');
-
+        $funcionario->latitude = $request->input('latitude');
+        $funcionario->longitude = $request->input('longitude');
         $funcionario->save();
         return redirect('/funcionarios');
     }
