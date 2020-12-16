@@ -82,6 +82,7 @@ use App\Ponto;
           <th scope="col">Fim do Intervalo</th>
           <th scope="col">Saída</th>
           <th scope="col"> </th>
+          <th scope="col">Bora fazer funcionar</th>
         </tr>
       </thead>
       <?php
@@ -98,14 +99,15 @@ use App\Ponto;
         @else
             @foreach($pontos as $ponto)
             <tr>
-              <th scope="row">{{$ponto->created_at->toDateString()}}</th>
+              <th scope="row">{{$ponto->created_at->toTimeString()}}</th>
               <td>{{$ponto->nome}}</td>
               <td>{{$ponto->cargo}}</td>
-              <td>{{$ponto->postodeservico}}</td>
+              <td>{{$ponto->postodeservico}} @if($ponto->verificacao == 1) <i class="fa fa-thumbs-up" style="color:#008000" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000" aria-hidden="true"></i> @endif</td>
               <td>{{$ponto->entrada}}</td>
               <td>{{$ponto->iniciointervalo}}</td>
               <td>{{$ponto->fimintervalo}}</td>
               <td>{{$ponto->saida}}</td>
+              <td>{{$ponto->verificacao}}</td>
               <td> 
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$ponto->id}}"></i>
               </td>

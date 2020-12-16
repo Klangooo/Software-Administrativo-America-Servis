@@ -52,13 +52,19 @@ class PontosController extends Controller
             return redirect('/funcionarios');
             //erro de cpf
         }
-        else if($VARlatitude < 0.008993 && $VARlongitude < 0.008993)
+        else
         {
             // Create Post
             $ponto = new Ponto;
             $ponto->nome = $funcionario->nome;
             $ponto->cargo = $funcionario->cargo;
             $ponto->postodeservico = $funcionario->postodeservico;
+
+            if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                $ponto->verificacao = 1;
+            } else {
+                $ponto->verificacao = 0;
+            }
 
             $ponto->entrada = $request->input('entrada');
             $ponto->iniciointervalo = $request->input('iniciointervalo');
@@ -70,11 +76,6 @@ class PontosController extends Controller
             
             $ponto->save();
             return redirect('/ponto');
-        }
-        else
-        {
-            return redirect('/funcionarios');
-            //erro de localização
         }
     }
 
