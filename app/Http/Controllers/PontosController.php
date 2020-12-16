@@ -69,10 +69,10 @@ class PontosController extends Controller
             //$funcionario->cover_image = $fileNameToStore;
             
             $ponto->save();
+            return redirect('/ponto');
         }
         else
         {
-            return redirect('/ponto');
             return redirect('/funcionarios');
             //erro de localização
         }
