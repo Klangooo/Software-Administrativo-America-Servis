@@ -82,7 +82,6 @@ use App\Ponto;
           <th scope="col">Fim do Intervalo</th>
           <th scope="col">Saída</th>
           <th scope="col"> </th>
-          <th scope="col">Bora fazer funcionar</th>
         </tr>
       </thead>
       <?php
@@ -107,7 +106,6 @@ use App\Ponto;
               <td>{{$ponto->iniciointervalo}}</td>
               <td>{{$ponto->fimintervalo}}</td>
               <td>{{$ponto->saida}}</td>
-              <td>{{$ponto->verificacao}}</td>
               <td> 
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$ponto->id}}"></i>
               </td>
