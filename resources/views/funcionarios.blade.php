@@ -131,6 +131,14 @@
                             {{Form::label('postodeservico', 'Posto de Serviço')}}
                             {{Form::text('postodeservico', $funcionario->postodeservico, ['class' => 'form-control', 'placeholder' => 'Posto de Serviço'])}}
                           </div>
+                          <div class="form-group">
+                            {{Form::label('latitude', 'Latitude')}}
+                            {{Form::text('latitude', $funcionario->latitude, ['class' => 'form-control', 'placeholder' => 'Latitude'])}}
+                          </div>
+                          <div class="form-group">
+                            {{Form::label('longitude', 'Longitude')}}
+                            {{Form::text('longitude', $funcionario->longitude, ['class' => 'form-control', 'placeholder' => 'Longitude'])}}
+                          </div>
                         </div>
                           <div class="modal-footer">
                           <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
@@ -206,6 +214,14 @@
           <div class="form-group">
             {{Form::label('postodeservico', 'Posto de Serviço')}}
             {{Form::text('postodeservico', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('latitude', 'Latitude')}}
+            {{Form::text('latitude', '', ['class' => 'form-control'])}}
+          </div>
+          <div class="form-group">
+            {{Form::label('longitude', 'Longitude')}}
+            {{Form::text('longitude', '', ['class' => 'form-control'])}}
           </div>
         </div>
           <div class="modal-footer">

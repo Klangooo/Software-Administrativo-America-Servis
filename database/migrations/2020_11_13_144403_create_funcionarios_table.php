@@ -19,6 +19,8 @@ class CreateFuncionariosTable extends Migration
             $table->string('cpf')->unique();
             $table->string('cargo');
             $table->string('postodeservico');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
         });
     }
