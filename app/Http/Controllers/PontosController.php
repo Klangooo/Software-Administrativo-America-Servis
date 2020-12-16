@@ -42,8 +42,9 @@ class PontosController extends Controller
         $cpf = $request->input('cpf');
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
-        $ASlatitude = -22.1800662;
-        $ASlongitude = -49.9264917;
+        $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
+        $ASlatitude = $funcionario->latitude;
+        $ASlongitude = $funcionario->longitude;
         $VARlatitude = abs($latitude - $ASlatitude);
         $VARlongitude = abs($longitude - $ASlongitude);
         if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
@@ -61,7 +62,6 @@ class PontosController extends Controller
         {
             // Create Post
             $ponto = new Ponto;
-            $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
             $ponto->nome = $funcionario->nome;
             $ponto->cargo = $funcionario->cargo;
             $ponto->postodeservico = $funcionario->postodeservico;
