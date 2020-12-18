@@ -100,7 +100,7 @@ use App\Ponto;
               <th scope="row">{{$ponto->data}}</th>
               <td>{{$ponto->nome}}</td>
               <td>{{$ponto->cargo}}</td>
-              <td>{{$ponto->postodeservico}} @if($ponto->verificacao == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:4px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:4px" aria-hidden="true"></i> @endif</td>
+              <td>{{$ponto->postodeservico}} @if($ponto->verificacao == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif</td>
               <td>{{$ponto->entrada}}</td>
               <td>{{$ponto->iniciointervalo}}</td>
               <td>{{$ponto->fimintervalo}}</td>
