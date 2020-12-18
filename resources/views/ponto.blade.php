@@ -46,7 +46,6 @@ use App\Ponto;
 
   .icone {
     transform: scale(1.5);
-    margin-top: 9px;
     cursor: pointer;
     color: #032066;
   }
