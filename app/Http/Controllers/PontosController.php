@@ -66,13 +66,14 @@ class PontosController extends Controller
                 $ponto->verificacao = '0';
             }
 
+            // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+            date_default_timezone_set('America/Sao_Paulo');
             $ponto->entrada = date('H:i:s', time());
+            
             $ponto->iniciointervalo = $request->input('iniciointervalo');
             $ponto->fimintervalo = $request->input('fimintervalo');
             $ponto->saida = $request->input('saida');
 
-            // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
-            date_default_timezone_set('America/Sao_Paulo');
             // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
             // $dataLocal = date('d/m/Y H:i:s', time());
             $ponto->data = date('d/m/Y');
