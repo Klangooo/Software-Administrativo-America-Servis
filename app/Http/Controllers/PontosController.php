@@ -76,7 +76,7 @@ class PontosController extends Controller
 
             // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
             // $dataLocal = date('d/m/Y H:i:s', time());
-            $ponto->data = date('d/m/Y');
+            $ponto->data = date('d/m/Y', time());
             
             $ponto->save();
             return redirect('/ponto');
