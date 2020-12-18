@@ -23,6 +23,7 @@ class CreatePontosTable extends Migration
             $table->string('fimintervalo');
             $table->string('saida');
             $table->string('verificacao');
+            $table->string('data');
             $table->timestamps();
         });
     }
