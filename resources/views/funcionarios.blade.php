@@ -91,7 +91,7 @@
         @else
             @foreach($funcionarios as $funcionario)
             <tr>
-              <th scope="row">{{$contador_id}}//{{$funcionario->created_at}}//{{$funcionario->updated_at}}</th>
+              <th scope="row">{{$contador_id}}</th>
               <td>{{$funcionario->nome}}</td>
               <td>{{$funcionario->cpf}}</td>
               <td>{{$funcionario->cargo}}</td>
