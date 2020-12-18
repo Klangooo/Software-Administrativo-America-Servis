@@ -98,7 +98,7 @@ use App\Ponto;
         @else
             @foreach($pontos as $ponto)
             <tr>
-              <th scope="row">{{$ponto->created_at->toDateString()}} // {{$ponto->created_at->toTimeString()}} {{$ponto->created_at->toTimeString()}} // {{$ponto->created_at}}</th>
+              <th scope="row">{{$ponto->created_at->toDateString()}}</th>
               <td>{{$ponto->nome}}</td>
               <td>{{$ponto->cargo}}</td>
               <td>{{$ponto->postodeservico}} @if($ponto->verificacao == 1) <i class="fa fa-thumbs-up" style="color:#008000" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000" aria-hidden="true"></i> @endif</td>
