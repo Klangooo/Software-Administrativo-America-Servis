@@ -35,7 +35,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>Usuário(a) ou senha não cadastrado(a)</strong>
+                                        <strong>Usuário(a) ou senha inválido(a)</strong>
                                     </span>
                                 @enderror
                             </div>
