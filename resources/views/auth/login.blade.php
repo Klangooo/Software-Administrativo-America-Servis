@@ -21,7 +21,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>Usuário(a) ou senha não cadastrado(a)</strong>
+                                        <strong>Usuário ou senha não correspondente</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -35,7 +35,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>Usuário ou senha não correspondente</strong>
+                                        <strong>Senha incorreta</strong>
                                     </span>
                                 @enderror
                             </div>
