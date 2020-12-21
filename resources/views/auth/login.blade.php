@@ -21,7 +21,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>Usuário(a) ou senha não cadastrado(a)</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -35,7 +35,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>Usuário(a) ou senha não cadastrado(a)</strong>
                                     </span>
                                 @enderror
                             </div>
