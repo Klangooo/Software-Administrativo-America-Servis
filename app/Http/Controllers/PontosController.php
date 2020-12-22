@@ -39,24 +39,14 @@ class PontosController extends Controller
     public function store(Request $request)
     {
         $erro = NULL;
-
-        $dados = $request->all();
-        $cpf = $dados['cpf'];
-        $entrada = $dados['entrada'];
-        $iniciointervalo = $dados['almoco'];
-        $fimintervalo = $dados['fim'];
-        $saida = $dados['saida'];
-
-
-
-        //$cpf = $request->input('cpf');
-      //  $latitude = $request->input('latitude');
-     //   $longitude = $request->input('longitude');
+        $cpf = $request->input('cpf');
+        $latitude = $request->input('latitude');
+        $longitude = $request->input('longitude');
         $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
-        //$ASlatitude = floatval($funcionario->latitude);
-        //$ASlongitude = floatval($funcionario->longitude);
-       // $VARlatitude = abs($latitude - $ASlatitude);
-       // $VARlongitude = abs($longitude - $ASlongitude);
+        $ASlatitude = floatval($funcionario->latitude);
+        $ASlongitude = floatval($funcionario->longitude);
+        $VARlatitude = abs($latitude - $ASlatitude);
+        $VARlongitude = abs($longitude - $ASlongitude);
         if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
         {
             return redirect('/funcionarios');
@@ -70,11 +60,11 @@ class PontosController extends Controller
             $ponto->cargo = $funcionario->cargo;
             $ponto->postodeservico = $funcionario->postodeservico;
 
-           // if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
-            //    $ponto->verificacao = '1';
-           // } else {
-          //      $ponto->verificacao = '0';
-          //  }
+            if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                $ponto->verificacao = '1';
+            } else {
+                $ponto->verificacao = '0';
+            }
 
             // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
             date_default_timezone_set('America/Sao_Paulo');
@@ -88,16 +78,8 @@ class PontosController extends Controller
             // $dataLocal = date('d/m/Y H:i:s', time());
             $ponto->data = date('d/m/Y', time());
             
-            dd($ponto->nome);
-            dd($ponto->cargo);
-            dd($ponto->postodeservico);
-            dd($ponto->entrada);
-            dd($ponto->iniciointervalo);
-            dd($ponto->fimintervalo);
-            dd($ponto->saida);
-
-            //$ponto->save();
-            //return redirect('/ponto');
+            $ponto->save();
+            return redirect('/ponto');
         }
     }
 

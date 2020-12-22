@@ -22,5 +22,4 @@ Route::get('/entrada', function (Request $request) {
     return "Oi, deu certo!";
 });
 
-Route::get('/requisicao', 'PontosController@store')->name('roaa');
 
