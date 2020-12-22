@@ -78,8 +78,16 @@ class PontosController extends Controller
             // $dataLocal = date('d/m/Y H:i:s', time());
             $ponto->data = date('d/m/Y', time());
             
-            $ponto->save();
-            return redirect('/ponto');
+            echo $ponto->nome;
+            echo $ponto->cargo;
+            echo $ponto->postodeservico;
+            echo $ponto->entrada;
+            echo $ponto->iniciointervalo;
+            echo $ponto->fimintervalo;
+            echo $ponto->saida;
+
+            //$ponto->save();
+            //return redirect('/ponto');
         }
     }
 
