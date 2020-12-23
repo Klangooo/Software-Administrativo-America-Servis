@@ -104,30 +104,22 @@ use App\Ponto;
               <td>{{$funcionario->postodeservico}}</td>
               <td>
                 @if($ponto->entrada != NULL)
-                {
                   {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
-                }
                 @endif
               </td>
               <td>
                 @if($ponto->iniciointervalo != NULL)
-                {
                   {{$ponto->iniciointervalo}} @if($ponto->verificacao1 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
-                }
-              </td>
+                </td>
                 @endif
               <td>
                 @if($ponto->fimintervalo != NULL)
-                {
                   {{$ponto->fimintervalo}} @if($ponto->verificacao2 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
-                }
                 @endif
               </td>
               <td>
                 @if($ponto->saida != NULL)
-                {
                   {{$ponto->saida}} @if($ponto->verificacao3 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
-                }
                 @endif
               </td>
               <td> 
