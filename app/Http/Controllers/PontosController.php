@@ -172,9 +172,9 @@ class PontosController extends Controller
             {
                 $ponto = Ponto::find($pontoAtual->id);
                 // Update Post
-                $ponto->iniciointervalo = $request->almoco;
-                $ponto->fimintervalo = $request->fim;
-                $ponto->saida = $request->saida;
+                if($request->almoco) $ponto->iniciointervalo = $request->almoco;
+                if($request->fim) $ponto->fimintervalo = $request->fim;
+                if($request->saida) $ponto->saida = $request->saida;
 
                 $ponto->save();
                 return response()->json($pontoAtual)
