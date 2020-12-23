@@ -164,7 +164,9 @@ class PontosController extends Controller
             $VARlatitude = abs($latitude - $ASlatitude);
             $VARlongitude = abs($longitude - $ASlongitude);
 
-            $pontoAtual = DB::table('pontos')->where('created_at', new date())->first();
+            date_default_timezone_set('America/Sao_Paulo');
+
+            $pontoAtual = DB::table('pontos')->where('created_at', date('Y-m-d H:i:s', time()))->first();
             return response($pontoAtual,200)
                     ->header('Content-Type', 'application/json');
             // Create Post
@@ -180,7 +182,6 @@ class PontosController extends Controller
             }
 
             // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
-            date_default_timezone_set('America/Sao_Paulo');
             $ponto->entrada = $request->entrada; // date('H:i:s', time());
             
             $ponto->iniciointervalo = $request->almoco;
