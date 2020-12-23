@@ -167,8 +167,20 @@ class PontosController extends Controller
             date_default_timezone_set('America/Sao_Paulo');
 
             $pontoAtual = DB::table('pontos')->where('data', date('d/m/Y'), time())->first();
-            return response()->json($pontoAtual)
+            
+            if($pontoAtual)
+            {
+                $ponto = Ponto::find($pontoAtual->id);
+                // Update Post
+                $ponto->iniciointervalo = $request->almoco;
+                $ponto->fimintervalo = $request->fim;
+                $ponto->saida = $request->saida;
+
+                $ponto->save();
+                return response()->json($pontoAtual)
                     ->header('Content-Type', 'application/json');
+            }
+
             // Create Post
             $ponto = new Ponto;
             $ponto->nome = $funcionario->nome;
@@ -183,10 +195,6 @@ class PontosController extends Controller
 
             // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
             $ponto->entrada = $request->entrada; // date('H:i:s', time());
-            
-            $ponto->iniciointervalo = $request->almoco;
-            $ponto->fimintervalo = $request->fim;
-            $ponto->saida = $request->saida;
 
             // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
             // $dataLocal = date('d/m/Y H:i:s', time());
