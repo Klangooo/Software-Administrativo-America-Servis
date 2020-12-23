@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/entrada', function (Request $request) {
-    return "Oi, deu certo!";
+    return $request;
 });
 
 
