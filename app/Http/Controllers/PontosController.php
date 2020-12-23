@@ -100,7 +100,8 @@ class PontosController extends Controller
         $VARlongitude = abs($longitude - $ASlongitude);
         if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
         {
-            return redirect('/funcionarios');
+            return response('Funcionario não existente', 400)
+                    ->header('Content-Type', 'application/json');
             //erro de cpf
         }
         else
