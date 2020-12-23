@@ -177,7 +177,7 @@ class PontosController extends Controller
                 if($request->saida) $ponto->saida = $request->saida;
 
                 $ponto->save();
-                return response()->json($pontoAtual)
+                return response()->json($ponto)
                     ->header('Content-Type', 'application/json');
             }
 
