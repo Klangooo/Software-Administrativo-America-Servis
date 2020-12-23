@@ -19,9 +19,9 @@ class CreatePontosTable extends Migration
             $table->string('cargo');
             $table->string('postodeservico');
             $table->string('entrada');
-            $table->string('iniciointervalo');
-            $table->string('fimintervalo');
-            $table->string('saida');
+            $table->string('iniciointervalo')->nullable();
+            $table->string('fimintervalo')->nullable();
+            $table->string('saida')->nullable();
             $table->string('verificacao');
             $table->string('data');
             $table->timestamps();
