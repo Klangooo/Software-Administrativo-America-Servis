@@ -63,8 +63,14 @@ class PontosController extends Controller
 
             if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
                 $ponto->verificacao0 = '1';
+                $ponto->verificacao1 = '1';
+                $ponto->verificacao2 = '1';
+                $ponto->verificacao3 = '1';
             } else {
                 $ponto->verificacao0 = '0';
+                $ponto->verificacao1 = '0';
+                $ponto->verificacao2 = '0';
+                $ponto->verificacao3 = '0';
             }
 
             $ponto->entrada = $request->input('entrada');
