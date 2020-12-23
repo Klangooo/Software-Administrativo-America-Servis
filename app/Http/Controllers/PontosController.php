@@ -40,7 +40,9 @@ class PontosController extends Controller
      */
     public function store(Request $request)
     {
-        $erro = NULL;
+        // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+        date_default_timezone_set('America/Sao_Paulo');     
+
         $cpf = $request->input('cpf');
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
@@ -52,102 +54,38 @@ class PontosController extends Controller
         }
         else
         {
-            $ASlatitude = floatval($funcionario->latitude);
-            $ASlongitude = floatval($funcionario->longitude);
-            $VARlatitude = abs($latitude - $ASlatitude);
-            $VARlongitude = abs($longitude - $ASlongitude);
-
+            $VARlatitude = abs($latitude - $funcionario->latitude);
+            $VARlongitude = abs($longitude - $funcionario->longitude);
+                        
             // Create Post
             $ponto = new Ponto;
-            $ponto->nome = $funcionario->nome;
-            $ponto->cargo = $funcionario->cargo;
-            $ponto->postodeservico = $funcionario->postodeservico;
+            $ponto->cpf = $funcionario->cpf;
 
             if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
-                $ponto->verificacao = '1';
+                $ponto->verificacao0 = '1';
             } else {
-                $ponto->verificacao = '0';
+                $ponto->verificacao0 = '0';
             }
 
-            // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
-            date_default_timezone_set('America/Sao_Paulo');
-            $ponto->entrada = date('H:i:s', time());
-            
+            $ponto->entrada = $request->input('entrada');
             $ponto->iniciointervalo = $request->input('iniciointervalo');
             $ponto->fimintervalo = $request->input('fimintervalo');
             $ponto->saida = $request->input('saida');
 
-            // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
-            // $dataLocal = date('d/m/Y H:i:s', time());
+            date_default_timezone_set('America/Sao_Paulo');
             $ponto->data = date('d/m/Y', time());
             
             $ponto->save();
             return redirect('/ponto');
         }
+       
     }
-
 
     public function storeApp(Request $request)
     {
-        $erro = NULL;
-        $cpf = $request->cpf;
-        $latitude = $request->latitude;
-        $longitude = $request->longitude;
-        $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
-        
-        if (!$funcionario)
-        {
-            return response('Funcionario não existente', 400)
-                    ->header('Content-Type', 'application/json');
-            //erro de cpf
-        }
-        else
-        {
-            $ASlatitude = floatval($funcionario->latitude);
-            $ASlongitude = floatval($funcionario->longitude);
-            $VARlatitude = abs($latitude - $ASlatitude);
-            $VARlongitude = abs($longitude - $ASlongitude);
-
-            // Create Post
-            $ponto = new Ponto;
-            $ponto->nome = $funcionario->nome;
-            $ponto->cargo = $funcionario->cargo;
-            $ponto->postodeservico = $funcionario->postodeservico;
-
-            if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
-                $ponto->verificacao = '1';
-            } else {
-                $ponto->verificacao = '0';
-            }
-
-            // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
-            date_default_timezone_set('America/Sao_Paulo');
-            $ponto->entrada = $request->entrada; // date('H:i:s', time());
-            
-            $ponto->iniciointervalo = $request->almoco;
-            $ponto->fimintervalo = $request->fim;
-            $ponto->saida = $request->saida;
-
-            // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
-            // $dataLocal = date('d/m/Y H:i:s', time());
-            $ponto->data = date('d/m/Y', time());
-            
-            $ponto->save();
-            return response($ponto,200)
-                    ->header('Content-Type', 'application/json');
-           // return redirect('/ponto');
-        }
-    }
-
-
-
-
-
-    public function storeApp2(Request $request)
-    {
         // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
         date_default_timezone_set('America/Sao_Paulo');     
-        
+
         $cpf = $request->cpf;
         $latitude = $request->latitude;
         $longitude = $request->longitude;
@@ -228,13 +166,59 @@ class PontosController extends Controller
         }
     }
 
+    /*
+    public function storeApp2(Request $request)
+    {
+        $erro = NULL;
+        $cpf = $request->cpf;
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+        $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
+        
+        if (!$funcionario)
+        {
+            return response('Funcionario não existente', 400)
+                    ->header('Content-Type', 'application/json');
+            //erro de cpf
+        }
+        else
+        {
+            $ASlatitude = floatval($funcionario->latitude);
+            $ASlongitude = floatval($funcionario->longitude);
+            $VARlatitude = abs($latitude - $ASlatitude);
+            $VARlongitude = abs($longitude - $ASlongitude);
 
+            // Create Post
+            $ponto = new Ponto;
+            $ponto->nome = $funcionario->nome;
+            $ponto->cargo = $funcionario->cargo;
+            $ponto->postodeservico = $funcionario->postodeservico;
 
+            if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                $ponto->verificacao = '1';
+            } else {
+                $ponto->verificacao = '0';
+            }
 
+            // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+            date_default_timezone_set('America/Sao_Paulo');
+            $ponto->entrada = $request->entrada; // date('H:i:s', time());
+            
+            $ponto->iniciointervalo = $request->almoco;
+            $ponto->fimintervalo = $request->fim;
+            $ponto->saida = $request->saida;
 
-
-
-
+            // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
+            // $dataLocal = date('d/m/Y H:i:s', time());
+            $ponto->data = date('d/m/Y', time());
+            
+            $ponto->save();
+            return response($ponto,200)
+                    ->header('Content-Type', 'application/json');
+           // return redirect('/ponto');
+        }
+    }
+    */
 
     /**
      * Display the specified resource.
