@@ -49,6 +49,9 @@ use App\Ponto;
     cursor: pointer;
     color: #032066;
   }
+  .pointer{
+    cursor: pointer;
+  }
 
 </style>
 
@@ -85,7 +88,6 @@ use App\Ponto;
       </thead>
       <?php
         $contador = Ponto::count();
-        $contador_id = 1;
         ?>
       <tbody class="escritas">
         @if($contador == 0)
@@ -104,22 +106,22 @@ use App\Ponto;
               <td>{{$funcionario->postodeservico}}</td>
               <td>
                 @if($ponto->entrada != NULL)
-                  {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id()}}{{$ponto->data}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id}}{{$ponto->data}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
                 @if($ponto->iniciointervalo != NULL)
-                  {{$ponto->iniciointervalo}} @if($ponto->verificacao1 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->iniciointervalo}} @if($ponto->verificacao1 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc1{{$funcionario->id}}{{$ponto->data}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc1{{$funcionario->id}}{{$ponto->data}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 </td>
                 @endif
               <td>
                 @if($ponto->fimintervalo != NULL)
-                  {{$ponto->fimintervalo}} @if($ponto->verificacao2 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->fimintervalo}} @if($ponto->verificacao2 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc2{{$funcionario->id}}{{$ponto->data}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc2{{$funcionario->id}}{{$ponto->data}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
                 @if($ponto->saida != NULL)
-                  {{$ponto->saida}} @if($ponto->verificacao3 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->saida}} @if($ponto->verificacao3 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc3{{$funcionario->id}}{{$ponto->data}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc3{{$funcionario->id}}{{$ponto->data}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td> 
@@ -127,7 +129,95 @@ use App\Ponto;
               </td>
             </tr>
 
-                @if($contador > 0)                  
+                @if($contador > 0) 
+                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+                  <div class="modal fade escrita" id="modalLoc0{{$funcionario->id}}{{$ponto->data}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header" style="background-color:#032066; color:white">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+                          <div class="form-group">
+                              Localização do ponto
+                              Latitude: {{$ponto->latitude0}}
+                              Longitude: {{$ponto->longitude0}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+                  <div class="modal fade escrita" id="modalLoc1{{$funcionario->id}}{{$ponto->data}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header" style="background-color:#032066; color:white">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+                          <div class="form-group">
+                              Localização do ponto
+                              Latitude: {{$ponto->latitude1}}
+                              Longitude: {{$ponto->longitude1}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+                  <div class="modal fade escrita" id="modalLoc2{{$funcionario->id}}{{$ponto->data}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header" style="background-color:#032066; color:white">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+                          <div class="form-group">
+                              Localização do ponto
+                              Latitude: {{$ponto->latitude2}}
+                              Longitude: {{$ponto->longitude2}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+                  <div class="modal fade escrita" id="modalLoc3{{$funcionario->id}}{{$ponto->data}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header" style="background-color:#032066; color:white">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+                          <div class="form-group">
+                              Localização do ponto
+                              Latitude: {{$ponto->latitude3}}
+                              Longitude: {{$ponto->longitude3}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
                   <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
                     <div class="modal fade escrita" id="modalExcluir{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -155,7 +245,6 @@ use App\Ponto;
                   <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
                   @endif
               
-            <?php $contador_id = $contador_id + 1; ?>
             @endforeach
         @endif
       </tbody>
@@ -217,6 +306,10 @@ use App\Ponto;
               {{Form::text('longitude', '', ['class' => 'form-control'])}}
             </div>
             <div class="form-group">
+              {{Form::label('data', 'Data')}}
+              {{Form::text('data', '', ['class' => 'form-control mascara_DATA'])}}
+            </div>
+            <div class="form-group">
               {{Form::label('entrada', 'Entrada')}}
               {{Form::text('entrada', '', ['class' => 'form-control mascara_HORA'])}}
             </div>
@@ -252,6 +345,7 @@ use App\Ponto;
   <script type="text/javascript">
       $('.mascara_CPF').mask("000.000.000-00");
       $('.mascara_HORA').mask("00:00:00");
+      $('.mascara_DATA').mask("00/00/0000");
   </script>
 
   @endsection

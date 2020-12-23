@@ -40,9 +40,6 @@ class PontosController extends Controller
      */
     public function store(Request $request)
     {
-        // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
-        date_default_timezone_set('America/Sao_Paulo');     
-
         $cpf = $request->input('cpf');
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
@@ -73,14 +70,21 @@ class PontosController extends Controller
                 $ponto->verificacao3 = '0';
             }
 
+            $ponto->data = $request->input('data');
             $ponto->entrada = $request->input('entrada');
             $ponto->iniciointervalo = $request->input('iniciointervalo');
             $ponto->fimintervalo = $request->input('fimintervalo');
             $ponto->saida = $request->input('saida');
 
-            date_default_timezone_set('America/Sao_Paulo');
-            $ponto->data = date('d/m/Y', time());
-            
+            $ponto->latitude0 = $latitude;
+            $ponto->longitude0 = $longitude;
+            $ponto->latitude1 = $latitude;
+            $ponto->longitude1 = $longitude;
+            $ponto->latitude2 = $latitude;
+            $ponto->longitude2 = $longitude;
+            $ponto->latitude3 = $latitude;
+            $ponto->longitude3 = $longitude;
+
             $ponto->save();
             return redirect('/ponto');
         }
@@ -119,6 +123,8 @@ class PontosController extends Controller
                 if($request->almoco)
                 {
                     $ponto->iniciointervalo = substr($request->almoco, 11, 8);
+                    $ponto->latitude1 = $latitude;
+                    $ponto->longitude1 = $longitude;
                     if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
                         $ponto->verificacao1 = '1';
                     } else {
@@ -128,6 +134,8 @@ class PontosController extends Controller
                 if($request->fim)
                 {
                     $ponto->fimintervalo = substr($request->fim, 11, 8);
+                    $ponto->latitude2 = $latitude;
+                    $ponto->longitude2 = $longitude;
                     if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
                         $ponto->verificacao2 = '1';
                     } else {
@@ -137,6 +145,8 @@ class PontosController extends Controller
                 if($request->saida)
                 {
                     $ponto->saida = substr($request->saida, 11, 8);
+                    $ponto->latitude3 = $latitude;
+                    $ponto->longitude3 = $longitude;
                     if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
                         $ponto->verificacao3 = '1';
                     } else {
@@ -152,7 +162,8 @@ class PontosController extends Controller
             // Create Post
             $ponto = new Ponto;
             $ponto->cpf = $funcionario->cpf;
-
+            $ponto->latitude0 = $latitude;
+            $ponto->longitude0 = $longitude;
             if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
                 $ponto->verificacao0 = '1';
             } else {

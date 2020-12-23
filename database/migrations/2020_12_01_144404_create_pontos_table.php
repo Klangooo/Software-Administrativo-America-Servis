@@ -20,6 +20,14 @@ class CreatePontosTable extends Migration
             $table->string('iniciointervalo')->nullable();
             $table->string('fimintervalo')->nullable();
             $table->string('saida')->nullable();
+            $table->float('latitude0');
+            $table->float('longitude0');
+            $table->float('latitude1')->nullable();
+            $table->float('longitude1')->nullable();
+            $table->float('latitude2')->nullable();
+            $table->float('longitude2')->nullable();
+            $table->float('latitude3')->nullable();
+            $table->float('longitude3')->nullable();
             $table->string('verificacao0');
             $table->string('verificacao1')->nullable();
             $table->string('verificacao2')->nullable();
