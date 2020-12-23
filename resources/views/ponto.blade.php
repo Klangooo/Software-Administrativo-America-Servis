@@ -135,15 +135,13 @@ use App\Ponto;
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
                             <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Localização do ponto
-                              <br>
                               Latitude: {{$ponto->latitude0}}
                               <br>
                               Longitude: {{$ponto->longitude0}}
@@ -159,15 +157,13 @@ use App\Ponto;
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
                             <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Localização do ponto
-                              <br>
                               Latitude: {{$ponto->latitude1}}
                               <br>
                               Longitude: {{$ponto->longitude1}}
@@ -183,15 +179,13 @@ use App\Ponto;
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
                             <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Localização do ponto
-                              <br>
                               Latitude: {{$ponto->latitude2}}
                               <br>
                               Longitude: {{$ponto->longitude2}}
@@ -207,15 +201,13 @@ use App\Ponto;
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
                             <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Localização do ponto
-                              <br>
                               Latitude: {{$ponto->latitude3}}
                               <br>
                               Longitude: {{$ponto->longitude3}}
