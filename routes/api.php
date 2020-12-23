@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/entrada', function (Request $request) {
-    $retorno = $request->all();
+    $retorno = $request->cpf;
     return response($retorno,200)
             ->header('Content-Type', 'application/json');
 });
