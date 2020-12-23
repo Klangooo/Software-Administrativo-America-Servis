@@ -166,7 +166,7 @@ class PontosController extends Controller
 
             date_default_timezone_set('America/Sao_Paulo');
 
-            $pontoAtual = DB::table('pontos')->where('data', date('d/m/Y'), time());
+            $pontoAtual = DB::table('pontos')->where('data', date('d/m/Y'), time())->first();
             return response($pontoAtual,200)
                     ->header('Content-Type', 'application/json');
             // Create Post
