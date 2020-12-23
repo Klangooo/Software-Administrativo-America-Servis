@@ -206,7 +206,7 @@ use App\Ponto;
         {!! Form::open(['action' => ['PontosController@store'], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
             <div class="form-group">
                 {{Form::label('cpf', 'CPF')}}
-                {{Form::text('cpf', '', ['class' => 'form-control'])}}
+                {{Form::text('cpf', '', ['class' => 'form-control mascara_CPF'])}}
             </div>
             <div class="form-group">
               {{Form::label('latitude', 'Latitude')}}
@@ -218,19 +218,19 @@ use App\Ponto;
             </div>
             <div class="form-group">
               {{Form::label('entrada', 'Entrada')}}
-              {{Form::text('entrada', '', ['class' => 'form-control'])}}
+              {{Form::text('entrada', '', ['class' => 'form-control mascara_HORA'])}}
             </div>
             <div class="form-group">
               {{Form::label('inciointervalo', 'Início do intervalo')}}
-              {{Form::text('iniciointervalo', '', ['class' => 'form-control'])}}
+              {{Form::text('iniciointervalo', '', ['class' => 'form-control mascara_HORA'])}}
             </div>
             <div class="form-group">
               {{Form::label('fimintervalo', 'Fim do intervalo')}}
-              {{Form::text('fimintervalo', '', ['class' => 'form-control'])}}
+              {{Form::text('fimintervalo', '', ['class' => 'form-control mascara_HORA'])}}
             </div>
             <div class="form-group">
               {{Form::label('saida', 'Saída')}}
-              {{Form::text('saida', '', ['class' => 'form-control'])}}
+              {{Form::text('saida', '', ['class' => 'form-control mascara_HORA'])}}
             </div>
           </div>
             <div class="modal-footer">
@@ -243,7 +243,15 @@ use App\Ponto;
     </div>
   <!--FIM DO MODAL CRIAR NOVO -->
 
-
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js">
+  </script>
+  <script type="text/javascript">
+      $('.mascara_CPF').mask("000.000.000-00");
+      $('.mascara_HORA').mask("00:00:00");
+  </script>
 
   @endsection
