@@ -45,7 +45,7 @@ class PontosController extends Controller
         $latitude = $request->input('latitude');
         $longitude = $request->input('longitude');
         $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
-        if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
+        if (!$funcionario)
         {
             return redirect('/funcionarios');
             //erro de cpf
@@ -94,11 +94,8 @@ class PontosController extends Controller
         $latitude = $request->latitude;
         $longitude = $request->longitude;
         $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
-        $ASlatitude = floatval($funcionario->latitude);
-        $ASlongitude = floatval($funcionario->longitude);
-        $VARlatitude = abs($latitude - $ASlatitude);
-        $VARlongitude = abs($longitude - $ASlongitude);
-        if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
+        
+        if (!$funcionario)
         {
             return response('Funcionario não existente', 400)
                     ->header('Content-Type', 'application/json');
@@ -106,6 +103,11 @@ class PontosController extends Controller
         }
         else
         {
+            $ASlatitude = floatval($funcionario->latitude);
+            $ASlongitude = floatval($funcionario->longitude);
+            $VARlatitude = abs($latitude - $ASlatitude);
+            $VARlongitude = abs($longitude - $ASlongitude);
+
             // Create Post
             $ponto = new Ponto;
             $ponto->nome = $funcionario->nome;
