@@ -106,22 +106,22 @@ use App\Ponto;
               <td>{{$funcionario->postodeservico}}</td>
               <td>
                 @if($ponto->entrada != NULL)
-                  {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc0{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc0{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
                 @if($ponto->iniciointervalo != NULL)
-                  {{$ponto->iniciointervalo}} @if($ponto->verificacao1 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc1{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc1{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->iniciointervalo}} @if($ponto->verificacao1 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc1{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc1{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 </td>
                 @endif
               <td>
                 @if($ponto->fimintervalo != NULL)
-                  {{$ponto->fimintervalo}} @if($ponto->verificacao2 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc2{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc2{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->fimintervalo}} @if($ponto->verificacao2 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc2{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc2{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
                 @if($ponto->saida != NULL)
-                  {{$ponto->saida}} @if($ponto->verificacao3 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc3{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc3{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->saida}} @if($ponto->verificacao3 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc3{{$funcionario->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modal{{$ponto->data}}Loc3{{$funcionario->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td> 
@@ -131,7 +131,7 @@ use App\Ponto;
 
                 @if($contador > 0) 
                   <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc0{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade escrita" id="modal{{$ponto->data}}Loc0{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
@@ -153,7 +153,7 @@ use App\Ponto;
                   <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
                   <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc1{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade escrita" id="modal{{$ponto->data}}Loc1{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
@@ -175,7 +175,7 @@ use App\Ponto;
                   <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
                   <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc2{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade escrita" id="modal{{$ponto->data}}Loc2{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
@@ -197,7 +197,7 @@ use App\Ponto;
                   <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
 
                   <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc3{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade escrita" id="modal{{$ponto->data}}Loc3{{$funcionario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
