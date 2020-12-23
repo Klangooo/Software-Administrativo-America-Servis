@@ -118,7 +118,7 @@ class PontosController extends Controller
 
             // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
             date_default_timezone_set('America/Sao_Paulo');
-            $ponto->entrada = $request->inicio; // date('H:i:s', time());
+            $ponto->entrada = $request->entrada; // date('H:i:s', time());
             
             $ponto->iniciointervalo = $request->almoco;
             $ponto->fimintervalo = $request->fim;
