@@ -19,10 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/entrada', function (Request $request) {
-    $retorno = $request->cpf;
-    return response($retorno,200)
-            ->header('Content-Type', 'application/json');
-});
+Route::post('/entrada', 'PontosController@storeApp');
 
 

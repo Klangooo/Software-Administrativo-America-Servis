@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Ponto;
 use App\Funcionario;
 
+use Illuminate\Http\Response;
+
 class PontosController extends Controller
 {
     /**
@@ -82,6 +84,57 @@ class PontosController extends Controller
             return redirect('/ponto');
         }
     }
+
+
+    public function storeApp(Request $request)
+    {
+        $erro = NULL;
+        $cpf = $request->cpf;
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+        $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
+        $ASlatitude = floatval($funcionario->latitude);
+        $ASlongitude = floatval($funcionario->longitude);
+        $VARlatitude = abs($latitude - $ASlatitude);
+        $VARlongitude = abs($longitude - $ASlongitude);
+        if (DB::table('funcionarios')->where('cpf', $cpf)->count() == 0)
+        {
+            return redirect('/funcionarios');
+            //erro de cpf
+        }
+        else
+        {
+            // Create Post
+            $ponto = new Ponto;
+            $ponto->nome = $funcionario->nome;
+            $ponto->cargo = $funcionario->cargo;
+            $ponto->postodeservico = $funcionario->postodeservico;
+
+            if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                $ponto->verificacao = '1';
+            } else {
+                $ponto->verificacao = '0';
+            }
+
+            // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+            date_default_timezone_set('America/Sao_Paulo');
+            $ponto->entrada = $request->inicio; // date('H:i:s', time());
+            
+            $ponto->iniciointervalo = $request->almoco;
+            $ponto->fimintervalo = $request->fim;
+            $ponto->saida = $request->saida;
+
+            // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
+            // $dataLocal = date('d/m/Y H:i:s', time());
+            $ponto->data = date('d/m/Y', time());
+            
+            $ponto->save();
+            return response($ponto,200)
+                    ->header('Content-Type', 'application/json');
+           // return redirect('/ponto');
+        }
+    }
+
 
     /**
      * Display the specified resource.
