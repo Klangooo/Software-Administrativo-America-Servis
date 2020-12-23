@@ -106,7 +106,7 @@ use App\Ponto;
               <td>{{$funcionario->postodeservico}}</td>
               <td>
                 @if($ponto->entrada != NULL)
-                  {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id()}}{{$ponto->data}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id}}{{$ponto->data}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                  {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id}}{{$ponto->data}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc0{{$funcionario->id}}{{$ponto->data}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
