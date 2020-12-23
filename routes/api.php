@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/entrada', function (Request $request) {
-    return "aaaaa";
+    return $request->getContent();
 });
 
 
