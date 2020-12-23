@@ -96,15 +96,16 @@ use App\Ponto;
             </tr>
         @else
             @foreach($pontos as $ponto)
+            <?php $funcionario = DB::table('funcionarios')->where('cpf', $ponto->cpf)->first(); ?>
             <tr>
               <th scope="row">{{$ponto->data}}</th>
-              <td>{{$ponto->nome}}</td>
-              <td>{{$ponto->cargo}}</td>
-              <td>{{$ponto->postodeservico}} @if($ponto->verificacao == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif</td>
-              <td>{{$ponto->entrada}}</td>
-              <td>{{$ponto->iniciointervalo}}</td>
-              <td>{{$ponto->fimintervalo}}</td>
-              <td>{{$ponto->saida}}</td>
+              <td>{{$funcionario->nome}}</td>
+              <td>{{$funcionario->cargo}}</td>
+              <td>{{$funcionario->postodeservico}}</td>
+              <td>{{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif</td>
+              <td>{{$ponto->iniciointervalo}} @if($ponto->verificacao1 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif</td>
+              <td>{{$ponto->fimintervalo}} @if($ponto->verificacao2 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif</td>
+              <td>{{$ponto->saida}} @if($ponto->verificacao3 == 1) <i class="fa fa-thumbs-up" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif</td>
               <td> 
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$ponto->id}}"></i>
               </td>

@@ -15,14 +15,15 @@ class CreatePontosTable extends Migration
     {
         Schema::create('pontos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->string('cargo');
-            $table->string('postodeservico');
+            $table->string('cpf');
             $table->string('entrada');
             $table->string('iniciointervalo')->nullable();
             $table->string('fimintervalo')->nullable();
             $table->string('saida')->nullable();
-            $table->string('verificacao');
+            $table->string('verificacao0');
+            $table->string('verificacao1')->nullable();
+            $table->string('verificacao2')->nullable();
+            $table->string('verificacao3')->nullable();
             $table->string('data');
             $table->timestamps();
         });
