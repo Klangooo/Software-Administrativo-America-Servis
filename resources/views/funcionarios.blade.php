@@ -109,7 +109,7 @@
                         <div class="modal-content">
                         <div class="modal-header" style="background-color:#032066; color:white">
                             <h5 class="modal-title" id="exampleModalLabel">Editar funcionário</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
