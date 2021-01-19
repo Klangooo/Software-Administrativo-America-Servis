@@ -428,6 +428,8 @@ class PontosController extends Controller
             }
 
         }
+        return response('Enviado com sucesso', 200)
+                ->header('Content-Type', 'application/json');
     }
 
 
