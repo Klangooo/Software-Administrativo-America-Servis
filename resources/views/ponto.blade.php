@@ -3,6 +3,8 @@
 @section('content')
 <?php
 use App\Ponto;
+
+date_default_timezone_set('America/Sao_Paulo');     
 ?>
 <style>
   .primeiralinha {
@@ -100,28 +102,54 @@ use App\Ponto;
             @foreach($pontos as $ponto)
             <?php $funcionario = DB::table('funcionarios')->where('cpf', $ponto->cpf)->first(); ?>
             <tr>
-              <th scope="row">{{$ponto->data}}</th>
+              <th scope="row">
+                <?php
+                $date = new DateTime();
+                $date->setTimestamp($ponto->timeStampstringiniciar);
+                echo $date->format('d/m/Y');
+                ?>
+              </th>
               <td>{{$funcionario->nome}}</td>
               <td>{{$funcionario->cargo}}</td>
               <td>{{$funcionario->postodeservico}}</td>
               <td>
-                @if($ponto->entrada != NULL)
-                  {{$ponto->entrada}} @if($ponto->verificacao0 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc0{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc0{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                @if($ponto->timeStampstringiniciar != NULL)
+                  <?php
+                  $date = new DateTime();
+                  $date->setTimestamp($ponto->timeStampstringiniciar);
+                  echo $date->format('H:i:s');
+                  ?>
+                  @if($ponto->verificacaoiniciar == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc0{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc0{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
-                @if($ponto->iniciointervalo != NULL)
-                  {{$ponto->iniciointervalo}} @if($ponto->verificacao1 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc1{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc1{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                @if($ponto->timeStampstringalmoco != NULL)
+                <?php
+                $date = new DateTime();
+                $date->setTimestamp($ponto->timeStampstringalmoco);
+                echo $date->format('H:i:s');
+                ?>
+                @if($ponto->verificacaoalmoco == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc1{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc1{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 </td>
                 @endif
               <td>
-                @if($ponto->fimintervalo != NULL)
-                  {{$ponto->fimintervalo}} @if($ponto->verificacao2 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc2{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc2{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                @if($ponto->timeStampstringretorno != NULL)
+                <?php
+                $date = new DateTime();
+                $date->setTimestamp($ponto->timeStampstringretorno);
+                echo $date->format('H:i:s');
+                ?>
+                @if($ponto->verificacaoretorno == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc2{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc2{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
-                @if($ponto->saida != NULL)
-                  {{$ponto->saida}} @if($ponto->verificacao3 == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc3{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc3{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
+                @if($ponto->timeStampstringfim != NULL)
+                <?php
+                $date = new DateTime();
+                $date->setTimestamp($ponto->timeStampstringfim);
+                echo $date->format('H:i:s');
+                ?>
+                @if($ponto->verificacaofim == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc3{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc3{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td> 
@@ -142,9 +170,9 @@ use App\Ponto;
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Latitude: {{$ponto->latitude0}}
+                              Latitude: {{$ponto->latitudestringiniciar}}
                               <br>
-                              Longitude: {{$ponto->longitude0}}
+                              Longitude: {{$ponto->longitudestringiniciar}}
                           </div>
                         </div>
                       </div>
@@ -164,9 +192,9 @@ use App\Ponto;
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Latitude: {{$ponto->latitude1}}
+                              Latitude: {{$ponto->latitudestringalmoco}}
                               <br>
-                              Longitude: {{$ponto->longitude1}}
+                              Longitude: {{$ponto->longitudestringalmoco}}
                           </div>
                         </div>
                       </div>
@@ -186,9 +214,9 @@ use App\Ponto;
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Latitude: {{$ponto->latitude2}}
+                              Latitude: {{$ponto->latitudestringretorno}}
                               <br>
-                              Longitude: {{$ponto->longitude2}}
+                              Longitude: {{$ponto->longitudestringretorno}}
                           </div>
                         </div>
                       </div>
@@ -208,9 +236,9 @@ use App\Ponto;
                         </div>
                         <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
                           <div class="form-group">
-                              Latitude: {{$ponto->latitude3}}
+                              Latitude: {{$ponto->latitudestringfim}}
                               <br>
-                              Longitude: {{$ponto->longitude3}}
+                              Longitude: {{$ponto->longitudestringfim}}
                           </div>
                         </div>
                       </div>

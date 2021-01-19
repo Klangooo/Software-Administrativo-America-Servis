@@ -91,6 +91,7 @@ class PontosController extends Controller
        
     }
 
+    /*
     public function storeApp(Request $request)
     {
         // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
@@ -181,7 +182,351 @@ class PontosController extends Controller
                     ->header('Content-Type', 'application/json');
            // return redirect('/ponto');
         }
+    } */
+
+
+
+
+    public function storeApp(Request $request)
+    {
+        foreach($request->valores as $registro)
+        {
+            $ponto = $registro[0];
+            $cpf = substr(explode("_",$ponto)[0],1,14);
+
+            $pattern = "/[^A-Za-z]/i";
+            $campo = preg_replace($pattern, "", $ponto); // Outputs "Visit W3Schools!"
+
+            $valor = $registro[1];
+
+            $funcionario = DB::table('funcionarios')->where('cpf', $cpf)->first();
+            if (!$funcionario)
+            {
+                return response('Funcionario não existente', 400)
+                        ->header('Content-Type', 'application/json');
+                //erro de cpf
+            }
+            else
+            {
+                $pontoAtual = DB::table('pontos')
+                            ->where('cpf', $cpf)
+                            ->where('fimdajornada', 'false')
+                            ->first();
+
+                if($pontoAtual)
+                {
+                    $ponto = Ponto::find($pontoAtual->id);
+
+                    if($campo=="latitudestringalmoco")
+                    {
+                        $ponto->latitudestringalmoco = $valor;
+                    }
+                    if($campo=="latitudestringiniciar")
+                    {
+                        $ponto->latitudestringiniciar = $valor;
+                    }
+                    if($campo=="latitudestringretorno")
+                    {
+                        $ponto->latitudestringretorno = $valor;
+                    }
+                    
+                    if($campo=="longitudestringalmoco")
+                    {
+                        $ponto->longitudestringalmoco = $valor;
+                    }
+                    if($campo=="longitudestringfim")
+                    {
+                        $ponto->longitudestringfim = $valor;
+                    }
+                    if($campo=="longitudestringiniciar")
+                    {
+                        $ponto->longitudestringiniciar = $valor;
+                    }
+                    if($campo=="longitudestringretorno")
+                    {
+                        $ponto->longitudestringretorno = $valor;
+                    }
+                    if($campo=="timeStampstringalmoco")
+                    {
+                        $ponto->timeStampstringalmoco = $valor;
+                    }
+                    if($campo=="timeStampstringfim")
+                    {
+                        $ponto->timeStampstringfim = $valor;
+                        if(!$ponto->latitudestringiniciar)
+                        {
+                            $ponto->fimdajornada = 'true';
+                        }
+                    }
+                    if($campo=="timeStampstringiniciar")
+                    {
+                        $ponto->timeStampstringiniciar = $valor;
+                        if(!$ponto->latitudestringalmoco)
+                        {
+                            $ponto->fimdajornada = 'true';
+                        }
+                    }
+                    if($campo=="timeStampstringretorno")
+                    {
+                        $ponto->timeStampstringretorno = $valor;
+                        $ponto->fimdajornada = 'true';
+                    }
+                    if($campo=="latitudestringfim")
+                    {
+                        $ponto->latitudestringfim = $valor;
+                    }
+                    if($ponto->latitudestringalmoco && $ponto->longitudestringalmoco)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringalmoco - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringalmoco - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaoalmoco = '1';
+                        } else {
+                            $ponto->verificacaoalmoco = '0';
+                        }
+                    }
+                    if($ponto->latitudestringfim && $ponto->longitudestringfim)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringfim - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringfim - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaofim = '1';
+                        } else {
+                            $ponto->verificacaofim = '0';
+                        }
+                    }
+                    if($ponto->latitudestringiniciar && $ponto->longitudestringiniciar)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringiniciar - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringiniciar - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaoiniciar = '1';
+                        } else {
+                            $ponto->verificacaoiniciar = '0';
+                        }
+                    }
+                    if($ponto->latitudestringretorno && $ponto->longitudestringretorno)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringretorno - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringretorno - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaoretorno = '1';
+                        } else {
+                            $ponto->verificacaoretorno = '0';
+                        }
+                    }
+                    
+                    $ponto->save();
+
+                }
+                else
+                {                    
+                    $ponto = new Ponto;
+                    $ponto->cpf = $funcionario->cpf;
+                    $ponto->fimdajornada = 'false';
+                    if($campo=="latitudestringalmoco")
+                    {
+                        $ponto->latitudestringalmoco = $valor;
+                    }
+                    if($campo=="latitudestringiniciar")
+                    {
+                        $ponto->latitudestringiniciar = $valor;
+                    }
+                    if($campo=="latitudestringretorno")
+                    {
+                        $ponto->latitudestringretorno = $valor;
+                    }
+                    if($campo=="longitudestringalmoco")
+                    {
+                        $ponto->longitudestringalmoco = $valor;
+                    }
+                    if($campo=="longitudestringfim")
+                    {
+                        $ponto->longitudestringfim = $valor;
+                    }
+                    if($campo=="longitudestringiniciar")
+                    {
+                        $ponto->longitudestringiniciar = $valor;
+                    }
+                    if($campo=="longitudestringretorno")
+                    {
+                        $ponto->longitudestringretorno = $valor;
+                    }
+                    if($campo=="timeStampstringalmoco")
+                    {
+                        $ponto->timeStampstringalmoco = $valor;
+                    }
+                    if($campo=="timeStampstringfim")
+                    {
+                        $ponto->timeStampstringfim = $valor;
+                        if(!$ponto->latitudestringiniciar)
+                        {
+                            $ponto->fimdajornada = 'true';
+                        }
+                    }
+                    if($campo=="timeStampstringiniciar")
+                    {
+                        $ponto->timeStampstringiniciar = $valor;
+                        if(!$ponto->latitudestringalmoco)
+                        {
+                            $ponto->fimdajornada = 'true';
+                        }
+                    }
+                    if($campo=="timeStampstringretorno")
+                    {
+                        $ponto->timeStampstringretorno = $valor;
+                        $ponto->fimdajornada = 'true';
+                    }
+                    if($campo=="latitudestringfim")
+                    {
+                        $ponto->latitudestringfim = $valor;
+                    }
+                    if($ponto->latitudestringalmoco && $ponto->longitudestringalmoco)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringalmoco - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringalmoco - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaoalmoco = '1';
+                        } else {
+                            $ponto->verificacaoalmoco = '0';
+                        }
+                    }
+                    if($ponto->latitudestringfim && $ponto->longitudestringfim)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringfim - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringfim - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaofim = '1';
+                        } else {
+                            $ponto->verificacaofim = '0';
+                        }
+                    }
+                    if($ponto->latitudestringiniciar && $ponto->longitudestringiniciar)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringiniciar - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringiniciar - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaoiniciar = '1';
+                        } else {
+                            $ponto->verificacaoiniciar = '0';
+                        }
+                    }
+                    if($ponto->latitudestringretorno && $ponto->longitudestringretorno)
+                    {
+                        $VARlatitude = abs($ponto->latitudestringretorno - $funcionario->latitude);
+                        $VARlongitude = abs($ponto->longitudestringretorno - $funcionario->longitude);
+                        if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                            $ponto->verificacaoretorno = '1';
+                        } else {
+                            $ponto->verificacaoretorno = '0';
+                        }
+                    }
+                        
+                    $ponto->save();
+                    
+                }
+            }
+
+        }
+        dd($cpf,$campo,$valor,$funcionario);
+
+        
+
+
+        // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA
+        date_default_timezone_set('America/Sao_Paulo');     
+
+        if (!$funcionario)
+        {
+            return response('Funcionario não existente', 400)
+                    ->header('Content-Type', 'application/json');
+            //erro de cpf
+        }
+        else
+        {
+            $VARlatitude = abs($latitude - $funcionario->latitude);
+            $VARlongitude = abs($longitude - $funcionario->longitude);
+                        
+            $pontoAtual = DB::table('pontos')
+                            ->where('data', date('d/m/Y'), time())
+                            ->where('cpf', $cpf)
+                            ->first();
+
+            if($pontoAtual)
+            {
+                $ponto = Ponto::find($pontoAtual->id);
+                // Update Post
+                if($request->almoco)
+                {
+                    $ponto->iniciointervalo = substr($request->almoco, 11, 8);
+                    $ponto->latitude1 = $latitude;
+                    $ponto->longitude1 = $longitude;
+                    if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                        $ponto->verificacao1 = '1';
+                    } else {
+                        $ponto->verificacao1 = '0';
+                    }
+                } 
+                if($request->fim)
+                {
+                    $ponto->fimintervalo = substr($request->fim, 11, 8);
+                    $ponto->latitude2 = $latitude;
+                    $ponto->longitude2 = $longitude;
+                    if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                        $ponto->verificacao2 = '1';
+                    } else {
+                        $ponto->verificacao2 = '0';
+                    }
+                } 
+                if($request->saida)
+                {
+                    $ponto->saida = substr($request->saida, 11, 8);
+                    $ponto->latitude3 = $latitude;
+                    $ponto->longitude3 = $longitude;
+                    if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                        $ponto->verificacao3 = '1';
+                    } else {
+                        $ponto->verificacao3 = '0';
+                    }
+                } 
+
+                $ponto->save();
+                return response()->json($ponto)
+                    ->header('Content-Type', 'application/json');
+            }
+
+            // Create Post
+            $ponto = new Ponto;
+            $ponto->cpf = $funcionario->cpf;
+            $ponto->latitude0 = $latitude;
+            $ponto->longitude0 = $longitude;
+            if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
+                $ponto->verificacao0 = '1';
+            } else {
+                $ponto->verificacao0 = '0';
+            }
+
+            $ponto->entrada = substr($request->entrada, 11, 8); // date('H:i:s', time());
+
+            // CRIA UMA VARIAVEL E ARMAZENA A HORA ATUAL DO FUSO-HORÁRIO DEFINIDO (BRASÍLIA)
+            // $dataLocal = date('d/m/Y H:i:s', time());
+            $ponto->data = date('d/m/Y', time());
+            
+            $ponto->save();
+            return response($ponto,200)
+                    ->header('Content-Type', 'application/json');
+           // return redirect('/ponto');
+        }
     }
+
+
+
+
+
+
+
+
+
 
     /*
     public function storeApp2(Request $request)
