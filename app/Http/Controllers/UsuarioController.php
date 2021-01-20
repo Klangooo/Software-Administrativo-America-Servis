@@ -22,18 +22,6 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-    }
-
-  
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

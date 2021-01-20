@@ -25,6 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/funcionario', 'HomeController@funcionario')->name('funcionario');
 
     Route::get('/ponto', 'HomeController@ponto')->name('ponto');
+    Route::post('/busca', 'PontosController@buscar')->name('buscar');
+    Route::get('/busca', 'PontosController@buscar')->name('buscar');
+
     Route::delete('/ponto', 'PontosController@destroyALL');
 
     Route::get('/home', 'HomeController@index')->name('home'); 

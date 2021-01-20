@@ -3,7 +3,6 @@
 @section('content')
 <?php
 use App\Ponto;
-
 date_default_timezone_set('America/Sao_Paulo');     
 ?>
 <style>
@@ -72,8 +71,36 @@ date_default_timezone_set('America/Sao_Paulo');
   <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalLimparReg">
     Limpar Registros
   </button>
+
   <br><br>
-  
+
+  <form action="busca" method="POST">
+    @csrf
+    <div class="container">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="form-group row">
+            <label for="text" class="col-form-label col-sm">Nome ou CPF</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control input-sm" id="nomebusca" name="nomebusca" required/>
+            </div>
+            <label for="date" class="col-form-label col-sm-1 centraliza">de</label>
+            <div class="col-sm-2.5">
+              <input type="date" class="form-control input-sm" id="from" name="from" required/>
+            </div>
+            <label for="date" class="col-form-label col-sm-1 centraliza">até</label>
+            <div class="col-sm-2.5">
+              <input type="date" class="form-control input-sm" id="to" name="to" required/>
+            </div>
+            <div class="col-sm">
+              <button type="submit" class="btn" name="buscar" title="search">Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
         <tr>

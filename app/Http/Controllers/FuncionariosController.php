@@ -22,16 +22,6 @@ class FuncionariosController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -47,21 +37,8 @@ class FuncionariosController extends Controller
         $funcionario->postodeservico = $request->input('postodeservico');
         $funcionario->latitude = $request->input('latitude');
         $funcionario->longitude = $request->input('longitude');
-        //$funcionario->id = auth()->user()->id;
-        //$funcionario->cover_image = $fileNameToStore;
         $funcionario->save();
         return redirect('/funcionarios');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**

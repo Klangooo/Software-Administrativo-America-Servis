@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Ponto;
 use App\Funcionario;
-
+use App\DateTime;
 use Illuminate\Http\Response;
 
 class PontosController extends Controller
@@ -30,6 +30,20 @@ class PontosController extends Controller
     public function create()
     {
         //
+    }
+
+    public function buscar(Request $request)
+    {
+        $nomebusca = $request->input('nomebusca');
+        $from = $request->input('from');
+        $to = $request->input('to');
+
+        $pontos = Ponto::where('CPF', '=', $nomebusca)
+                        ->where('dia','>=',$from)
+                        ->where('dia','<=',$to)
+                        ->get();                        
+
+        return view('ponto')->with('pontos', $pontos);  
     }
 
     /**
@@ -59,18 +73,18 @@ class PontosController extends Controller
             $ponto->cpf = $funcionario->cpf;
 
             if($VARlatitude < 0.008993 && $VARlongitude < 0.008993){
-                $ponto->verificacao0 = '1';
-                $ponto->verificacao1 = '1';
-                $ponto->verificacao2 = '1';
-                $ponto->verificacao3 = '1';
+                $ponto->verificacaoiniciar = '1';
+                $ponto->verificacaoalmoco = '1';
+                $ponto->verificacaoretorno = '1';
+                $ponto->verificacaofim = '1';
             } else {
-                $ponto->verificacao0 = '0';
-                $ponto->verificacao1 = '0';
-                $ponto->verificacao2 = '0';
-                $ponto->verificacao3 = '0';
+                $ponto->verificacaoiniciar = '0';
+                $ponto->verificacaoalmoco = '0';
+                $ponto->verificacaoretorno = '0';
+                $ponto->verificacaofim = '0';
             }
 
-            $ponto->data = $request->input('data');
+            $ponto->dia = $request->input('data');
             $ponto->entrada = $request->input('entrada');
             $ponto->iniciointervalo = $request->input('iniciointervalo');
             $ponto->fimintervalo = $request->input('fimintervalo');
@@ -261,6 +275,7 @@ class PontosController extends Controller
                     if($campo=="timeStampstringiniciar")
                     {
                         $ponto->timeStampstringiniciar = $valor;
+                        $ponto->dia = date('Y-m-d', $valor);
                         if(!$ponto->latitudestringalmoco)
                         {
                             $ponto->fimdajornada = 'true';
@@ -367,6 +382,9 @@ class PontosController extends Controller
                     if($campo=="timeStampstringiniciar")
                     {
                         $ponto->timeStampstringiniciar = $valor;
+                        $date = new DateTime();
+                        $date->setTimestamp($ponto->timeStampstringiniciar);
+                        $ponto->dia = $date->format('Y-m-d');
                         if(!$ponto->latitudestringalmoco)
                         {
                             $ponto->fimdajornada = 'true';
@@ -426,20 +444,10 @@ class PontosController extends Controller
                     
                 }
             }
-
         }
         return response('Enviado com sucesso', 200)
                 ->header('Content-Type', 'application/json');
     }
-
-
-
-
-
-
-
-
-
 
     /*
     public function storeApp2(Request $request)
@@ -501,7 +509,7 @@ class PontosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         //
     }
@@ -563,6 +571,8 @@ class PontosController extends Controller
         Ponto::truncate();
         return redirect('/ponto');
     } 
+
+    
 
 }
 

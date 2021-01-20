@@ -33,6 +33,7 @@ class CreatePontosTable extends Migration
             $table->string('verificacaoretorno')->nullable();
             $table->string('verificacaofim')->nullable();
             $table->string('fimdajornada');
+            $table->string('dia')->nullable();
             $table->timestamps();
         });
     }
