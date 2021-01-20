@@ -42,7 +42,7 @@ class PontosController extends Controller
                         ->where('dia','>=',$from)
                         ->where('dia','<=',$to)
                         ->get();                        
-
+                        
         return view('ponto')->with('pontos', $pontos);  
     }
 

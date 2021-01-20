@@ -36,6 +36,18 @@ date_default_timezone_set('America/Sao_Paulo');
     border-color: #032066;
   }
 
+  .botao2 {
+    background-color: #032066;
+    color: white;
+    border-color: white;
+  }
+
+  .botao2:hover {
+    background-color: white;
+    color: #032066;
+    border-color: #032066;
+  }
+
   .centraliza {
     text-align: center;
   }
@@ -63,7 +75,7 @@ date_default_timezone_set('America/Sao_Paulo');
       <p class="lead">Acompanhamento dos pontos dos funcionários.</p>
     </div>
   </div>
-
+  <br>
   <button type="button" class="btn rounded-pill botao" style="margin-right: 10px" data-toggle="modal" data-target="#modalExemplo">
     Criar novo
   </button>
@@ -72,31 +84,26 @@ date_default_timezone_set('America/Sao_Paulo');
     Limpar Registros
   </button>
 
-  <br><br>
 
   <form action="busca" method="POST">
     @csrf
-    <div class="container">
       <div class="row">
-        <div class="container-fluid">
-          <div class="form-group row">
-            <label for="text" class="col-form-label col-sm">Nome ou CPF</label>
-            <div class="col-sm-3">
-              <input type="text" class="form-control input-sm" id="nomebusca" name="nomebusca" required/>
+          <div class="form-group row" style="float:left; padding-left:2.5%">
+            <label for="text" class="col-form-label col-sm-0.5">CPF</label>
+            <div class="col-sm-2.5" style="padding-left:1%">
+              <input type="text" class="form-control input-sm mascara_CPF" id="nomebusca" name="nomebusca" required/>
             </div>
-            <label for="date" class="col-form-label col-sm-1 centraliza">de</label>
-            <div class="col-sm-2.5">
+            <label for="date" class="col-form-label col-sm-0.5" style="padding-left:1%">de</label>
+            <div class="col-sm-2.5" style="padding-left:1%">
               <input type="date" class="form-control input-sm" id="from" name="from" required/>
             </div>
-            <label for="date" class="col-form-label col-sm-1 centraliza">até</label>
-            <div class="col-sm-2.5">
+            <label for="date" class="col-form-label col-sm-0.5" style="padding-left:1%">até</label>
+            <div class="col-sm-2.5" style="padding-left:1%">
               <input type="date" class="form-control input-sm" id="to" name="to" required/>
             </div>
             <div class="col-sm">
-              <button type="submit" class="btn" name="buscar" title="search">Buscar</button>
+              <button type="submit" class="btn rounded-pill botao2" name="buscar" title="search">Buscar</button>
             </div>
-          </div>
-        </div>
       </div>
     </div>
   </form>
