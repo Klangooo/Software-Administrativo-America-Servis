@@ -38,7 +38,7 @@ class PontosController extends Controller
         $from = $request->input('from');
         $to = $request->input('to');
 
-        $pontos = Ponto::where('CPF', '=', $nomebusca)
+        $pontos = Ponto::where('cpf', '=', $nomebusca)
                         ->where('dia','>=',$from)
                         ->where('dia','<=',$to)
                         ->get();                        
