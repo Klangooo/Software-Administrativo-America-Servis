@@ -136,53 +136,32 @@ date_default_timezone_set('America/Sao_Paulo');
             @foreach($pontos as $ponto)
             <?php $funcionario = DB::table('funcionarios')->where('cpf', $ponto->cpf)->first(); ?>
             <tr>
-              <th scope="row">
-                <?php
-                $date = new DateTime();
-                $date->setTimestamp($ponto->timeStampstringiniciar);
-                echo $date->format('d/m/Y');
-                ?>
+              <th scope="row">{{$ponto->dia}}
               </th>
               <td>{{$funcionario->nome}}</td>
               <td>{{$funcionario->cargo}}</td>
               <td>{{$funcionario->postodeservico}}</td>
               <td>
                 @if($ponto->timeStampstringiniciar != NULL)
-                  <?php
-                  $date = new DateTime();
-                  $date->setTimestamp($ponto->timeStampstringiniciar);
-                  echo $date->format('H:i:s');
-                  ?>
+                  {{$ponto->timeStampstringiniciar}}
                   @if($ponto->verificacaoiniciar == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc0{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc0{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
                 @if($ponto->timeStampstringalmoco != NULL)
-                <?php
-                $date = new DateTime();
-                $date->setTimestamp($ponto->timeStampstringalmoco);
-                echo $date->format('H:i:s');
-                ?>
+                {{$ponto->timeStampstringalmoco}}
                 @if($ponto->verificacaoalmoco == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc1{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc1{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 </td>
                 @endif
               <td>
                 @if($ponto->timeStampstringretorno != NULL)
-                <?php
-                $date = new DateTime();
-                $date->setTimestamp($ponto->timeStampstringretorno);
-                echo $date->format('H:i:s');
-                ?>
+                {{$ponto->timeStampstringretorno}}
                 @if($ponto->verificacaoretorno == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc2{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc2{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>
               <td>
                 @if($ponto->timeStampstringfim != NULL)
-                <?php
-                $date = new DateTime();
-                $date->setTimestamp($ponto->timeStampstringfim);
-                echo $date->format('H:i:s');
-                ?>
+                {{$ponto->timeStampstringfim}}
                 @if($ponto->verificacaofim == 1) <i class="fa fa-thumbs-up pointer" data-toggle="modal" data-target="#modalLoc3{{$ponto->id}}" style="color:#008000; margin-left:7px;" aria-hidden="true"></i> @else <i class="fa fa-times pointer" data-toggle="modal" data-target="#modalLoc3{{$ponto->id}}" style="color:#FF0000; margin-left:7px" aria-hidden="true"></i> @endif
                 @endif
               </td>

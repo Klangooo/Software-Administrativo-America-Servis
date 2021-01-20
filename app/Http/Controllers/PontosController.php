@@ -39,8 +39,8 @@ class PontosController extends Controller
         $to = $request->input('to');
 
         $pontos = Ponto::where('cpf', '=', $nomebusca)
-                        ->where('dia','>=',$from)
-                        ->where('dia','<=',$to)
+                        ->where('diabusca','>=',$from)
+                        ->where('diabusca','<=',$to)
                         ->get();                        
                         
         return view('ponto')->with('pontos', $pontos);  
@@ -85,19 +85,24 @@ class PontosController extends Controller
             }
 
             $ponto->dia = $request->input('data');
-            $ponto->entrada = $request->input('entrada');
-            $ponto->iniciointervalo = $request->input('iniciointervalo');
-            $ponto->fimintervalo = $request->input('fimintervalo');
-            $ponto->saida = $request->input('saida');
+            $pieces = explode('/',$request->input('data'));
+            $ponto->diabusca = $pieces[2] . '-' . $pieces[1] . '-' . $pieces[0];
 
-            $ponto->latitude0 = $latitude;
-            $ponto->longitude0 = $longitude;
-            $ponto->latitude1 = $latitude;
-            $ponto->longitude1 = $longitude;
-            $ponto->latitude2 = $latitude;
-            $ponto->longitude2 = $longitude;
-            $ponto->latitude3 = $latitude;
-            $ponto->longitude3 = $longitude;
+            $ponto->timeStampstringiniciar = $request->input('entrada');
+            $ponto->timeStampstringalmoco = $request->input('iniciointervalo');
+            $ponto->timeStampstringretorno = $request->input('fimintervalo');
+            $ponto->timeStampstringfim = $request->input('saida');
+
+            $ponto->latitudestringiniciar = $latitude;
+            $ponto->longitudestringiniciar = $longitude;
+            $ponto->latitudestringalmoco = $latitude;
+            $ponto->longitudestringalmoco = $longitude;
+            $ponto->latitudestringretorno = $latitude;
+            $ponto->longitudestringretorno = $longitude;
+            $ponto->latitudestringfim = $latitude;
+            $ponto->longitudestringfim = $longitude;
+
+            $ponto->fimdajornada = 'true';
 
             $ponto->save();
             return redirect('/ponto');
@@ -262,11 +267,11 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringalmoco")
                     {
-                        $ponto->timeStampstringalmoco = $valor;
+                        $ponto->timeStampstringalmoco = date('H:i:s', $valor);
                     }
                     if($campo=="timeStampstringfim")
                     {
-                        $ponto->timeStampstringfim = $valor;
+                        $ponto->timeStampstringfim = date('H:i:s', $valor);
                         if(!$ponto->latitudestringiniciar)
                         {
                             $ponto->fimdajornada = 'true';
@@ -274,8 +279,9 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringiniciar")
                     {
-                        $ponto->timeStampstringiniciar = $valor;
-                        $ponto->dia = date('Y-m-d', $valor);
+                        $ponto->timeStampstringiniciar = date('H:i:s', $valor);
+                        $ponto->dia = date('d/m/Y', $valor);
+                        $ponto->diabusca = date('Y-m-d', $valor);
                         if(!$ponto->latitudestringalmoco)
                         {
                             $ponto->fimdajornada = 'true';
@@ -283,7 +289,7 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringretorno")
                     {
-                        $ponto->timeStampstringretorno = $valor;
+                        $ponto->timeStampstringretorno = date('H:i:s', $valor);
                         $ponto->fimdajornada = 'true';
                     }
                     if($campo=="latitudestringfim")
@@ -369,11 +375,11 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringalmoco")
                     {
-                        $ponto->timeStampstringalmoco = $valor;
+                        $ponto->timeStampstringalmoco = date('H:i:s', $valor);
                     }
                     if($campo=="timeStampstringfim")
                     {
-                        $ponto->timeStampstringfim = $valor;
+                        $ponto->timeStampstringfim = date('H:i:s', $valor);
                         if(!$ponto->latitudestringiniciar)
                         {
                             $ponto->fimdajornada = 'true';
@@ -381,10 +387,9 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringiniciar")
                     {
-                        $ponto->timeStampstringiniciar = $valor;
-                        $date = new DateTime();
-                        $date->setTimestamp($ponto->timeStampstringiniciar);
-                        $ponto->dia = $date->format('Y-m-d');
+                        $ponto->timeStampstringiniciar = date('H:i:s', $valor);
+                        $ponto->dia = date('d/m/Y', $valor);
+                        $ponto->diabusca = date('Y-m-d', $valor);
                         if(!$ponto->latitudestringalmoco)
                         {
                             $ponto->fimdajornada = 'true';
@@ -392,7 +397,7 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringretorno")
                     {
-                        $ponto->timeStampstringretorno = $valor;
+                        $ponto->timeStampstringretorno = date('H:i:s', $valor);
                         $ponto->fimdajornada = 'true';
                     }
                     if($campo=="latitudestringfim")
