@@ -208,6 +208,7 @@ class PontosController extends Controller
 
     public function storeApp(Request $request)
     {
+        date_default_timezone_set('America/Sao_Paulo');
         foreach($request->valores as $registro)
         {
             $ponto = $registro[0];
@@ -267,11 +268,11 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringalmoco")
                     {
-                        $ponto->timeStampstringalmoco = date('H:i:s', $valor);
+                        $ponto->timeStampstringalmoco = date('H:i:s', substr($valor, 0, 10));
                     }
                     if($campo=="timeStampstringfim")
                     {
-                        $ponto->timeStampstringfim = date('H:i:s', $valor);
+                        $ponto->timeStampstringfim = date('H:i:s', substr($valor, 0, 10));
                         if(!$ponto->latitudestringiniciar)
                         {
                             $ponto->fimdajornada = 'true';
@@ -279,9 +280,9 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringiniciar")
                     {
-                        $ponto->timeStampstringiniciar = date('H:i:s', $valor);
-                        $ponto->dia = date('d/m/Y', $valor);
-                        $ponto->diabusca = date('Y-m-d', $valor);
+                        $ponto->timeStampstringiniciar = date('H:i:s', substr($valor, 0, 10));
+                        $ponto->dia = date('d/m/Y', substr($valor, 0, 10));
+                        $ponto->diabusca = date('Y-m-d', substr($valor, 0, 10));
                         if(!$ponto->latitudestringalmoco)
                         {
                             $ponto->fimdajornada = 'true';
@@ -289,7 +290,7 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringretorno")
                     {
-                        $ponto->timeStampstringretorno = date('H:i:s', $valor);
+                        $ponto->timeStampstringretorno = date('H:i:s', substr($valor, 0, 10));
                         $ponto->fimdajornada = 'true';
                     }
                     if($campo=="latitudestringfim")
@@ -375,11 +376,11 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringalmoco")
                     {
-                        $ponto->timeStampstringalmoco = date('H:i:s', $valor);
+                        $ponto->timeStampstringalmoco = date('H:i:s', substr($valor, 0, 10));
                     }
                     if($campo=="timeStampstringfim")
                     {
-                        $ponto->timeStampstringfim = date('H:i:s', $valor);
+                        $ponto->timeStampstringfim = date('H:i:s', substr($valor, 0, 10));
                         if(!$ponto->latitudestringiniciar)
                         {
                             $ponto->fimdajornada = 'true';
@@ -387,9 +388,9 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringiniciar")
                     {
-                        $ponto->timeStampstringiniciar = date('H:i:s', $valor);
-                        $ponto->dia = date('d/m/Y', $valor);
-                        $ponto->diabusca = date('Y-m-d', $valor);
+                        $ponto->timeStampstringiniciar = date('H:i:s', substr($valor, 0, 10));
+                        $ponto->dia = date('d/m/Y', substr($valor, 0, 10));
+                        $ponto->diabusca = date('Y-m-d', substr($valor, 0, 10));
                         if(!$ponto->latitudestringalmoco)
                         {
                             $ponto->fimdajornada = 'true';
@@ -397,7 +398,7 @@ class PontosController extends Controller
                     }
                     if($campo=="timeStampstringretorno")
                     {
-                        $ponto->timeStampstringretorno = date('H:i:s', $valor);
+                        $ponto->timeStampstringretorno = date('H:i:s', substr($valor, 0, 10));
                         $ponto->fimdajornada = 'true';
                     }
                     if($campo=="latitudestringfim")
@@ -446,6 +447,7 @@ class PontosController extends Controller
                     }
                         
                     $ponto->save();
+
                     
                 }
             }
@@ -514,7 +516,7 @@ class PontosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
         //
     }
