@@ -133,7 +133,7 @@ date_default_timezone_set('America/Sao_Paulo');
               </td>
             </tr>
         @else
-            @foreach($pontos as $ponto)
+            @foreach($pontos->sortByDesc("diabusca") as $ponto)
             <?php $funcionario = DB::table('funcionarios')->where('cpf', $ponto->cpf)->first(); ?>
             <tr>
               <th scope="row">{{$ponto->dia}}
