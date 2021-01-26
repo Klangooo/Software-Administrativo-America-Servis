@@ -48,10 +48,6 @@ date_default_timezone_set('America/Sao_Paulo');
     border-color: #032066;
   }
 
-  .centraliza {
-    text-align: center;
-  }
-
   .icone:hover {
     transform: scale(1.3);
     color: #48555a;
@@ -110,7 +106,7 @@ date_default_timezone_set('America/Sao_Paulo');
   </form>
 
   <div id="imprimir" class="conteudo">
-  <table class="table centraliza table-striped">
+  <table class="table table-striped" style="text-align:center">
       <thead class="primeiralinha">
         <tr>
           <th scope="col">Data</th>
