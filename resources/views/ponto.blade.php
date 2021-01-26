@@ -91,7 +91,7 @@ date_default_timezone_set('America/Sao_Paulo');
           <div class="form-group row" style="float:left; padding-left:2.5%">
             <label for="text" class="col-form-label col-sm-0.5">CPF</label>
             <div class="col-sm-2.5" style="padding-left:1%">
-              <input type="text" class="form-control input-sm mascara_CPF" id="nomebusca" name="nomebusca" required/>
+              <input type="text" class="form-control input-sm mascara_CPF" id="nomebusca" name="nomebusca" nullable/>
             </div>
             <label for="date" class="col-form-label col-sm-0.5" style="padding-left:1%">de</label>
             <div class="col-sm-2.5" style="padding-left:1%">
