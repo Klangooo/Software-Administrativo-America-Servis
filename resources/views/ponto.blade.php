@@ -84,6 +84,7 @@ date_default_timezone_set('America/Sao_Paulo');
     Limpar Registros
   </button>
 
+  <input type="button" onclick="printDIV('imprimir')" class="btn rounded-pill botao" style="margin-right: 10px" value="Imprimir Tabela">
 
   <form action="busca" method="POST">
     @csrf
@@ -108,6 +109,7 @@ date_default_timezone_set('America/Sao_Paulo');
     </div>
   </form>
 
+  <div id="imprimir" class="conteudo">
   <table class="table centraliza table-striped">
       <thead class="primeiralinha">
         <tr>
@@ -169,127 +171,12 @@ date_default_timezone_set('America/Sao_Paulo');
                 <i class="fas fa-times icone" data-toggle="modal" data-target="#modalExcluir{{$ponto->id}}"></i>
               </td>
             </tr>
-
-                @if($contador > 0) 
-                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc0{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
-                            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
-                          <div class="form-group">
-                              Latitude: {{$ponto->latitudestringiniciar}}
-                              <br>
-                              Longitude: {{$ponto->longitudestringiniciar}}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
-
-                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc1{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
-                            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
-                          <div class="form-group">
-                              Latitude: {{$ponto->latitudestringalmoco}}
-                              <br>
-                              Longitude: {{$ponto->longitudestringalmoco}}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
-
-                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc2{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
-                            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
-                          <div class="form-group">
-                              Latitude: {{$ponto->latitudestringretorno}}
-                              <br>
-                              Longitude: {{$ponto->longitudestringretorno}}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
-
-                  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
-                  <div class="modal fade escrita" id="modalLoc3{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
-                            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
-                          <div class="form-group">
-                              Latitude: {{$ponto->latitudestringfim}}
-                              <br>
-                              Longitude: {{$ponto->longitudestringfim}}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-                  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
-
-                  <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
-                    <div class="modal fade escrita" id="modalExcluir{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header" style="background-color:#032066; color:white">
-                            <h5 class="modal-title" id="exampleModalLabel">Excluir ponto</h5>
-                            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Deseja excluir o ponto?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
-
-                            {!!Form::open(['action' => ['PontosController@destroy', $ponto->id], 'method' => 'POST'])!!}
-                                  {{Form::hidden('_method', 'DELETE')}}
-                                  {{Form::submit('Confirmar', ['class' => 'btn btn-secondary rounded-pill botao'])}}
-                              {!!Form::close()!!}
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                  <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
-                  @endif
               
             @endforeach
         @endif
       </tbody>
     </table>
+  </div>
 
     <br><br>
 
@@ -377,16 +264,158 @@ date_default_timezone_set('America/Sao_Paulo');
     </div>
   <!--FIM DO MODAL CRIAR NOVO -->
 
+  @if($contador > 0) 
+  @foreach($pontos->sortByDesc("diabusca") as $ponto)
+  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+  <div class="modal fade escrita" id="modalLoc0{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style="background-color:#032066; color:white">
+            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
+            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+          <div class="form-group">
+              Latitude: {{$ponto->latitudestringiniciar}}
+              <br>
+              Longitude: {{$ponto->longitudestringiniciar}}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+  <div class="modal fade escrita" id="modalLoc1{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style="background-color:#032066; color:white">
+            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
+            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+          <div class="form-group">
+              Latitude: {{$ponto->latitudestringalmoco}}
+              <br>
+              Longitude: {{$ponto->longitudestringalmoco}}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+  <div class="modal fade escrita" id="modalLoc2{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style="background-color:#032066; color:white">
+            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
+            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+          <div class="form-group">
+              Latitude: {{$ponto->latitudestringretorno}}
+              <br>
+              Longitude: {{$ponto->longitudestringretorno}}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+  <!-- ABERTURA DO MODAL EDITAR FUNCIONÁRIO -->
+  <div class="modal fade escrita" id="modalLoc3{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style="background-color:#032066; color:white">
+            <h5 class="modal-title" id="exampleModalLabel">Localização do ponto</h5>
+            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div style="margin-left:3.3%; margin-right:3.3%; margin-top:2%">
+          <div class="form-group">
+              Latitude: {{$ponto->latitudestringfim}}
+              <br>
+              Longitude: {{$ponto->longitudestringfim}}
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  <!-- FIM DO MODAL EDITAR FUNCIONÁRIO -->
+
+  <!-- ABERTURA DO MODAL CONFIRMAR EXCLUSÃO -->
+    <div class="modal fade escrita" id="modalExcluir{{$ponto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header" style="background-color:#032066; color:white">
+            <h5 class="modal-title" id="exampleModalLabel">Excluir ponto</h5>
+            <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Deseja excluir o ponto?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
+
+            {!!Form::open(['action' => ['PontosController@destroy', $ponto->id], 'method' => 'POST'])!!}
+                  {{Form::hidden('_method', 'DELETE')}}
+                  {{Form::submit('Confirmar', ['class' => 'btn btn-secondary rounded-pill botao'])}}
+              {!!Form::close()!!}
+        </div>
+        </div>
+    </div>
+    </div>
+  <!--FIM DO MODAL CONFIRMAR EXCLUSÃO -->
+  @endforeach
+  @endif
+
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js">
   </script>
+  
   <script type="text/javascript">
       $('.mascara_CPF').mask("000.000.000-00");
       $('.mascara_HORA').mask("00:00:00");
       $('.mascara_DATA').mask("00/00/0000");
+  </script>
+
+  <script>
+    function printDIV(i){
+    var cssEstilos = '';
+
+    var imp = window.open('', 'div', 'width='+window.innerWidth+',height='+window.innerWidth);
+
+    var cSs = document.querySelectorAll("link[rel='stylesheet']");
+    for(x=0;x<cSs.length;x++){
+        cssEstilos += '<link rel="stylesheet" href="'+cSs[x].href+'">';
+    }
+
+    imp.document.write('<html><head><title>' + document.title  + '</title>');
+    imp.document.write(cssEstilos+'</head><body>');
+    imp.document.write(document.getElementById(i).innerHTML);
+    imp.document.write('</body></html>');
+    
+    setTimeout(function(){
+      imp.print();
+      imp.close();
+  },500);
+  }
   </script>
 
   @endsection
