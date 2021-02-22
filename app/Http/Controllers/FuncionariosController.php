@@ -87,7 +87,7 @@ class FuncionariosController extends Controller
         $funcionario = Funcionario::find($id);
         $pontos = Ponto::where('cpf', '=', $funcionario->cpf);
         $funcionario->delete();
-        $pontos->delete();
+        if($pontos){$pontos->delete();}
         return redirect('/funcionarios');
     }    
 

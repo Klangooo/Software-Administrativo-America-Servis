@@ -162,8 +162,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            ATENÇÃO: Excluir um funcionário implica na exclusão dos Pontos registrados com o CPF do mesmo.
-                            Deseja excluir o funcionário?
+                            <p><b>ATENÇÃO:</b> Excluir um funcionário implica na exclusão dos Pontos registrados com o CPF do mesmo.</p>
+                            <p>Deseja excluir o funcionário?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary rounded-pill botao" data-dismiss="modal">Cancelar</button>
