@@ -162,6 +162,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                            ATENÇÃO: Excluir um funcionário implica na exclusão dos Pontos registrados com o CPF do mesmo.
                             Deseja excluir o funcionário?
                         </div>
                         <div class="modal-footer">

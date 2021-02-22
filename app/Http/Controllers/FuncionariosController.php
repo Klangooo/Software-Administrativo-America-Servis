@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //use Intervention\Image\Facades\Image;
 //use DB;
 use App\Funcionario;
+use App\Ponto;
 
 class FuncionariosController extends Controller
 {
@@ -84,7 +85,9 @@ class FuncionariosController extends Controller
     public function destroy($id)
     {
         $funcionario = Funcionario::find($id);
+        $pontos = Ponto::where('cpf', '=', $funcionario->cpf);
         $funcionario->delete();
+        $pontos->delete();
         return redirect('/funcionarios');
     }    
 
